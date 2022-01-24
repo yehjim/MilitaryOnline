@@ -1,0 +1,28 @@
+.title1 {
+  font-size: 36px;
+  -webkit-text-stroke: 0.5px;
+}
+
+.title2 {
+  font-size: 24px;
+  -webkit-text-stroke: 0.4px;
+}
+
+.title3 {
+  font-size: 20px;
+  -webkit-text-stroke: 0.3px;
+}
+
+.subtilte {
+  font-size: 18px;
+  -webkit-text-stroke: 0.2px;
+}
+
+.text {
+  font-size: 16px;
+}
+
+.smalltext {
+  font-size: 14px;
+}
+/*# sourceMappingURL=var.css.map */

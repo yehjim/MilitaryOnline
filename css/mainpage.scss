@@ -1,0 +1,263 @@
+$text_dark:#4E4E4E;
+$text_lightdark:#717171;
+$subcolor:#C4C4C4;
+$main_dark:#57A693;
+$main_light:#81B9AC;
+$main_lighten:#FFFFFF;
+@font-face {
+    font-family: jfopen;
+    src: url(/font/jf-openhuninn-1.1.ttf);
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'jfopen';
+    
+}
+@media (max-width: 767px) {
+  nav{
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (max-width: 480px) {
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+  nav{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+@media (max-width: 1200px) {
+  .navitem{
+   display: none;
+   
+  }
+  
+  .hammenu{
+    // border: solid 1px;
+   cursor: pointer;
+    div{
+      width: 35px;
+      height: 3px;
+      background-color: $main_lighten;
+      margin-bottom: 7px;
+      border-radius: 5px;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .hammenu{
+    display: none;
+  }
+  nav{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+.v-leave {
+  opacity: 1;
+}
+
+.v-leave-active {
+  transition: opacity .5s
+}
+
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter {
+  opacity: 0;
+}
+
+.v-enter-active {
+  transition: opacity .5s
+}
+
+.v-enter-to {
+  opacity: 1;
+}
+.slide{
+    width: 100vw;
+    height: 100%;
+    max-height: 687px;
+    overflow: hidden;
+    position: relative;
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 77px;
+        width: 100vw;
+        
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        .logo{
+          background-size: cover;
+          background-position: center;
+           width: 52px;
+           height: 52px;
+           background-image: url('/media/school_logo.png');
+        }
+        .navitem{
+            width: 50%;
+            padding-left: 30px;
+            box-sizing: border-box;
+            .navwarp{
+                list-style: none;
+               
+                display: flex;
+                box-sizing: border-box;
+                li{
+                // padding-right: 41px;
+                padding-left: 41px;
+                   color: $main_lighten;
+                   cursor: pointer;
+                   
+                   
+                   
+                   .decoline{
+                       border: solid 1px;
+                       height: 1px;
+                       width: auto;
+
+                   }
+                }
+                li:hover{
+                    
+                }
+            }
+        }
+        
+    }
+    .carousel-item{
+        .pic{
+            background-image: url(/media/S__4890729.jpg);
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+    
+      
+    .navopenblock{
+        width: 50vw;
+        height: 1500px;
+        background-color: $main_light;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 50%;
+        padding-top: 91px;
+        padding-left: 69px;
+        box-sizing: border-box;
+        .aboutsmhswrap{
+          height: 300px;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          
+        }
+        .admin-item{
+            margin-bottom: 29px;
+            width: auto;
+            color: $main_lighten;
+            cursor: pointer;
+            transition: margin-left 0.3s;
+            margin-right: 50px;
+            // transition: 0.3s;
+        }
+        .admin-item:hover{
+         margin-left: 4px;
+        }
+        .admin-title{
+
+          border-radius: 5px;
+          background-color: RGBA(87,171,147,0.25) ;
+          display: flex;
+          align-items: center;
+          width: 311px;
+          padding-left: 36px;
+          margin-top: 50px;
+          float: right;
+          height: 125px;
+          color: $main_lighten;
+
+        }
+    }
+}
+
+.fullpagemenu{
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: $main_light;
+  z-index: 3;
+  nav{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    .logo{
+      background-size: cover;
+      background-position: center;
+       width: 52px;
+       height: 52px;
+       background-image: url('/media/school_logo.png');
+    }
+    img{
+      width: 48px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  .navitem-wrap{
+    margin-top: 20px;
+   
+    margin-left: 36px;
+    margin-right: 36px;
+    .navitem-top{
+      display: flex;
+      justify-content: space-between;
+    }
+    .admin-wrap,.class-wrap,.digi-wrap,.about-wrap{
+      flex: 6;
+      margin-right: 40px;
+      h4{
+        color: $main_lighten;
+      }
+      .divline{
+        height: 2px;
+        background-color: $main_lighten;
+        margin-bottom: 30px;
+        margin-top: 17px;
+        
+      }
+      .admin-item{
+        color: $main_lighten;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 250px;
+        span{
+          margin-bottom: 17px;
+        }
+        
+      }
+    }
+    .about-wrap{
+      .admin-item{
+        height: 400px;
+      }
+    }
+    .navitem-bottom{
+      display: flex;
+    }
+    
+  }
+}
