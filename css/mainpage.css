@@ -309,7 +309,7 @@
   background-position: center;
   width: 52px;
   height: 52px;
-  background-image: url("/media/school_logo.png");
+  background-image: url("./media/school_logo.png");
 }
 
 .slide .webnav .navitem {

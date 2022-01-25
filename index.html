@@ -23,7 +23,8 @@
         <div class="logo"></div>
         <div class="navitem">
           <div class="navwarp">
-            <li class="text" v-for="(item,index) in navitems" :key="index" @mouseover="shownavopen(index,item.name)">
+            <li class="text" v-for="(item,index) in navitems" :key="index"
+              @mouseover.self="shownavopen(index,item.name)">
               {{item.name}}
               <transition>
                 <div class="decoline" v-show="currentindex==index"></div>
@@ -38,7 +39,8 @@
         </div>
         <transition>
           <div v-if="show" class="navopenblock admin" @mouseleave="hidenavcontent">
-            <div class="aboutsmhswrap" v-show="currentindex==0">
+            <img class="schoologo" src="./media/school_logo.png" alt="">
+            <div class="aboutsmhswrap" v-if="currentindex==0">
               <div v-for="item in adminnav" class="admin-item">
 
                 {{item.name}}
@@ -247,14 +249,14 @@
       </div>
     </div>
     <div class="honorroll">
-      <div class="title2" >
-       <span v-for="(item,index) in honorroll" :key="index">{{item}}</span>
+      <div class="title2">
+        <span v-for="(item,index) in honorroll" :key="index">{{item}}</span>
       </div>
       <div class="subtilte">
-       
-          <span v-for="(item,index) in honorroll" :key="index">
-           {{item}}
-        
+
+        <span :ref="'honorroll'+index" v-for="(item,index) in honorroll" :key="index">
+          {{item}}
+
       </div>
     </div>
     <div class="recruit-area">
@@ -269,30 +271,31 @@
         <div></div>
       </div>
       <div class="recruitblock-wrap">
-        <div class="recruitblock" v-for="(item,index) in recruitgroup" :key="index">
+        <div class="recruitblock" :ref="'recruitblock'+index" v-for="(item,index) in recruitgroup" :key="index"
+          @mouseover="showhoverani(index)" @mouseleave="leaveani(index)">
           <div class="title2">
             {{item.title}}
           </div>
           <div class="subtitle">
             {{item.subtitle}}
           </div>
-          <div class="colorcover">
-            <div class="circle1">
+          <div class="colorcover" :ref="'colorcover'+index">
+            <div class="circle1" :ref="'refcircle1'+index">
 
             </div>
-            <div class="circle2"></div>
+            <div class="circle2" :ref="'refcircle2'+index"></div>
           </div>
         </div>
       </div>
-      
-      
+
+
     </div>
     <div class="announcement-area">
       <div class="announcement-title title2">
         <div></div>
         <span>公告專區</span>
         <div></div>
-        
+
       </div>
       <div class="announcement-title subtilte">
         <div></div>
@@ -300,17 +303,23 @@
         <div></div>
       </div>
       <div class="announcement-cata">
-        <div class="cata-item" @click="changeannouncementcata(0)" :class={'cata-item-active':announcementcataindex==0}>獎助學金</div>
+        <div class="cata-item" @click="changeannouncementcata(0)" :class={'cata-item-active':announcementcataindex==0}>
+          獎助學金</div>
         <div class="divline"></div>
-        <div class="cata-item" @click="changeannouncementcata(1)" :class={'cata-item-active':announcementcataindex==1}>教師研習</div>
-        <div class="divline" ></div>
-        <div class="cata-item" @click="changeannouncementcata(2)" :class={'cata-item-active':announcementcataindex==2}>校外活動</div>
+        <div class="cata-item" @click="changeannouncementcata(1)" :class={'cata-item-active':announcementcataindex==1}>
+          教師研習</div>
         <div class="divline"></div>
-        <div class="cata-item" @click="changeannouncementcata(3)" :class={'cata-item-active':announcementcataindex==3}>下載資料</div>
+        <div class="cata-item" @click="changeannouncementcata(2)" :class={'cata-item-active':announcementcataindex==2}>
+          校外活動</div>
         <div class="divline"></div>
-        <div class="cata-item" @click="changeannouncementcata(4)" :class={'cata-item-active':announcementcataindex==4}>升學資訊</div>
+        <div class="cata-item" @click="changeannouncementcata(3)" :class={'cata-item-active':announcementcataindex==3}>
+          下載資料</div>
         <div class="divline"></div>
-        <div class="cata-item" @click="changeannouncementcata(5)" :class={'cata-item-active':announcementcataindex==5}>政令宣導</div>
+        <div class="cata-item" @click="changeannouncementcata(4)" :class={'cata-item-active':announcementcataindex==4}>
+          升學資訊</div>
+        <div class="divline"></div>
+        <div class="cata-item" @click="changeannouncementcata(5)" :class={'cata-item-active':announcementcataindex==5}>
+          政令宣導</div>
       </div>
       <div class="announcement-content">
         <div class="item-wrap" v-for="(item,index) in announcementcontent" :key="index">
@@ -330,13 +339,13 @@
       var app = new Vue({
         el: "#app",
         data: {
-          announcementcataindex:0,
+          announcementcataindex: 0,
           currentindex: -1,
           show: false,
-          honorroll:['普二忠班 葉俊麟 榮獲全國學生美展 特等獎',"普二信班 葉俊甫 榮獲全國學生美展 特等獎"],
+          honorroll: ['普二忠班 葉俊麟 榮獲全國學生美展 特等獎', "普二信班 葉俊甫 榮獲全國學生美展 特等獎"],
           showfullpagemenu: false,
           currentnavname: '',
-          carouselpic: [{ 
+          carouselpic: [{
             pic: "./media/S__4890729.jpg"
           }, {
             pic: ""
@@ -481,46 +490,147 @@
             },
           ],
           testduration: 2500,
-          recruitgroup:[{
-            title:'招生資訊',
-            subtitle:'國一新生',
-            url:''
-          },
-          {
-            title:'招生資訊',
-            subtitle:'高一新生',
-            url:''
-          },{
-            title:'海星2+1',
-            subtitle:'體驗外國文化',
-            url:''
-          }],
-          announcementcontent:[1,2,3,4]
+          recruitgroup: [{
+              title: '招生資訊',
+              subtitle: '國一新生',
+              url: ''
+            },
+            {
+              title: '招生資訊',
+              subtitle: '高一新生',
+              url: ''
+            }, {
+              title: '海星2+1',
+              subtitle: '體驗外國文化',
+              url: ''
+            }
+          ],
+          announcementcontent: [1, 2, 3, 4]
         },
         methods: {
-          changeannouncementcata(index){
+          changeannouncementcata(index) {
             this.announcementcataindex = index;
+          },
+          showhoverani(index) {
+
+            let vm = this;
+            let colorcover = vm.$refs['colorcover' + index];
+            let recruitblock = vm.$refs['recruitblock' + index];
+            let circle1 = vm.$refs['refcircle1' + index];
+            let circle2 = vm.$refs['refcircle2' + index];
+
+            anime({
+              targets: colorcover,
+              easing: 'linear',
+              opacity: 1,
+              duration: 700
+
+            });
+            anime({
+              targets: recruitblock,
+              easing: 'easeInOutQuad',
+              color: '#fff',
+              duration: 500
+
+            });
+            anime({
+              targets: circle1,
+              top: '35%',
+              left: '53%',
+              easing: 'easeInOutQuad',
+              opacity: 1,
+              duration: 600
+
+            });
+            anime({
+              targets: circle2,
+              left: '65%',
+              easing: 'easeInOutQuad',
+              opacity: 1,
+              duration: 600
+
+            });
+          },
+          leaveani(index) {
+            let vm = this;
+            let colorcover = vm.$refs['colorcover' + index];
+            let recruitblock = vm.$refs['recruitblock' + index];
+            let circle1 = vm.$refs['refcircle1' + index];
+            let circle2 = vm.$refs['refcircle2' + index];
+
+            anime({
+              targets: colorcover,
+              easing: 'linear',
+              opacity: 0,
+              duration: 700
+
+            });
+            anime({
+              targets: recruitblock,
+              easing: 'easeInOutQuad',
+              color: '#4E4E4E',
+              duration: 500
+
+            });
+            anime({
+              targets: circle1,
+              top: '70%',
+              left: '100%',
+              easing: 'easeInOutQuad',
+              opacity: 1,
+              duration: 600
+
+            });
+            anime({
+              targets: circle2,
+              left: '100%',
+              easing: 'easeInOutQuad',
+              opacity: 1,
+              duration: 600
+
+            });
           },
           shownavopen(index, name) {
             this.currentindex = index;
             this.currentnavname = name;
 
-            if (this.show == true) {
-              anime({
-                targets: ".admin-item",
-                translateX: [70, 0],
-                opacity: [0, 1],
-                easing: 'easeInOutExpo',
-                delay: anime.stagger(30), // increase delay by 100ms for each elements.
-              });
-              anime({
-                targets: ".admin-title",
-                translateX: [70, 0],
-                opacity: [0, 1],
-                delay: 300,
-                easing: 'easeInOutExpo',
+            var tl = anime.timeline({
+              easing: 'easeInOutExpo',
 
-              });
+            })
+            if (this.show == true) {
+              tl.add({
+                  targets: ".admin-item",
+                  translateX: [70, 0],
+                  opacity: [0, 1],
+                  delay: anime.stagger(30), // increase delay by 100ms for each elements.
+                })
+                .add({
+                  targets: ".admin-title",
+                  translateX: [70, 0],
+                  opacity: [0, 1],
+
+
+                }, 400)
+                .add({
+                  targets: ".schoologo",
+                  opacity: [0, 0.1],
+                }, 700)
+              // anime({
+              //   targets: ".admin-item",
+              //   translateX: [70, 0],
+              //   opacity: [0, 1],
+              //   easing: 'easeInOutExpo',
+              //   delay: anime.stagger(30), // increase delay by 100ms for each elements.
+              // });
+              // anime({
+              //   targets: ".admin-title",
+              //   translateX: [70, 0],
+              //   opacity: [0, 1],
+              //   delay: 300,
+              //   easing: 'easeInOutExpo',
+
+              // });
             } else {
               this.show = true;
             }
@@ -587,26 +697,30 @@
               return anime.random(-10, 10) + 'px';
             }
           });
-          var tl = anime.timeline({
-              easing: 'easeInOutQuad',
-              duration: 700,
-              
-            })
-          tl.add({
-            targets: ".colorcover",
-           
-          })
-          .add({
-            targets: ".circle1",
-           
-            top:['70%','35%']
-          })
-          .add({
-            targets: ".circle2",
-          
-            left:['100%','65%']
+
+          window.addEventListener("scroll", function () {
+            var navbar = document.querySelector(".webnav")
+            navbar.classList.toggle("sticky", window.scrollY > 0)
           })
           
+          anime({
+              targets: ".honorroll span",
+              translateY: [100, 0],
+              opacity: [0, 1],
+              easing: 'easeInOutExpo',
+              loop:true,
+              duration:3000,
+              direction: 'alternate',
+            });
+
+
+
+
+
+
+
+
+
 
 
 
