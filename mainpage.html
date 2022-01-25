@@ -19,7 +19,7 @@
 <body>
   <div id="app">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <nav>
+      <nav class="webnav">
         <div class="logo"></div>
         <div class="navitem">
           <div class="navwarp">
@@ -74,227 +74,465 @@
       </nav>
 
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="7000">
-          <div class="pic"></div>
+        <div class="carousel-item active" v-for="(item,index) in carouselpic" :key="index" data-bs-interval="7000">
+          <div class="pic" :style="{backgroundImage:'url('+item.pic+')'}"></div>
         </div>
-        <div class="carousel-item">
-          <img src="https://www.pro360.com.tw/wp-content/uploads/2018/03/iStock-525524677.jpg" class="d-block w-100"
-            alt="..." />
+      </div>
+
+      <transition>
+        <div class="fullpagemenu" v-if="showfullpagemenu">
+
+          <nav class="mobilenav">
+            <div class="logo"></div>
+            <img @click="closefullpagemenu" src="./media/close-fill.svg" alt="">
+          </nav>
+          <div class="navitem-wrap">
+            <div class="navitem-top">
+              <div class="admin-wrap">
+                <h4 class="text">行政單位</h4>
+                <div class="divline"></div>
+                <div class="admin-item">
+                  <span v-for="(item,index) in adminnav" :key="index">{{item.name}}</span>
+                </div>
+              </div>
+              <div class="class-wrap">
+                <h4 class="text">特色班級</h4>
+                <div class="divline"></div>
+                <div class="admin-item">
+                  <span v-for="(item,index) in specialclassnnav" :key="index">{{item.name}}</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="navitem-bottom">
+              <div class="digi-wrap">
+                <h4 class="text">數位服務</h4>
+                <div class="divline"></div>
+                <div class="admin-item">
+                  <span v-for="(item,index) in digiservice" :key="index">{{item.name}}</span>
+                </div>
+              </div>
+              <div class="about-wrap">
+                <h4 class="text">關於海星</h4>
+                <div class="divline"></div>
+                <div class="admin-item">
+                  <span v-for="(item,index) in aboutsmhs" :key="index">{{item.name}}</span>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
         </div>
-        <div class="carousel-item">
-          <img src="https://bnextmedia.s3.hicloud.net.tw/image/album/2021-01/img-1609828844-51680@900.jpg"
-            class="d-block w-100" alt="..." />
+      </transition>
+      <div class="smallnav">
+        <div class="smallnav-student">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_f_462_2185)">
+              <circle cx="16" cy="16" r="12" fill="url(#paint0_linear_462_2185)" fill-opacity="0.41" />
+            </g>
+            <defs>
+              <filter id="filter0_f_462_2185" x="0" y="0" width="32" height="32" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_462_2185" />
+              </filter>
+              <linearGradient id="paint0_linear_462_2185" x1="-11.7835" y1="6.37177" x2="36.4706" y2="28"
+                gradientUnits="userSpaceOnUse">
+                <stop offset="0.0260417" stop-color="#F7CE68" />
+                <stop offset="0.5" stop-color="#FFB600" />
+                <stop offset="1" stop-color="white" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="icon">
+            <img src="./media/student.svg" alt="">
+
+          </div>
+          <span class="title2">
+            在校學生
+          </span>
         </div>
+        <div class="divline"></div>
+        <div class="smallnav-teacher">
+          <svg viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_f_462_2196)">
+              <circle cx="16.5" cy="16.5" r="12.5" fill="url(#paint0_linear_462_2196)" fill-opacity="0.41" />
+            </g>
+            <defs>
+              <filter id="filter0_f_462_2196" x="0" y="0" width="33" height="33" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_462_2196" />
+              </filter>
+              <linearGradient id="paint0_linear_462_2196" x1="-12.4412" y1="6.47059" x2="37.8235" y2="29"
+                gradientUnits="userSpaceOnUse">
+                <stop offset="0.0260417" stop-color="#81B9AC" />
+                <stop offset="0.5" stop-color="#57A693" />
+                <stop offset="1" stop-color="white" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="icon">
+            <img src="./media/teacher.svg" alt="">
+          </div>
+          <span class="title2">
+            教職員工
+          </span>
+        </div>
+        <div class="divline"></div>
+        <div class="smallnav-parents" @mouseover="changespeed">
+          <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_f_462_2208)">
+              <circle cx="17.5" cy="17.5" r="13.5" fill="url(#paint0_linear_462_2208)" fill-opacity="0.41" />
+            </g>
+            <defs>
+              <filter id="filter0_f_462_2208" x="0" y="0" width="35" height="35" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_462_2208" />
+              </filter>
+              <linearGradient id="paint0_linear_462_2208" x1="-13.7565" y1="6.66824" x2="40.5294" y2="31"
+                gradientUnits="userSpaceOnUse">
+                <stop offset="0.0208333" stop-color="#55D9F4" />
+                <stop offset="0.479167" stop-color="#49DEFF" />
+                <stop offset="0.973958" stop-color="white" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="icon">
+            <img src="./media/parents.svg" alt="">
+          </div>
+          <span class="title2">
+            學生家長
+          </span>
+        </div>
+        <div class="divline"></div>
+        <div class="smallnav-graduate">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_f_462_2220)">
+              <circle cx="17" cy="17" r="13" fill="url(#paint0_linear_462_2220)" fill-opacity="0.41" />
+            </g>
+            <defs>
+              <filter id="filter0_f_462_2220" x="0" y="0" width="34" height="34" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_462_2220" />
+              </filter>
+              <linearGradient id="paint0_linear_462_2220" x1="-13.0988" y1="6.56941" x2="39.1765" y2="30"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FE3C30" />
+                <stop offset="0.661458" stop-color="#FFBDB9" />
+                <stop offset="1" stop-color="white" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="icon">
+            <img src="./media/graduate.svg" alt="">
+          </div>
+          <span class="title2">
+            畢業校友
+          </span>
+        </div>
+
       </div>
     </div>
-    <transition>
-      <div class="fullpagemenu" v-if="showfullpagemenu">
+    <div class="honorroll">
+      <div class="title2" >
+       <span v-for="(item,index) in honorroll" :key="index">{{item}}</span>
+      </div>
+      <div class="subtilte">
        
-        <nav>
-          <div class="logo"></div>
-          <img @click="closefullpagemenu" src="./media/close-fill.svg" alt="">
-        </nav>
-        <div class="navitem-wrap">
-          <div class="navitem-top">
-            <div class="admin-wrap">
-              <h4 class="text">行政單位</h4>
-              <div class="divline"></div>
-              <div class="admin-item">
-                <span v-for="(item,index) in adminnav" :key="index">{{item.name}}</span>
-              </div>
-            </div>
-            <div class="class-wrap">
-              <h4 class="text">特色班級</h4>
-              <div class="divline"></div>
-              <div class="admin-item">
-                <span v-for="(item,index) in specialclassnnav" :key="index">{{item.name}}</span>
-              </div>
-            </div>
-            
+          <span v-for="(item,index) in honorroll" :key="index">
+           {{item}}
+        
+      </div>
+    </div>
+    <div class="recruit-area">
+      <div class="recruit-title title2">
+        <div></div>
+        <span>招生專區</span>
+        <div></div>
+      </div>
+      <div class="recruit-title subtilte">
+        <div></div>
+        <span>招生專區</span>
+        <div></div>
+      </div>
+      <div class="recruitblock-wrap">
+        <div class="recruitblock" v-for="(item,index) in recruitgroup" :key="index">
+          <div class="title2">
+            {{item.title}}
           </div>
-          <div class="navitem-bottom">
-            <div class="digi-wrap">
-              <h4 class="text">數位服務</h4>
-              <div class="divline"></div>
-              <div class="admin-item">
-                <span v-for="(item,index) in digiservice" :key="index">{{item.name}}</span>
-              </div>
-            </div>
-            <div class="about-wrap">
-              <h4 class="text">關於海星</h4>
-              <div class="divline"></div>
-              <div class="admin-item">
-                <span v-for="(item,index) in aboutsmhs" :key="index">{{item.name}}</span>
-              </div>
-            </div>
+          <div class="subtitle">
+            {{item.subtitle}}
           </div>
-         
+          <div class="colorcover">
+            <div class="circle1">
 
-
+            </div>
+            <div class="circle2"></div>
+          </div>
         </div>
       </div>
-    </transition>
+      
+      
+    </div>
+    <div class="announcement-area">
+      <div class="announcement-title title2">
+        <div></div>
+        <span>公告專區</span>
+        <div></div>
+        
+      </div>
+      <div class="announcement-title subtilte">
+        <div></div>
+        <span>公告專區</span>
+        <div></div>
+      </div>
+      <div class="announcement-cata">
+        <div class="cata-item" @click="changeannouncementcata(0)" :class={'cata-item-active':announcementcataindex==0}>獎助學金</div>
+        <div class="divline"></div>
+        <div class="cata-item" @click="changeannouncementcata(1)" :class={'cata-item-active':announcementcataindex==1}>教師研習</div>
+        <div class="divline" ></div>
+        <div class="cata-item" @click="changeannouncementcata(2)" :class={'cata-item-active':announcementcataindex==2}>校外活動</div>
+        <div class="divline"></div>
+        <div class="cata-item" @click="changeannouncementcata(3)" :class={'cata-item-active':announcementcataindex==3}>下載資料</div>
+        <div class="divline"></div>
+        <div class="cata-item" @click="changeannouncementcata(4)" :class={'cata-item-active':announcementcataindex==4}>升學資訊</div>
+        <div class="divline"></div>
+        <div class="cata-item" @click="changeannouncementcata(5)" :class={'cata-item-active':announcementcataindex==5}>政令宣導</div>
+      </div>
+      <div class="announcement-content">
+        <div class="item-wrap" v-for="(item,index) in announcementcontent" :key="index">
+          <div class="item-title">
+            110學年度全國美術比賽 - 花蓮縣賽
+          </div>
+          <div class="date">
+            2021.10.30
+          </div>
+        </div>
+      </div>
 
-  </div>
+    </div>
 
-  <script>
-    var app = new Vue({
-      el: "#app",
-      data: {
-        currentindex: -1,
-        show: false,
-        showfullpagemenu: true,
-        currentnavname: '',
-        carouselpic: [{
-          pic: ""
-        }, {
-          pic: ""
-        }, {
-          pic: ""
-        }],
-        navitems: [{
-            num: 0,
-            name: "行政單位",
-          },
-          {
-            num: 1,
-            name: "特色班級",
-          },
-          {
-            num: 2,
-            name: "數位服務",
-          },
-          {
-            num: 3,
-            name: "海星2+1",
-          },
-          {
-            num: 4,
-            name: "關於海星",
-          },
-        ],
-        adminnav: [{
-            name: "校長室",
-            url: "",
-          },
-          {
-            name: "教務處",
-            url: "",
-          },
-          {
-            name: "學務處",
-            url: "",
-          },
-          {
-            name: "總務處",
-            url: "",
-          },
-          {
-            name: "輔導室",
-            url: "",
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          announcementcataindex:0,
+          currentindex: -1,
+          show: false,
+          honorroll:['普二忠班 葉俊麟 榮獲全國學生美展 特等獎',"普二信班 葉俊甫 榮獲全國學生美展 特等獎"],
+          showfullpagemenu: false,
+          currentnavname: '',
+          carouselpic: [{ 
+            pic: "./media/S__4890729.jpg"
           }, {
-            name: '人事室',
-            url: ""
-          },
-          {
-            name: '會計室',
-            url: ""
-          },
-          {
-            name: '圖書館',
-            url: ""
-          },
-          {
-            name: '國中部',
-            url: ""
-          },
-        ],
-        specialclassnnav: [{
-            name: "普通科",
-            url: "",
-          },
-          {
-            name: "綜合科",
-            url: "",
-          },
-          {
-            name: "國中部",
-            url: "",
-          },
-          {
-            name: "原住民教育",
-            url: "",
-          },
-          {
-            name: "國際教育",
-            url: "",
-          },
-        ],
-        digiservice: [{
-            name: "學生紀錄系統",
-            url: "",
-          },
-          {
-            name: "學生助學金辨識",
-            url: "",
-          },
-          {
-            name: "教師教學計畫",
-            url: "",
-          },
-          {
-            name: "班級經營計畫",
-            url: "",
-          },
-          {
-            name: "證件申請",
-            url: "",
-          },
-        ],
-        aboutsmhs: [{
-            name: "建校歷程",
-            url: "",
-          },
-          {
-            name: "校名校徽校址",
-            url: "",
-          },
-          {
-            name: "校訓",
-            url: "",
-          },
-          {
-            name: "校歌",
-            url: "",
-          },
-          {
-            name: "歷任校長",
-            url: "",
-          },
-          {
-            name: "校史",
-            url: "",
-          },
-          {
-            name: "聖吳甦樂修會發展史",
-            url: "",
-          },
-          {
-            name: "休會教育理念",
-            url: "",
-          },
-          {
-            name: "辦學績效",
-            url: "",
-          },
-        ],
-      },
-      methods: {
-        shownavopen(index, name) {
-          this.currentindex = index;
-          this.currentnavname = name;
+            pic: ""
+          }, {
+            pic: ""
+          }],
+          navitems: [{
+              num: 0,
+              name: "行政單位",
+            },
+            {
+              num: 1,
+              name: "特色班級",
+            },
+            {
+              num: 2,
+              name: "數位服務",
+            },
+            {
+              num: 3,
+              name: "海星2+1",
+            },
+            {
+              num: 4,
+              name: "關於海星",
+            },
+          ],
+          adminnav: [{
+              name: "校長室",
+              url: "",
+            },
+            {
+              name: "教務處",
+              url: "",
+            },
+            {
+              name: "學務處",
+              url: "",
+            },
+            {
+              name: "總務處",
+              url: "",
+            },
+            {
+              name: "輔導室",
+              url: "",
+            }, {
+              name: '人事室',
+              url: ""
+            },
+            {
+              name: '會計室',
+              url: ""
+            },
+            {
+              name: '圖書館',
+              url: ""
+            },
+            {
+              name: '國中部',
+              url: ""
+            },
+          ],
+          specialclassnnav: [{
+              name: "普通科",
+              url: "",
+            },
+            {
+              name: "綜合科",
+              url: "",
+            },
+            {
+              name: "國中部",
+              url: "",
+            },
+            {
+              name: "原住民教育",
+              url: "",
+            },
+            {
+              name: "國際教育",
+              url: "",
+            },
+          ],
+          digiservice: [{
+              name: "學生紀錄系統",
+              url: "",
+            },
+            {
+              name: "學生助學金辨識",
+              url: "",
+            },
+            {
+              name: "教師教學計畫",
+              url: "",
+            },
+            {
+              name: "班級經營計畫",
+              url: "",
+            },
+            {
+              name: "證件申請",
+              url: "",
+            },
+          ],
+          aboutsmhs: [{
 
-          if (this.show == true) {
+              name: "建校歷程",
+              url: "",
+            },
+            {
+              name: "校名校徽校址",
+              url: "",
+            },
+            {
+              name: "校訓",
+              url: "",
+            },
+            {
+              name: "校歌",
+              url: "",
+            },
+            {
+              name: "歷任校長",
+              url: "",
+            },
+            {
+              name: "校史",
+              url: "",
+            },
+            {
+              name: "聖吳甦樂修會發展史",
+              url: "",
+            },
+            {
+              name: "休會教育理念",
+              url: "",
+            },
+            {
+              name: "辦學績效",
+              url: "",
+            },
+          ],
+          testduration: 2500,
+          recruitgroup:[{
+            title:'招生資訊',
+            subtitle:'國一新生',
+            url:''
+          },
+          {
+            title:'招生資訊',
+            subtitle:'高一新生',
+            url:''
+          },{
+            title:'海星2+1',
+            subtitle:'體驗外國文化',
+            url:''
+          }],
+          announcementcontent:[1,2,3,4]
+        },
+        methods: {
+          changeannouncementcata(index){
+            this.announcementcataindex = index;
+          },
+          shownavopen(index, name) {
+            this.currentindex = index;
+            this.currentnavname = name;
+
+            if (this.show == true) {
+              anime({
+                targets: ".admin-item",
+                translateX: [70, 0],
+                opacity: [0, 1],
+                easing: 'easeInOutExpo',
+                delay: anime.stagger(30), // increase delay by 100ms for each elements.
+              });
+              anime({
+                targets: ".admin-title",
+                translateX: [70, 0],
+                opacity: [0, 1],
+                delay: 300,
+                easing: 'easeInOutExpo',
+
+              });
+            } else {
+              this.show = true;
+            }
+
+
+          },
+          hidenavcontent() {
+            this.show = false;
+            this.currentindex = -1;
+          },
+          openmenu() {
+            this.showfullpagemenu = true
             anime({
               targets: ".admin-item",
               translateX: [70, 0],
@@ -302,47 +540,79 @@
               easing: 'easeInOutExpo',
               delay: anime.stagger(30), // increase delay by 100ms for each elements.
             });
-            anime({
-              targets: ".admin-title",
-              translateX: [70, 0],
-              opacity: [0, 1],
-              delay: 300,
-              easing: 'easeInOutExpo',
+          },
+          closefullpagemenu() {
+            this.showfullpagemenu = false
+          },
+          changespeed() {
+            this.testduration = 10000
+            var tl = anime.timeline({
+              easing: 'easeInOutSine',
+              duration: this.testduration,
+              loop: true,
+              direction: 'alternate',
 
-            });
-          } else {
-            this.show = true;
+            })
+            tl.add({
+                targets: ".smallnav-parents svg",
+                scale: 1.4
+              })
+              .add({
+                rotate: 10,
+                left: function () {
+                  return anime.random(-15, 10) + 'px';
+                },
+                top: function () {
+                  return anime.random(-10, 10) + 'px';
+                }
+
+              })
           }
-
-
         },
-        hidenavcontent() {
-          this.show = false;
-          this.currentindex = -1;
-        },
-        openmenu() {
-          this.showfullpagemenu = true
+        mounted() {
           anime({
-              targets: ".admin-item",
-              translateX: [70, 0],
-              opacity: [0, 1],
-              easing: 'easeInOutExpo',
-              delay: anime.stagger(30), // increase delay by 100ms for each elements.
-            });
-        },
-        closefullpagemenu() {
-          this.showfullpagemenu = false
-        }
-      },
-      mounted() {
+            targets: ".smallnav-parents svg",
+            easing: 'easeInOutSine',
+            duration: this.testduration,
+            loop: true,
+            direction: 'alternate',
+            scale: function () {
+              return anime.random(1, 1.3);
+            },
+            rotate: 10,
+            left: function () {
+              return anime.random(-15, 10) + 'px';
+            },
+            top: function () {
+              return anime.random(-10, 10) + 'px';
+            }
+          });
+          var tl = anime.timeline({
+              easing: 'easeInOutQuad',
+              duration: 700,
+              
+            })
+          tl.add({
+            targets: ".colorcover",
+           
+          })
+          .add({
+            targets: ".circle1",
+           
+            top:['70%','35%']
+          })
+          .add({
+            targets: ".circle2",
+          
+            left:['100%','65%']
+          })
+          
 
-        // anime({
-        //   targets: ".logo",
-        //   translateY: 100,
-        // });
-      },
-    });
-  </script>
+
+
+        },
+      });
+    </script>
 </body>
 
 </html>
