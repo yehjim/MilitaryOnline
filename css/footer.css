@@ -1,0 +1,21 @@
+footer {
+  width: 100%;
+  border-top: solid 1px #717171;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+footer .footer-basicinfo {
+  width: 35%;
+  border-right: solid 1px #717171;
+  padding-top: 27px;
+}
+
+footer .footer-basicinfo .logo {
+  width: 196px;
+}
+
+footer .footer-nav {
+  width: 65%;
+}
+/*# sourceMappingURL=footer.css.map */

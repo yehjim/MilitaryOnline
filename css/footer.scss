@@ -1,0 +1,25 @@
+$text_dark:#4E4E4E;
+$text_lightdark:#717171;
+$subcolor:#C4C4C4;
+$main_dark:#57A693;
+$main_light:#81B9AC;
+$main_lighten:#FFFFFF;
+footer{
+    width: 100%;
+    border-top: solid 1px $text_lightdark;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+    .footer-basicinfo{
+        width: 35%;
+        border-right: solid 1px $text_lightdark;
+        padding-top: 27px;
+        .logo{
+           width: 196px;
+        }
+    }
+    .footer-nav{
+        width: 65%;
+    }
+    
+}

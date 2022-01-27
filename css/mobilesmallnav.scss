@@ -1,0 +1,112 @@
+$text_dark:#4E4E4E;
+$text_lightdark:#717171;
+$subcolor:#C4C4C4;
+$main_dark:#57A693;
+$main_light:#81B9AC;
+$main_lighten:#FFFFFF;
+.mobilesmallnav{
+
+    background-color: #fff;
+    
+    color: $text_dark;
+    
+    
+    flex-direction: column;
+    align-items: center;
+    margin-top: 53px;
+  .smallnav-student{
+    display: flex;
+    align-items: center; 
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    padding-bottom: 25px;
+    border-bottom: solid 1px $text_dark;
+    padding-left: 26px;
+    margin-bottom: 29px;
+    // border: solid 1px;
+    svg{
+      position: absolute;
+      width: 70px;
+      height: 70px;
+    }
+    
+    span{
+      
+    }
+    
+    .icon{
+      margin-right: 34px;
+      width: 52px;
+    }
+  
+  }
+  .smallnav-teacher{
+    display: flex;
+    align-items: center; 
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    padding-bottom: 25px;
+    border-bottom: solid 1px $text_dark;
+    padding-left: 26px;
+    margin-bottom: 29px;
+    svg{
+      position: absolute;
+     
+     
+      width: 60px;
+      height: 60px;
+    }
+    .icon{
+      margin-right: 34px;
+      width: 52px;
+    }
+  }
+  .smallnav-parents{
+    display: flex;
+    align-items: center; 
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    padding-bottom: 25px;
+    border-bottom: solid 1px $text_dark;
+    padding-left: 26px;
+    margin-bottom: 29px;
+    svg{
+      position: absolute;
+      
+    
+      width: 60px;
+      height: 60px;
+      
+    }
+    .icon{
+      margin-right: 34px;
+      width: 52px;
+    }
+  }
+  .smallnav-graduate{
+    display: flex;
+    align-items: center; 
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    padding-bottom: 25px;
+    border-bottom: solid 1px $text_dark;
+    padding-left: 26px;
+    margin-bottom: 29px;
+    svg{
+      position: absolute;
+      
+     
+      width: 60px;
+      height: 60px;
+    }
+    .icon{
+      margin-right: 34px;
+      width: 52px;
+    }
+  }
+  
+  }
