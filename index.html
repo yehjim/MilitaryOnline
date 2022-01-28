@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./css/mobilesmallnav.css">
   <link rel="stylesheet" href="./css/importantinfoarea.css">
   <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/announcementpopup.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -426,21 +427,24 @@
       </div>
       <div class="announcement-cata">
         <div class="cata-item" @click="changeannouncementcata(0)" :class={'cata-item-active':announcementcataindex==0}>
-          獎助學金</div>
+          校務公告</div>
         <div class="divline"></div>
         <div class="cata-item" @click="changeannouncementcata(1)" :class={'cata-item-active':announcementcataindex==1}>
-          教師研習</div>
+          獎助學金</div>
         <div class="divline"></div>
         <div class="cata-item" @click="changeannouncementcata(2)" :class={'cata-item-active':announcementcataindex==2}>
-          校外活動</div>
+          教師研習</div>
         <div class="divline"></div>
         <div class="cata-item" @click="changeannouncementcata(3)" :class={'cata-item-active':announcementcataindex==3}>
-          下載資料</div>
+          校外活動</div>
         <div class="divline"></div>
         <div class="cata-item" @click="changeannouncementcata(4)" :class={'cata-item-active':announcementcataindex==4}>
-          升學資訊</div>
+          下載資料</div>
         <div class="divline"></div>
         <div class="cata-item" @click="changeannouncementcata(5)" :class={'cata-item-active':announcementcataindex==5}>
+          升學資訊</div>
+        <div class="divline"></div>
+        <div class="cata-item" @click="changeannouncementcata(6)" :class={'cata-item-active':announcementcataindex==6}>
           政令宣導</div>
       </div>
       <div class="mobile-announcement-cata">
@@ -465,16 +469,17 @@
         <li :class="selected:">政令宣導</li> -->
       </ul>
       <div class="announcement-content">
-        <div class="item-wrap" v-for="(item,index) in announcementcontent" :key="index" v-show="item[4]==announcementcata[announcementcataindex]">
-          
-            <div class="item-title">
-              {{item[0]}}
-            </div>
-            <div class="date">
-              {{item[1]}}
-            </div>
-        
-         
+        <div class="item-wrap" @click="openpopup(index)" v-for="(item,index) in announcementcontent" :key="index"
+          v-show="item[4]==announcementcata[announcementcataindex]">
+
+          <div class="item-title">
+            {{item[0]}}
+          </div>
+          <div class="date">
+            {{item[1]}}
+          </div>
+
+
         </div>
       </div>
 
@@ -504,8 +509,32 @@
 
 
     </div>
-    <div class="announcementpopup">
-      
+    <div class="announcementpopup" v-show="popupopen == true">
+
+      <div class="announcementpopup-content">
+        <svg @click="closepopup" class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+          </svg>
+        <div class="content-cata title2">
+          {{announcementcata[announcementcataindex]}}最新公告
+        </div>
+        <div class="content-title title3">
+          {{popupptitle}}
+          
+
+        </div>
+        <div class="admincata">
+          {{popupadmin}}
+        </div>
+        <div class="content-topic text">
+          {{popupcontent}}
+        </div>
+        <div class="date subtilte">
+          {{popdate}}
+        </div>
+      </div>
     </div>
 
     <footer>
@@ -590,10 +619,12 @@
       var app = new Vue({
         el: "#app",
         data: {
+          popupopen: false,
           announcementcataindex: 0,
+          currentannouncementconetntidnex: -1,
           currentindex: -1,
           show: false,
-          announcementcata: ['獎助學金', '教師研習', '校外活動', '下載資料', '升學資訊', '政令宣導'],
+          announcementcata: ['校務公告', '獎助學金', '教師研習', '校外活動', '下載資料', '升學資訊', '政令宣導'],
           announcementcataselect: '獎助學金',
           honorroll: ['普二忠班 葉俊麟 榮獲全國學生美展 特等獎', "普二信班 葉俊甫 榮獲全國學生美展 特等獎"],
           showfullpagemenu: false,
@@ -776,9 +807,25 @@
               url: ''
             }
           ],
-          announcementcontent: []
+          announcementcontent: [],
+          popupptitle:'',
+          popupadmin:'',
+          popupcontent:'',
+          popdate:''
         },
         methods: {
+          closepopup(){
+            this.popupopen = false
+          },
+          openpopup(index) {
+            this.popupopen = true
+            this.currentannouncementconetntidnex = index;
+            this.popupptitle = this.announcementcontent[this.currentannouncementconetntidnex][0]
+            this.popupadmin =this.announcementcontent[this.currentannouncementconetntidnex][3]
+            this.popupcontent =this.announcementcontent[this.currentannouncementconetntidnex][2]
+            this.popdate =this.announcementcontent[this.currentannouncementconetntidnex][1]
+            
+          },
           changeannouncementcata(index) {
             this.announcementcataindex = index;
 
@@ -1041,10 +1088,11 @@
             .catch((error) => {
               console.error(error);
             });
-        
+
         },
       });
     </script>
+  </div>
 </body>
 
 </html>

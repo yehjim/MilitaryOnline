@@ -394,6 +394,10 @@
   }
 }
 
+#app {
+  position: relative;
+}
+
 .v-leave {
   opacity: 1;
 }

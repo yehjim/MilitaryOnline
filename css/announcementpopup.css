@@ -1,1 +1,77 @@
-/* No CSS *//*# sourceMappingURL=announcementpopup.css.map */
+.announcementpopup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(196, 196, 196, 0.3);
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+
+.announcementpopup .announcementpopup-content {
+  width: 85%;
+  height: 599px;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 100%;
+  padding-top: 70px;
+  padding-left: 37px;
+  padding-right: 37px;
+}
+
+.announcementpopup .announcementpopup-content .close {
+  width: 21px;
+  float: right;
+}
+
+.announcementpopup .announcementpopup-content .content-cata {
+  width: 70%;
+  border-bottom: solid 1px;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 6px;
+  color: #4E4E4E;
+}
+
+.announcementpopup .announcementpopup-content .content-title {
+  margin-top: 34px;
+  line-height: 1.5;
+  color: #4E4E4E;
+}
+
+.announcementpopup .announcementpopup-content .admincata {
+  width: 84px;
+  height: 38px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #81b9ac;
+  margin-top: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.announcementpopup .announcementpopup-content .content-topic {
+  line-height: 1.88;
+  margin-top: 46px;
+}
+
+.announcementpopup .announcementpopup-content .date {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: #717171;
+}
+/*# sourceMappingURL=announcementpopup.css.map */
