@@ -20,12 +20,16 @@ $main_lighten:#FFFFFF;
             float: right;
             
         }
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
         width: 85%;
         height: 599px;
         border-radius: 10px;
         background-color: #fff;
-        margin: auto;
-        margin-top: 100%;
+      
+        
         padding-top: 50px;
         padding-left: 37px;
         padding-right: 37px;
@@ -34,6 +38,7 @@ $main_lighten:#FFFFFF;
             width: 70%;
             border-bottom: solid 1px;
             text-align: center;
+            
             margin: auto;
             padding-bottom: 6px;
             color: $text_dark;
@@ -45,6 +50,7 @@ $main_lighten:#FFFFFF;
             margin-top: 34px;
             line-height: 1.5;
             color: $text_dark;
+        
 
         }
 

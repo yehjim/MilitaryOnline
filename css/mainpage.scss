@@ -6,7 +6,7 @@ $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
 @font-face {
     font-family: jfopen;
-    src: url('/font/jf-openhuninn-1.1.ttf');
+    src: url('./font/jf-openhuninn-1.1.ttf');
 }
 *{
     box-sizing: border-box;
@@ -230,6 +230,7 @@ $main_lighten:#FFFFFF;
   .footer-nav{
     width: 100%;
   }
+ 
   
 }
 // 大平板
@@ -316,7 +317,7 @@ $main_lighten:#FFFFFF;
     margin-right: 100px;
   }
   .mobilesmallnav{
-    display: flex;
+    display: none;
   }
   .announcement-cata{
     display: flex;
@@ -345,6 +346,7 @@ $main_lighten:#FFFFFF;
     padding-left: 40px;
     padding-right: 40px;
   }
+  
   
   
 
@@ -407,6 +409,7 @@ $main_lighten:#FFFFFF;
     padding-left: 50px;
     padding-right: 50px;
   }
+
   
 }
 
@@ -478,7 +481,7 @@ $main_lighten:#FFFFFF;
           background-size: cover;
           background-position: center;
            
-           background-image: url('/media/school_logo.png');
+           background-image: url('./media/school_logo.png');
         }
         .navitem{
             width: 50%;
@@ -629,7 +632,7 @@ $main_lighten:#FFFFFF;
       background-position: center;
        width: 52px;
        height: 52px;
-       background-image: url('/media/school_logo.png');
+       background-image: url('./media/school_logo.png');
     }
     img{
       width: 48px;
@@ -838,6 +841,27 @@ $main_lighten:#FFFFFF;
     }
   }
 
+}
+
+.loadingpage{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: white;
+  z-index: 5;
+  .logo{
+    background-image: url('./media/school_logo.png');
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-top: 250px;
+    background-position: center;
+    background-size: cover;
+    z-index: 5;
+    opacity: 0.3;
+  }
 }
 
 

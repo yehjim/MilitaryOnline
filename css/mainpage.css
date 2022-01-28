@@ -1,6 +1,6 @@
 @font-face {
   font-family: jfopen;
-  src: url("/font/jf-openhuninn-1.1.ttf");
+  src: url("./font/jf-openhuninn-1.1.ttf");
 }
 
 * {
@@ -320,9 +320,7 @@
     margin-right: 100px;
   }
   .mobilesmallnav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
   }
   .announcement-cata {
     display: -webkit-box;
@@ -488,7 +486,7 @@
 .slide .webnav .logo {
   background-size: cover;
   background-position: center;
-  background-image: url("/media/school_logo.png");
+  background-image: url("./media/school_logo.png");
 }
 
 .slide .webnav .navitem {
@@ -640,7 +638,7 @@
   background-position: center;
   width: 52px;
   height: 52px;
-  background-image: url("/media/school_logo.png");
+  background-image: url("./media/school_logo.png");
 }
 
 .fullpagemenu .mobilenav img {
@@ -903,5 +901,27 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+.loadingpage {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: white;
+  z-index: 5;
+}
+
+.loadingpage .logo {
+  background-image: url("./media/school_logo.png");
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-top: 250px;
+  background-position: center;
+  background-size: cover;
+  z-index: 5;
+  opacity: 0.3;
 }
 /*# sourceMappingURL=mainpage.css.map */

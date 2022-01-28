@@ -612,6 +612,9 @@
       </div>
 
     </footer>
+    <div class="loadingpage" v-if="loadingshow==true">
+      <div class="logo"></div>
+    </div>
 
 
 
@@ -619,6 +622,7 @@
       var app = new Vue({
         el: "#app",
         data: {
+          loadingshow:true,
           popupopen: false,
           announcementcataindex: 0,
           currentannouncementconetntidnex: -1,
@@ -811,9 +815,30 @@
         },
         methods: {
           closepopup(){
+            anime({
+                targets: '.announcementpopup',
+
+                scale: [1, 0],
+                opacity: [1, 0],
+                easing: 'easeOutElastic(1, .8)',
+
+                duration: 500
+
+              });
             this.popupopen = false
+            
           },
           openpopup(index) {
+            anime({
+                targets: '.announcementpopup',
+
+                scale: [0, 1],
+                opacity: [0, 1],
+                easing: 'easeOutElastic(1, .8)',
+
+                duration: 500
+
+              });
             this.popupopen = true
             this.currentannouncementconetntidnex = index;
             this.popupptitle = this.announcementcontent[this.currentannouncementconetntidnex][0]
@@ -1037,7 +1062,15 @@
           }
         },
         mounted() {
-          console.log(Math.random()*(1.3 - 1) + 1)
+          anime({
+            targets: ".loadingpage .logo",
+            easing: 'easeInOutQuad',
+            duration: 1500,
+            loop: true,
+            direction: 'alternate',
+            opacity:1
+          });
+         
           anime({
             targets: ".smallnav-parents svg",
             easing: 'easeInOutSine',
@@ -1131,6 +1164,7 @@
             })
             .then((response) => {
               this.announcementcontent = response.data
+              this.loadingshow = false
               console.log(response.data);
             })
             .catch((error) => {
