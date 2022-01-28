@@ -1,6 +1,6 @@
 @font-face {
   font-family: jfopen;
-  src: url("./font/jf-openhuninn-1.1.ttf");
+  src: url("/font/jf-openhuninn-1.1.ttf");
 }
 
 * {
@@ -486,7 +486,7 @@
 .slide .webnav .logo {
   background-size: cover;
   background-position: center;
-  background-image: url("./media/school_logo.png");
+  background-image: url("./assest/school_logo.png");
 }
 
 .slide .webnav .navitem {
@@ -638,7 +638,7 @@
   background-position: center;
   width: 52px;
   height: 52px;
-  background-image: url("./media/school_logo.png");
+  background-image: url("./assest/school_logo.png");
 }
 
 .fullpagemenu .mobilenav img {
@@ -914,7 +914,7 @@
 }
 
 .loadingpage .logo {
-  background-image: url("./media/school_logo.png");
+  background-image: url("./assest/school_logo.png");
   width: 100px;
   height: 100px;
   margin: auto;

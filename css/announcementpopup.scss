@@ -5,7 +5,7 @@ $main_dark:#57A693;
 $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
 .announcementpopup {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: rgba(196, 196, 196, 0.3);
