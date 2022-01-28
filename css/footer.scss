@@ -60,6 +60,8 @@ footer{
         // padding-left: 20px;
         display: flex;
         justify-content: space-between;
+       
+        
         
         .admin,.special,.digiservice,.aboutsmhs{
            
@@ -67,8 +69,6 @@ footer{
                 list-style: none;
                 margin-top: 25px;
                 width: auto;
-               
-                height: 360px;
                 padding: 0;
                 display: flex;
                 flex-direction: column;
@@ -76,7 +76,7 @@ footer{
                 li{
                     color: $text_lightdark;
                     margin-bottom: 19px;
-                    margin-right: 17px;
+                    // margin-right: 17px;
                     transition: 0.2s;
                     cursor: pointer;
                 }

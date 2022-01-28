@@ -64,7 +64,7 @@
               {{item.name}}
 
             </div>
-            <div class="aboutsmhswrap" v-show="currentindex==4">
+            <div class="aboutsmhswrap" v-show="currentindex==3">
               <div v-for="item in aboutsmhs" class="admin-item">
 
                 {{item.name}}
@@ -668,10 +668,6 @@
             },
             {
               num: 3,
-              name: "海星2+1",
-            },
-            {
-              num: 4,
               name: "關於海星",
             },
           ],
@@ -1041,6 +1037,7 @@
           }
         },
         mounted() {
+          console.log(Math.random()*(1.3 - 1) + 1)
           anime({
             targets: ".smallnav-parents svg",
             easing: 'easeInOutSine',
@@ -1048,7 +1045,58 @@
             loop: true,
             direction: 'alternate',
             scale: function () {
-              return anime.random(1, 1.3);
+              return Math.random()*(1.3 - 1) + 1
+            },
+            rotate: 10,
+            left: function () {
+              return anime.random(-15, 10) + 'px';
+            },
+            top: function () {
+              return anime.random(-10, 10) + 'px';
+            }
+          });
+          anime({
+            targets: ".smallnav-teacher svg",
+            easing: 'easeInOutSine',
+            duration: this.testduration,
+            loop: true,
+            direction: 'alternate',
+            scale: function () {
+              return Math.random()*(1.3 - 1) + 1
+            },
+            rotate: 10,
+            left: function () {
+              return anime.random(-15, 10) + 'px';
+            },
+            top: function () {
+              return anime.random(-10, 10) + 'px';
+            }
+          });
+          anime({
+            targets: ".smallnav-student svg",
+            easing: 'easeInOutSine',
+            duration: this.testduration,
+            loop: true,
+            direction: 'alternate',
+            scale: function () {
+              return Math.random()*(1.3 - 1) + 1
+            },
+            rotate: 10,
+            left: function () {
+              return anime.random(-15, 10) + 'px';
+            },
+            top: function () {
+              return anime.random(-10, 10) + 'px';
+            }
+          });
+          anime({
+            targets: ".smallnav-graduate svg",
+            easing: 'easeInOutSine',
+            duration: this.testduration,
+            loop: true,
+            direction: 'alternate',
+            scale: function () {
+              return Math.random()*(1.3 - 1) + 1
             },
             rotate: 10,
             left: function () {

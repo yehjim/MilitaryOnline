@@ -18,6 +18,12 @@ $main_lighten:#FFFFFF;
 }
 // 平板以下
 @media (max-width: 767px) {
+  .webnav{
+    .logo{
+      width: 40px;
+      height: 40px;
+    }
+  }
   nav{
     padding-left: 32px;
     padding-right: 32px;
@@ -73,7 +79,7 @@ $main_lighten:#FFFFFF;
       width: 35px;
       height: 3px;
       background-color: $main_lighten;
-      margin-bottom: 7px;
+      margin-bottom: 5px;
       border-radius: 5px;
     }
    
@@ -112,6 +118,7 @@ $main_lighten:#FFFFFF;
   }
   .footer-nav{
     width: 100%;
+    flex-direction: column;
   }
 }
 // 手機小裝置
@@ -123,14 +130,23 @@ $main_lighten:#FFFFFF;
       width: 35px;
       height: 3px;
       background-color: $main_lighten;
-      margin-bottom: 7px;
+      margin-bottom: 5px;
       border-radius: 5px;
     }
+  }
+  .item-wrap{
+    flex-direction: column;
   }
 }
 
 // 平板
 @media (min-width: 768px) and (max-width: 979px) {
+  .webnav{
+    .logo{
+      width: 52px;
+      height: 52px;
+    }
+  }
   nav{
     padding-left: 100px;
     padding-right: 100px;
@@ -174,7 +190,7 @@ $main_lighten:#FFFFFF;
        width: 35px;
        height: 3px;
        background-color: $main_lighten;
-       margin-bottom: 7px;
+       margin-bottom: 5px;
        border-radius: 5px;
      }
    }
@@ -218,6 +234,12 @@ $main_lighten:#FFFFFF;
 }
 // 大平板
 @media (min-width: 980px) {
+  .webnav{
+    .logo{
+      width: 52px;
+      height: 52px;
+    }
+  }
   .slide{
     max-height: 697px;
     .smallnav{
@@ -233,7 +255,7 @@ $main_lighten:#FFFFFF;
         width: 35px;
         height: 3px;
         background-color: $main_lighten;
-        margin-bottom: 7px;
+        margin-bottom: 5px;
         border-radius: 5px;
       }
     }
@@ -329,6 +351,12 @@ $main_lighten:#FFFFFF;
 }
 // 電腦端
 @media (min-width: 1200px) {
+  .webnav{
+    .logo{
+      width: 52px;
+      height: 52px;
+    }
+  }
   .slide{
     max-height: 697px;
     .smallnav{
@@ -435,9 +463,11 @@ $main_lighten:#FFFFFF;
        
         align-items: center;
         justify-content: space-between;
-        height: 77px;
+        // height: 77px;
         width: 100%;
         transition: 0.6s;
+        padding-top: 20px;
+        padding-bottom: 20px;
         // position: fixed;
         position: fixed;
         left: 0;
@@ -447,8 +477,7 @@ $main_lighten:#FFFFFF;
         .logo{
           background-size: cover;
           background-position: center;
-           width: 52px;
-           height: 52px;
+           
            background-image: url('/media/school_logo.png');
         }
         .navitem{
@@ -555,7 +584,6 @@ $main_lighten:#FFFFFF;
   background-color: #fff;
   color: $text_dark;
   box-shadow: 0px 5px 15px 4px rgba(203, 203, 203, 0.25);
-  border-radius: 5px;
   
 }
 .sticky{
