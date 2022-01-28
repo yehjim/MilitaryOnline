@@ -1,3 +1,7 @@
+.selected {
+  color: #57A693;
+}
+
 .announcement-area {
   margin-top: 86px;
   color: #4E4E4E;
@@ -100,10 +104,6 @@
   cursor: pointer;
 }
 
-.announcement-area .mobile-announcement-cata .selected {
-  color: #57A693;
-}
-
 .announcement-area .announcement-catawrap {
   padding-left: 0px;
   list-style: none;
@@ -152,6 +152,7 @@
 .announcement-area .announcement-content {
   margin-top: 55px;
   margin-bottom: 49px;
+  height: 400px;
 }
 
 .announcement-area .announcement-content .item-wrap {

@@ -1,21 +1,93 @@
 footer {
   width: 100%;
-  border-top: solid 1px #717171;
-  padding-left: 100px;
-  padding-right: 100px;
+  border-top: solid 1px;
+  border-color: #C4C4C4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 footer .footer-basicinfo {
-  width: 35%;
-  border-right: solid 1px #717171;
   padding-top: 27px;
+  padding-bottom: 37px;
 }
 
 footer .footer-basicinfo .logo {
   width: 196px;
 }
 
+footer .footer-basicinfo .location, footer .footer-basicinfo .phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+}
+
+footer .footer-basicinfo .location .decoline, footer .footer-basicinfo .phone .decoline {
+  height: 21px;
+  border: solid 1px;
+  border-color: #717171;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+footer .footer-basicinfo .location svg, footer .footer-basicinfo .phone svg {
+  width: 24px;
+  margin-right: 13px;
+}
+
+footer .footer-basicinfo .phone {
+  margin-top: 28px;
+}
+
+footer .footer-basicinfo .googlemap {
+  margin-top: 32px;
+}
+
+footer .footer-basicinfo .googlemap .iframe {
+  width: 100%;
+  max-width: 344px;
+}
+
 footer .footer-nav {
-  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .footer-nav .admin ul, footer .footer-nav .special ul, footer .footer-nav .digiservice ul, footer .footer-nav .aboutsmhs ul {
+  list-style: none;
+  margin-top: 25px;
+  width: auto;
+  height: 360px;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+footer .footer-nav .admin ul li, footer .footer-nav .special ul li, footer .footer-nav .digiservice ul li, footer .footer-nav .aboutsmhs ul li {
+  color: #717171;
+  margin-bottom: 19px;
+  margin-right: 17px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+footer .footer-nav .admin ul li:hover, footer .footer-nav .special ul li:hover, footer .footer-nav .digiservice ul li:hover, footer .footer-nav .aboutsmhs ul li:hover {
+  color: #57A693;
 }
 /*# sourceMappingURL=footer.css.map */

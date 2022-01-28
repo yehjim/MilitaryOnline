@@ -6,20 +6,85 @@ $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
 footer{
     width: 100%;
-    border-top: solid 1px $text_lightdark;
-    padding-left: 100px;
-    padding-right: 100px;
+    border-top: solid 1px ;
+    border-color: $subcolor;
     
+    display: flex;
+   
     .footer-basicinfo{
-        width: 35%;
-        border-right: solid 1px $text_lightdark;
+       
+        
         padding-top: 27px;
+        padding-bottom: 37px;
         .logo{
            width: 196px;
         }
+        .location,.phone{
+            
+            display: flex;
+            align-items: center;
+           
+            margin-top: 20px;
+            .decoline{
+                
+                height: 21px;
+                border:  solid 1px ;
+                border-color: $text_lightdark;
+                margin-left: 10px;
+                margin-right: 10px;
+               
+              
+            }
+            svg{
+                width: 24px;
+                margin-right: 13px;
+            }
+        }
+        .phone{
+            margin-top: 28px;
+        }
+        .googlemap{
+           
+            margin-top: 32px;
+            .iframe{
+                width: 100%;
+                max-width: 344px;
+            }
+            
+        }
     }
     .footer-nav{
-        width: 65%;
+        
+        
+       
+        // padding-left: 20px;
+        display: flex;
+        justify-content: space-between;
+        
+        .admin,.special,.digiservice,.aboutsmhs{
+           
+            ul{
+                list-style: none;
+                margin-top: 25px;
+                width: auto;
+               
+                height: 360px;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                li{
+                    color: $text_lightdark;
+                    margin-bottom: 19px;
+                    margin-right: 17px;
+                    transition: 0.2s;
+                    cursor: pointer;
+                }
+                li:hover{
+                    color: $main_dark;
+                }
+            }
+        }
     }
     
 }

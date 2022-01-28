@@ -4,6 +4,9 @@ $subcolor:#C4C4C4;
 $main_dark:#57A693;
 $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
+.selected{
+  color: $main_dark;
+  }
 .announcement-area{
   
     margin-top: 86px;
@@ -79,9 +82,7 @@ $main_lighten:#FFFFFF;
       cursor: pointer;
     }
    
-    .selected{
-    color: $main_dark;
-    }
+   
   }
   .announcement-catawrap{
     padding-left: 0px;
@@ -119,6 +120,7 @@ $main_lighten:#FFFFFF;
       // border: solid 1px;
       margin-top: 55px;
       margin-bottom: 49px;
+      height: 400px;
       .item-wrap{
         display: flex;
         justify-content: space-between;
