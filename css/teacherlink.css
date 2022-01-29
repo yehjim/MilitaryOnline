@@ -1,0 +1,78 @@
+.content {
+  height: 1200px;
+}
+
+.calender-btn {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 52px;
+}
+
+.calender-btn .btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calender-btn .btn-wrap svg {
+  width: 43px;
+  height: 43px;
+  margin-right: 24px;
+  color: #4E4E4E;
+}
+
+.linkwrap {
+  color: #4E4E4E;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 30px;
+}
+
+.linkwrap .link-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: solid 1px;
+  border-color: #4E4E4E;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.linkwrap .link-top .decoline {
+  width: 2px;
+  height: 57px;
+  background-color: #4E4E4E;
+  margin-left: 16px;
+  margin-right: 13px;
+}
+
+.linkwrap .link-top .link-subtitle {
+  color: #717171;
+}
+
+.linkwrap .linkgroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 200px;
+}
+
+.linkwrap .linkgroup span {
+  margin-bottom: 26px;
+}
+/*# sourceMappingURL=teacherlink.css.map */

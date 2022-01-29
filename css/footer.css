@@ -7,6 +7,11 @@ footer {
   display: flex;
 }
 
+footer a {
+  text-decoration: none;
+  color: #717171;
+}
+
 footer .footer-basicinfo {
   padding-top: 27px;
   padding-bottom: 37px;
@@ -77,15 +82,15 @@ footer .footer-nav .admin ul, footer .footer-nav .special ul, footer .footer-nav
       flex-wrap: wrap;
 }
 
+footer .footer-nav .admin ul a:hover, footer .footer-nav .special ul a:hover, footer .footer-nav .digiservice ul a:hover, footer .footer-nav .aboutsmhs ul a:hover {
+  color: #57A693;
+}
+
 footer .footer-nav .admin ul li, footer .footer-nav .special ul li, footer .footer-nav .digiservice ul li, footer .footer-nav .aboutsmhs ul li {
   color: #717171;
   margin-bottom: 19px;
   -webkit-transition: 0.2s;
   transition: 0.2s;
   cursor: pointer;
-}
-
-footer .footer-nav .admin ul li:hover, footer .footer-nav .special ul li:hover, footer .footer-nav .digiservice ul li:hover, footer .footer-nav .aboutsmhs ul li:hover {
-  color: #57A693;
 }
 /*# sourceMappingURL=footer.css.map */

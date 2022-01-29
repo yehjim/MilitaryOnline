@@ -20,10 +20,12 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
+
   <title>海星高級中學</title>
 </head>
 
 <body>
+
   <div id="app">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <nav class="webnav">
@@ -185,7 +187,8 @@
           </span>
         </div>
         <div class="divline"></div>
-        <div class="smallnav-teacher">
+
+        <div class="smallnav-teacher" @click="tonextpage">
           <svg viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_f_462_2196)">
               <circle cx="16.5" cy="16.5" r="12.5" fill="url(#paint0_linear_462_2196)" fill-opacity="0.41" />
@@ -213,6 +216,8 @@
             教職員工
           </span>
         </div>
+
+
         <div class="divline"></div>
         <div class="smallnav-parents" @mouseover="changespeed">
           <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -274,6 +279,7 @@
 
       </div>
     </div>
+
     <div class="honorroll">
       <div class="title2">
         <span v-for="(item,index) in honorroll" :key="index">{{item}}</span>
@@ -299,20 +305,20 @@
       <div class="recruitblock-wrap">
         <div class="recruitblock" :ref="'recruitblock'+index" v-for="(item,index) in recruitgroup" :key="index"
           @mouseover="showhoverani(index)" @mouseleave="leaveani(index)" @click="window.open(item.url)">
-          
-            <div class="title2">
-              {{item.title}}
-            </div>
-            <div class="subtitle">
-              {{item.subtitle}}
-            </div>
-            <div class="colorcover" :ref="'colorcover'+index">
-              <div class="circle1" :ref="'refcircle1'+index">
 
-              </div>
-              <div class="circle2" :ref="'refcircle2'+index"></div>
+          <div class="title2">
+            {{item.title}}
+          </div>
+          <div class="subtitle">
+            {{item.subtitle}}
+          </div>
+          <div class="colorcover" :ref="'colorcover'+index">
+            <div class="circle1" :ref="'refcircle1'+index">
+
             </div>
-          
+            <div class="circle2" :ref="'refcircle2'+index"></div>
+          </div>
+
         </div>
       </div>
 
@@ -348,7 +354,7 @@
           在校學生
         </span>
       </div>
-      <div class="smallnav-teacher">
+      <div class="smallnav-teacher" @click="tonextpage">
         <svg viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_f_462_2196)">
             <circle cx="16.5" cy="16.5" r="12.5" fill="url(#paint0_linear_462_2196)" fill-opacity="0.41" />
@@ -482,11 +488,11 @@
           {{item}}
         </li>
         <!-- <li :class="selected:announcementindex==index">獎助學金</li>
-        <li :class="selected:">教師研習</li>
-        <li :class="selected:">校外活動</li>
-        <li :class="selected:">下載資料</li>
-        <li :class="selected:">升學資訊</li>
-        <li :class="selected:">政令宣導</li> -->
+          <li :class="selected:">教師研習</li>
+          <li :class="selected:">校外活動</li>
+          <li :class="selected:">下載資料</li>
+          <li :class="selected:">升學資訊</li>
+          <li :class="selected:">政令宣導</li> -->
       </ul>
       <div class="announcement-content">
         <div class="item-wrap" @click="openpopup(index)" v-for="(item,index) in announcementcontent" :key="index"
@@ -558,6 +564,8 @@
       </div>
     </div>
 
+
+
     <footer>
       <div class="footer-basicinfo">
         <img class="logo" src="./assest/海星logotype橫.png" alt="">
@@ -602,7 +610,9 @@
             行政單位
           </div>
           <ul>
-            <li class="smalltext" v-for="(item,index) in adminnav" :key="index">{{item.name}}</li>
+            <li class="smalltext" v-for="(item,index) in adminnav" :key="index">
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}</a>
+            </li>
           </ul>
         </div>
         <div class="special">
@@ -610,7 +620,8 @@
             特色班級
           </div>
           <ul>
-            <li class="smalltext" v-for="(item,index) in specialclassnnav" :key="index">{{item.name}}</li>
+            <li class="smalltext" v-for="(item,index) in specialclassnnav" :key="index">
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}</a></li>
           </ul>
         </div>
         <div class="digiservice">
@@ -618,7 +629,9 @@
             數位服務
           </div>
           <ul>
-            <li class="smalltext" v-for="(item,index) in digiservice" :key="index">{{item.name}}</li>
+            <li class="smalltext" v-for="(item,index) in digiservice" :key="index">
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}</a>
+            </li>
           </ul>
         </div>
         <div class="aboutsmhs">
@@ -627,12 +640,17 @@
 
           </div>
           <ul>
-            <li class="smalltext" v-for="(item,index) in aboutsmhs" :key="index">{{item.name}}</li>
+            <li class="smalltext" v-for="(item,index) in aboutsmhs" :key="index">
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}} </a>
+            </li>
           </ul>
         </div>
       </div>
 
     </footer>
+    <div class="transition">
+
+    </div>
     <div class="loadingpage" v-if="loadingshow==true">
       <div class="logo"></div>
     </div>
@@ -994,9 +1012,7 @@
 
             });
           },
-          tourl(url){
 
-          },
           shownavopen(index, name) {
             this.currentindex = index;
             this.currentnavname = name;
@@ -1023,19 +1039,7 @@
                   targets: ".schoologo",
                   opacity: [0, 0.1],
                 }, 700)
-              // anime({
-              //   targets: ".admin-item",
-              //   translateX: [70, 0],
-              //   opacity: [0, 1],
-              //   easing: 'easeInOutExpo',
-              //   delay: anime.stagger(30), // increase delay by 100ms for each elements.
-              // });
-              // anime({
-              //   targets: ".admin-title",
-              //   translateX: [70, 0],
-              //   opacity: [0, 1],
-              //   delay: 300,
-              //   easing: 'easeInOutExpo',
+
 
               // });
             } else {
@@ -1085,6 +1089,40 @@
                 }
 
               })
+          },
+          tonextpage() {
+            var tl = anime.timeline({
+              easing: 'easeInOutSine',
+              duration: 650,
+
+            })
+            tl.add({
+                targets: ".transition",
+                easing: 'easeInOutQuad',
+                width: '100%',
+                // translateX:[0,'100%'],
+                opacity: 1
+              })
+              .add({
+                targets: ".transition",
+                easing: 'easeInOutQuad',
+                translateX: [0, '100%'],
+                delay: 200,
+                opacity: 0
+              })
+              .add({
+                targets: ".transition",
+                easing: 'easeInOutQuad',
+                width: '0px',
+                translateX: 0
+
+              })
+            window.setTimeout((function () {
+              window.location.href = "./teacherlink.html";
+            }), 1300);
+
+
+
           }
         },
         mounted() {
@@ -1196,6 +1234,11 @@
             .catch((error) => {
               console.error(error);
             });
+
+
+
+
+
 
         },
       });

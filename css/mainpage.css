@@ -427,6 +427,18 @@ a {
   position: relative;
 }
 
+.transition {
+  position: absolute;
+  width: 0px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .v-leave {
   opacity: 1;
 }

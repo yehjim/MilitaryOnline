@@ -10,6 +10,10 @@ footer{
     border-color: $subcolor;
     
     display: flex;
+    a{
+        text-decoration: none;
+        color: $text_lightdark;
+    }
    
     .footer-basicinfo{
        
@@ -64,7 +68,7 @@ footer{
         
         
         .admin,.special,.digiservice,.aboutsmhs{
-           
+            
             ul{
                 list-style: none;
                 margin-top: 25px;
@@ -73,16 +77,20 @@ footer{
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
+                a:hover{
+                    color: $main_dark;
+                }
+               
                 li{
                     color: $text_lightdark;
                     margin-bottom: 19px;
                     // margin-right: 17px;
                     transition: 0.2s;
                     cursor: pointer;
+                    
+                    
                 }
-                li:hover{
-                    color: $main_dark;
-                }
+                
             }
         }
     }

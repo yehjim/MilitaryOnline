@@ -1,11 +1,928 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/teacherlink.css">
+    <link rel="stylesheet" href="./css/mainpage.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/var.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <title>海星高級中學</title>
 </head>
+
 <body>
+    <div id="app">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <nav class="webnav">
+                <a href="./index.html">
+                    <div class="logo"></div>
+                </a>
+
+                <div class="navitem">
+                    <div class="navwarp">
+                        <li class="text" :style="{ color: openmenucolor}" v-for="(item,index) in navitems" :key="index"
+                            @mouseover.self="shownavopen(index,item.name)">
+
+                            {{item.name}}
+
+
+
+
+                            <transition>
+                                <div class="decoline" v-show="currentindex==index"></div>
+                            </transition>
+                        </li>
+                    </div>
+                </div>
+                <div class="hammenu" @click="openmenu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <transition>
+                    <div v-if="show" class="navopenblock admin" @mouseleave="hidenavcontent">
+                        <img class="schoologo" src="./assest/school_logo.png" alt="">
+                        <div class="aboutsmhswrap" v-if="currentindex==0">
+                            <div v-for="item in adminnav" class="admin-item">
+                                <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                                    {{item.name}}
+                                </a>
+
+
+                            </div>
+                        </div>
+                        <div v-for="item in specialclassnnav" class="admin-item" v-show="currentindex==1">
+                            <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                                {{item.name}}
+                            </a>
+
+                        </div>
+                        <div v-for="item in digiservice" class="admin-item" v-show="currentindex==2">
+                            <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                                {{item.name}}
+                            </a>
+                        </div>
+                        <div class="aboutsmhswrap" v-show="currentindex==3">
+                            <div v-for="item in aboutsmhs" class="admin-item">
+                                <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                                    {{item.name}}
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="admin-title title1">
+                            {{currentnavname}}
+                        </div>
+
+
+                    </div>
+                </transition>
+            </nav>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active" v-for="(item,index) in carouselpic" :key="index"
+                    data-bs-interval="7000">
+                    <div class="pic" :style="{backgroundImage:'url('+item.pic+')'}"> <span class="title1 picinfo">多元 適性
+                            陪伴
+                            優質</span></div>
+                </div>
+            </div>
+
+            <transition>
+                <div class="fullpagemenu" v-if="showfullpagemenu">
+
+                    <nav class="mobilenav">
+                        <div class="logo"></div>
+                        <img @click="closefullpagemenu" src="./assest/close-fill.svg" alt="">
+                    </nav>
+                    <div class="navitem-wrap">
+                        <div class="navitem-top">
+                            <div class="admin-wrap">
+                                <h4 class="text">行政單位</h4>
+                                <div class="divline"></div>
+                                <div class="admin-item">
+                                    <span v-for="(item,index) in adminnav" :key="index">
+                                        <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                                            {{item.name}}
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="class-wrap">
+                                <h4 class="text">特色班級</h4>
+                                <div class="divline"></div>
+                                <div class="admin-item">
+
+                                    <span v-for="(item,index) in specialclassnnav" :key="index">
+                                        <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="navitem-bottom">
+                            <div class="digi-wrap">
+                                <h4 class="text">數位服務</h4>
+                                <div class="divline"></div>
+                                <div class="admin-item">
+                                    <span v-for="(item,index) in digiservice" :key="index"> <a :href="item.url"
+                                            target="_blank" rel="noopener noreferrer">{{item.name}}</a></span>
+                                </div>
+                            </div>
+                            <div class="about-wrap">
+                                <h4 class="text">關於海星</h4>
+                                <div class="divline"></div>
+                                <div class="admin-item">
+                                    <span v-for="(item,index) in aboutsmhs" :key="index">
+                                        <a :href="item.url" target="_blank"
+                                            rel="noopener noreferrer">{{item.name}}</a></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </transition>
+        </div>
+        <div class="content">
+            <div class="calender-btn">
+                <div class="btn-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zM4 9v10h16V9H4zm2 2h2v2H6v-2zm0 4h2v2H6v-2zm4-4h8v2h-8v-2zm0 4h5v2h-5v-2z" />
+                    </svg>
+                    <span class="title2">海星行事曆</span>
+                </div>
     
+            </div>
+            <div class="linkwrap" v-for="(item,index) in linkdata" :key="index">
+                <div class="link-top">
+                    <div class="link-title title2">
+                        {{item.title}}
+                    </div>
+                    <div class="decoline "></div>
+                    <div class="link-subtitle subtilte">
+                        {{item.subtitle}}
+                    </div>
+    
+                </div>
+                <div class="linkgroup">
+                    <span v-for="linkitem in item.linkgroup" :key="index">{{linkitem.title}}</span>
+                </div>
+    
+            </div>
+        </div>
+      
+
+        <footer>
+            <div class="footer-basicinfo">
+                <img class="logo" src="./assest/海星logotype橫.png" alt="">
+                <div class="location">
+                    <div class="location-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M12 20.9l4.95-4.95a7 7 0 1 0-9.9 0L12 20.9zm0 2.828l-6.364-6.364a9 9 0 1 1 12.728 0L12 23.728zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 2a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
+                        </svg>
+                        <span class="text">學校地址</span>
+                    </div>
+                    <div class="decoline"></div>
+                    <div class="location-content">
+                        <span class="text">花蓮縣新城鄉580號之1</span>
+                    </div>
+
+                </div>
+                <div class="phone">
+                    <div class="phone-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M9.366 10.682a10.556 10.556 0 0 0 3.952 3.952l.884-1.238a1 1 0 0 1 1.294-.296 11.422 11.422 0 0 0 4.583 1.364 1 1 0 0 1 .921.997v4.462a1 1 0 0 1-.898.995c-.53.055-1.064.082-1.602.082C9.94 21 3 14.06 3 5.5c0-.538.027-1.072.082-1.602A1 1 0 0 1 4.077 3h4.462a1 1 0 0 1 .997.921A11.422 11.422 0 0 0 10.9 8.504a1 1 0 0 1-.296 1.294l-1.238.884zm-2.522-.657l1.9-1.357A13.41 13.41 0 0 1 7.647 5H5.01c-.006.166-.009.333-.009.5C5 12.956 11.044 19 18.5 19c.167 0 .334-.003.5-.01v-2.637a13.41 13.41 0 0 1-3.668-1.097l-1.357 1.9a12.442 12.442 0 0 1-1.588-.75l-.058-.033a12.556 12.556 0 0 1-4.702-4.702l-.033-.058a12.442 12.442 0 0 1-.75-1.588z" />
+                        </svg>
+                        <span class="text">學校電話</span>
+                    </div>
+                    <div class="decoline"></div>
+                    <div class="phone-content">
+                        <span class="text">03-8223116</span>
+                    </div>
+                </div>
+                <div class="googlemap">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.6559663118433!2d121.61120141507547!3d24.007922884806458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34689e3a65e76d0b%3A0xa3afcfbff104a0af!2z6Iqx6JOu57ij56eB56uL5rW35pif6auY57Sa5Lit5a24!5e0!3m2!1szh-TW!2stw!4v1643283264394!5m2!1szh-TW!2stw"
+                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="admin">
+                    <div class="admin-title subtilte">
+                        行政單位
+                    </div>
+                    <ul>
+                        <li class="smalltext" v-for="(item,index) in adminnav" :key="index">
+                            <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="special">
+                    <div class="special-title subtilte">
+                        特色班級
+                    </div>
+                    <ul>
+                        <li class="smalltext" v-for="(item,index) in specialclassnnav" :key="index">
+                            <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}</a></li>
+                    </ul>
+                </div>
+                <div class="digiservice">
+                    <div class="digiservice-title subtilte">
+                        數位服務
+                    </div>
+                    <ul>
+                        <li class="smalltext" v-for="(item,index) in digiservice" :key="index">
+                            <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="aboutsmhs">
+                    <div class="aboutsmhs-title subtilte">
+                        關於海星
+
+                    </div>
+                    <ul>
+                        <li class="smalltext" v-for="(item,index) in aboutsmhs" :key="index">
+                            <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}} </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                openmenucolor: "",
+                loadingshow: true,
+                popupopen: false,
+                announcementcataindex: 0,
+                currentannouncementconetntidnex: -1,
+                currentindex: -1,
+                show: false,
+                announcementcata: ['校務公告', '獎助學金', '教師研習', '校外活動', '下載資料', '升學資訊', '政令宣導'],
+                announcementcataselect: '獎助學金',
+                honorroll: ['普二忠班 葉俊麟 榮獲全國學生美展 特等獎', "普二信班 葉俊甫 榮獲全國學生美展 特等獎"],
+                showfullpagemenu: false,
+                currentnavname: '',
+                announcementcataopen: false,
+                imporatantinfo: [{
+                        title: '校車資訊',
+                        url: ''
+                    },
+                    {
+                        title: '校車資訊',
+                        url: ''
+                    },
+                    {
+                        title: '校車資訊',
+                        url: ''
+                    },
+                    {
+                        title: '校車資訊',
+                        url: ''
+                    }
+                ],
+                carouselpic: [{
+                    pic: "./assest/S__4890729.jpg"
+                }, {
+                    pic: ""
+                }, {
+                    pic: ""
+                }],
+                navitems: [{
+                        num: 0,
+                        name: "行政單位",
+                    },
+                    {
+                        num: 1,
+                        name: "特色班級",
+                    },
+                    {
+                        num: 2,
+                        name: "數位服務",
+                    },
+                    {
+                        num: 3,
+                        name: "關於海星",
+                    },
+                ],
+                adminnav: [{
+                        name: "校長室",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/校長室",
+                    },
+                    {
+                        name: "教務處",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/教務處",
+                    },
+                    {
+                        name: "學務處",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/學務處",
+                    },
+                    {
+                        name: "總務處",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/總務處",
+                    },
+                    {
+                        name: "輔導室",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/輔導室",
+                    }, {
+                        name: '人事室',
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/人事室"
+                    },
+                    {
+                        name: '會計室',
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/會計室"
+                    },
+                    {
+                        name: '圖書館',
+                        url: ""
+                    },
+                    {
+                        name: '國中部',
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/國中部"
+                    },
+                ],
+                specialclassnnav: [{
+                        name: "普通科",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/general-classes",
+                    },
+                    {
+                        name: "綜合科",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/comprehensive-courses",
+                    },
+                    {
+                        name: "國中部特色班級",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/jonior-high",
+                    },
+                    {
+                        name: "原住民教育",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/comprehensive-courses/原住民族文化特色班",
+                    },
+                    {
+                        name: "國際教育",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/international-education",
+                    },
+                ],
+                digiservice: [{
+                        name: "學生紀錄系統",
+                        url: "http://reg.smhs.hlc.edu.tw/auth/Auth/Login?S=Auth",
+                    },
+                    {
+                        name: "學生助學金辨識",
+                        url: "http://www.smhs.hlc.edu.tw/smhs/self_design/身份補助流程表.pdf",
+                    },
+                    {
+                        name: "教師教學計畫",
+                        url: "http://203.71.0.15/schoolsystem/teach_plan/index.php",
+                    },
+                    {
+                        name: "班級經營計畫",
+                        url: "http://203.71.0.15/schoolsystem/class_plan/index.php",
+                    },
+                    {
+                        name: "證件申請",
+                        url: "http://www.smhs.hlc.edu.tw/smhs/academic_affairs/10.html",
+                    },
+                ],
+                aboutsmhs: [{
+
+                        name: "建校歷程",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/建校歷程",
+                    },
+                    {
+                        name: "校名校徽校址",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/校名校徽校址",
+                    },
+                    {
+                        name: "校訓",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/敬天愛人-校訓",
+                    },
+                    {
+                        name: "校歌",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/校歌",
+                    },
+                    {
+                        name: "歷任校長",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/歷任校長",
+                    },
+                    {
+                        name: "校史",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/校史",
+                    },
+                    {
+                        name: "聖吳甦樂修會發展史",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/聖吳甦樂女修會發展史",
+                    },
+                    {
+                        name: "休會教育理念",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/修會教育理念",
+                    },
+                    {
+                        name: "辦學績效",
+                        url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/辦學績效",
+                    },
+                ],
+                testduration: 2500,
+                recruitgroup: [{
+                        title: '招生資訊',
+                        subtitle: '國一新生',
+                        url: 'http://www.smhs.hlc.edu.tw/smhs/enroll/junior_highschool.html'
+                    },
+                    {
+                        title: '招生資訊',
+                        subtitle: '高一新生',
+                        url: 'http://www.smhs.hlc.edu.tw/smhs/enroll/highschool.html'
+                    }, {
+                        title: '海星2+1',
+                        subtitle: '體驗外國文化',
+                        url: 'https://sites.google.com/smhs.hlc.edu.tw/internationaleducation/加拿大2-1課程'
+                    }
+                ],
+                announcementcontent: [],
+                popupptitle: '',
+                popupadmin: '',
+                popupcontent: '',
+                popdate: '',
+                linkdata: [{
+                    title: '數位服務',
+                    subtitle: '數位化工作工具',
+                    linkgroup: [{
+                        title: '學生技錄系統',
+                        url: ''
+                    }, {
+                        title: '學生助學金辨識',
+                        url: ''
+                    }, {
+                        title: '教師教學計劃',
+                        url: ''
+                    }, {
+                        title: '班級經營計畫',
+                        url: ''
+                    }, {
+                        title: '教師評鑑網',
+                        url: ''
+                    }, {
+                        title: '證件申請',
+                        url: ''
+                    }, {
+                        title: '教育部公文公告平台',
+                        url: ''
+                    }, {
+                        title: '教育部國民及學前教育署',
+                        url: ''
+                    }, {
+                        title: '台灣銀行學雜費入口網',
+                        url: ''
+                    }, {
+                        title: '策略聯盟補助計畫',
+                        url: ''
+                    }, {
+                        title: '各年度課程手冊',
+                        url: ''
+                    }]
+                }, {
+                    title: '校務系統',
+                    subtitle: '校務相關連結',
+                    linkgroup: [{
+                            title: '電子公文',
+                            url: ''
+                        }, {
+                            title: '電子信箱',
+                            url: ''
+                        }, {
+                            title: '社團管理系統',
+                            url: ''
+                        }, {
+                            title: '場地借用系統',
+                            url: ''
+                        }, {
+                            title: '全誼系統',
+                            url: ''
+                        }, {
+                            title: '巡堂填報系統',
+                            url: ''
+                        }, {
+                            title: '最新消息公告',
+                            url: ''
+                        }, {
+                            title: '教育部國民及學前教育署',
+                            url: ''
+                        }, {
+                            title: '經資門需求填報',
+                            url: ''
+                        }, {
+                            title: '海星相簿',
+                            url: ''
+                        }, {
+                            title: '國教署請購平台',
+                            url: ''
+                        },
+                        {
+                            title: '營養午餐資訊平台',
+                            url: ''
+                        }, {
+                            title: '宿舍伙食資訊平台',
+                            url: ''
+                        }, {
+                            title: '財務專區',
+                            url: ''
+                        },
+                        {
+                            title: '選課系統',
+                            url: ''
+                        },
+                        {
+                            title: '公物維修',
+                            url: ''
+                        }, {
+                            title: '海星活動影片',
+                            url: ''
+                        }, {
+                            title: '學生出入管理系統',
+                            url: ''
+                        },
+                        {
+                            title: '教學計劃資料庫',
+                            url: ''
+                        }
+                    ]
+                }]
+
+            },
+            methods: {
+                closepopup() {
+                    anime({
+                        targets: '.announcementpopup',
+
+                        scale: [1, 0],
+                        opacity: [1, 0],
+                        easing: 'easeOutElastic(1, .8)',
+
+                        duration: 500
+
+                    });
+                    this.popupopen = false
+
+                },
+                openpopup(index) {
+                    anime({
+                        targets: '.announcementpopup',
+
+                        scale: [0, 1],
+                        opacity: [0, 1],
+                        easing: 'easeOutElastic(1, .8)',
+
+                        duration: 500
+
+                    });
+                    this.popupopen = true
+                    this.currentannouncementconetntidnex = index;
+                    this.popupptitle = this.announcementcontent[this.currentannouncementconetntidnex][0]
+                    this.popupadmin = this.announcementcontent[this.currentannouncementconetntidnex][3]
+                    this.popupcontent = this.announcementcontent[this.currentannouncementconetntidnex][2]
+                    this.popdate = this.announcementcontent[this.currentannouncementconetntidnex][1]
+
+                },
+                changeannouncementcata(index) {
+                    this.announcementcataindex = index;
+
+
+                    anime({
+                        targets: '.announcement-catawrap',
+
+                        height: ['328px', 0],
+                        opacity: [1, 0],
+                        easing: 'easeInOutQuad',
+
+                        duration: 1000
+
+                    });
+                    this.announcementcataopen = false;
+
+
+                },
+                openannouncementmenu() {
+
+                    if (this.announcementcataopen == false) {
+                        anime({
+                            targets: '.announcement-catawrap',
+                            opacity: [0, 1],
+                            height: [0, '328px'],
+                            easing: 'easeInOutQuad',
+
+                            duration: 1000
+
+                        });
+                        this.announcementcataopen = true;
+                    } else {
+                        anime({
+                            targets: '.announcement-catawrap',
+
+                            height: ['328px', 0],
+                            opacity: [1, 0],
+                            easing: 'easeInOutQuad',
+
+                            duration: 1000
+
+                        });
+                        this.announcementcataopen = false;
+                    }
+
+                },
+                showhoverani(index) {
+
+                    let vm = this;
+                    let colorcover = vm.$refs['colorcover' + index];
+                    let recruitblock = vm.$refs['recruitblock' + index];
+                    let circle1 = vm.$refs['refcircle1' + index];
+                    let circle2 = vm.$refs['refcircle2' + index];
+
+                    anime({
+                        targets: colorcover,
+                        easing: 'linear',
+                        opacity: 1,
+                        duration: 700
+
+                    });
+                    anime({
+                        targets: recruitblock,
+                        easing: 'easeInOutQuad',
+                        color: '#fff',
+                        duration: 500
+
+                    });
+                    anime({
+                        targets: circle1,
+                        top: '35%',
+                        left: '53%',
+                        easing: 'easeInOutQuad',
+                        opacity: 1,
+                        duration: 600
+
+                    });
+                    anime({
+                        targets: circle2,
+                        left: '65%',
+                        easing: 'easeInOutQuad',
+                        opacity: 1,
+                        duration: 600
+
+                    });
+                },
+                leaveani(index) {
+                    let vm = this;
+                    let colorcover = vm.$refs['colorcover' + index];
+                    let recruitblock = vm.$refs['recruitblock' + index];
+                    let circle1 = vm.$refs['refcircle1' + index];
+                    let circle2 = vm.$refs['refcircle2' + index];
+
+                    anime({
+                        targets: colorcover,
+                        easing: 'linear',
+                        opacity: 0,
+                        duration: 700
+
+                    });
+                    anime({
+                        targets: recruitblock,
+                        easing: 'easeInOutQuad',
+                        color: '#4E4E4E',
+                        duration: 500
+
+                    });
+                    anime({
+                        targets: circle1,
+                        top: '70%',
+                        left: '100%',
+                        easing: 'easeInOutQuad',
+                        opacity: 1,
+                        duration: 600
+
+                    });
+                    anime({
+                        targets: circle2,
+                        left: '100%',
+                        easing: 'easeInOutQuad',
+                        opacity: 1,
+                        duration: 600
+
+                    });
+                },
+                tourl(url) {
+
+                },
+                shownavopen(index, name) {
+                    this.currentindex = index;
+                    this.currentnavname = name;
+                    this.openmenucolor = '#fff'
+                    var tl = anime.timeline({
+                        easing: 'easeInOutExpo',
+
+                    })
+                    if (this.show == true) {
+                        tl.add({
+                                targets: ".admin-item",
+                                translateX: [70, 0],
+                                opacity: [0, 1],
+                                delay: anime.stagger(30), // increase delay by 100ms for each elements.
+                            })
+                            .add({
+                                targets: ".admin-title",
+                                translateX: [70, 0],
+                                opacity: [0, 1],
+
+
+                            }, 400)
+                            .add({
+                                targets: ".schoologo",
+                                opacity: [0, 0.1],
+                            }, 700)
+                        // anime({
+                        //   targets: ".admin-item",
+                        //   translateX: [70, 0],
+                        //   opacity: [0, 1],
+                        //   easing: 'easeInOutExpo',
+                        //   delay: anime.stagger(30), // increase delay by 100ms for each elements.
+                        // });
+                        // anime({
+                        //   targets: ".admin-title",
+                        //   translateX: [70, 0],
+                        //   opacity: [0, 1],
+                        //   delay: 300,
+                        //   easing: 'easeInOutExpo',
+
+                        // });
+                    } else {
+                        this.show = true;
+                    }
+
+
+                },
+                hidenavcontent() {
+                    this.show = false;
+                    this.currentindex = -1;
+                    this.openmenucolor = ''
+                },
+                openmenu() {
+                    this.showfullpagemenu = true
+                    anime({
+                        targets: ".admin-item",
+                        translateX: [70, 0],
+                        opacity: [0, 1],
+                        easing: 'easeInOutExpo',
+                        delay: anime.stagger(30), // increase delay by 100ms for each elements.
+                    });
+                },
+                closefullpagemenu() {
+                    this.showfullpagemenu = false
+                },
+                changespeed() {
+                    this.testduration = 10000
+                    var tl = anime.timeline({
+                        easing: 'easeInOutSine',
+                        duration: this.testduration,
+                        loop: true,
+                        direction: 'alternate',
+
+                    })
+                    tl.add({
+                            targets: ".smallnav-parents svg",
+                            scale: 1.4
+                        })
+                        .add({
+                            rotate: 10,
+                            left: function () {
+                                return anime.random(-15, 10) + 'px';
+                            },
+                            top: function () {
+                                return anime.random(-10, 10) + 'px';
+                            }
+
+                        })
+                }
+            },
+            mounted() {
+                anime({
+                    targets: ".loadingpage .logo",
+                    easing: 'easeInOutQuad',
+                    duration: 1500,
+                    loop: true,
+                    direction: 'alternate',
+                    opacity: 1
+                });
+
+                anime({
+                    targets: ".smallnav-parents svg",
+                    easing: 'easeInOutSine',
+                    duration: this.testduration,
+                    loop: true,
+                    direction: 'alternate',
+                    scale: function () {
+                        return Math.random() * (1.3 - 1) + 1
+                    },
+                    rotate: 10,
+                    left: function () {
+                        return anime.random(-15, 10) + 'px';
+                    },
+                    top: function () {
+                        return anime.random(-10, 10) + 'px';
+                    }
+                });
+                anime({
+                    targets: ".smallnav-teacher svg",
+                    easing: 'easeInOutSine',
+                    duration: this.testduration,
+                    loop: true,
+                    direction: 'alternate',
+                    scale: function () {
+                        return Math.random() * (1.3 - 1) + 1
+                    },
+                    rotate: 10,
+                    left: function () {
+                        return anime.random(-15, 10) + 'px';
+                    },
+                    top: function () {
+                        return anime.random(-10, 10) + 'px';
+                    }
+                });
+                anime({
+                    targets: ".smallnav-student svg",
+                    easing: 'easeInOutSine',
+                    duration: this.testduration,
+                    loop: true,
+                    direction: 'alternate',
+                    scale: function () {
+                        return Math.random() * (1.3 - 1) + 1
+                    },
+                    rotate: 10,
+                    left: function () {
+                        return anime.random(-15, 10) + 'px';
+                    },
+                    top: function () {
+                        return anime.random(-10, 10) + 'px';
+                    }
+                });
+                anime({
+                    targets: ".smallnav-graduate svg",
+                    easing: 'easeInOutSine',
+                    duration: this.testduration,
+                    loop: true,
+                    direction: 'alternate',
+                    scale: function () {
+                        return Math.random() * (1.3 - 1) + 1
+                    },
+                    rotate: 10,
+                    left: function () {
+                        return anime.random(-15, 10) + 'px';
+                    },
+                    top: function () {
+                        return anime.random(-10, 10) + 'px';
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    var navbar = document.querySelector(".webnav")
+                    navbar.classList.toggle("sticky", window.scrollY > 0)
+                })
+
+                anime({
+                    targets: ".honorroll span",
+                    translateY: [100, 0],
+                    opacity: [0, 1],
+                    easing: 'easeInOutExpo',
+                    loop: true,
+                    duration: 3000,
+                    direction: 'alternate',
+                });
+
+
+
+            },
+        });
+    </script>
 </body>
+
 </html>
