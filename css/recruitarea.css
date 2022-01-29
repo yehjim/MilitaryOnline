@@ -58,6 +58,15 @@
   position: relative;
 }
 
+.recruit-area .recruitblock-wrap .recruitblock a {
+  text-decoration: none;
+  z-index: 1;
+}
+
+.recruit-area .recruitblock-wrap .recruitblock a:hover {
+  color: #FFFFFF;
+}
+
 .recruit-area .recruitblock-wrap .recruitblock .subtitle {
   margin-top: 15px;
   z-index: 1;

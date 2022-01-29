@@ -8,6 +8,10 @@ $main_lighten:#FFFFFF;
     font-family: jfopen;
     src: url('/font/jf-openhuninn-1.1.ttf');
 }
+a{
+  text-decoration: none;
+  color: #4E4E4E;
+}
 *{
     box-sizing: border-box;
     padding: 0;
@@ -481,8 +485,9 @@ $main_lighten:#FFFFFF;
           background-size: cover;
           background-position: center;
            
-           background-image: url('./assest/school_logo.png');
+           background-image: url('/assest/school_logo.png');
         }
+       
         .navitem{
             width: 50%;
             padding-left: 30px;
@@ -552,6 +557,10 @@ $main_lighten:#FFFFFF;
           display: flex;
           flex-direction: column;
           flex-wrap: wrap;
+          a{
+            text-decoration: none ;
+            color: white ;
+          }
           
         }
         .admin-item{
@@ -561,6 +570,10 @@ $main_lighten:#FFFFFF;
             cursor: pointer;
             transition: margin-left 0.3s;
             margin-right: 50px;
+            a{
+              text-decoration: none ;
+              color: white ;
+            }
             // transition: 0.3s;
         }
         .admin-item:hover{
@@ -669,6 +682,10 @@ $main_lighten:#FFFFFF;
         flex-direction: column;
         flex-wrap: wrap;
         height: 250px;
+        a{
+          text-decoration: none ;
+          color: white ;
+        }
         span{
           margin-bottom: 17px;
         }
@@ -852,7 +869,7 @@ $main_lighten:#FFFFFF;
   background-color: white;
   z-index: 5;
   .logo{
-    background-image: url('./assest/school_logo.png');
+    background-image: url('/assest/school_logo.png');
     width: 100px;
     height: 100px;
     margin: auto;

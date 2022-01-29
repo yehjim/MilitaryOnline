@@ -49,6 +49,14 @@ $main_lighten:#FFFFFF;
       color: $text_dark;
       cursor: pointer;
       position: relative;
+      a{
+        text-decoration: none;
+        z-index: 1;
+        // color: $text_dark;
+      }
+      a:hover{
+        color: $main_lighten;
+      }
      
     .subtitle{
       margin-top: 15px;

@@ -3,6 +3,11 @@
   src: url("/font/jf-openhuninn-1.1.ttf");
 }
 
+a {
+  text-decoration: none;
+  color: #4E4E4E;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -486,7 +491,7 @@
 .slide .webnav .logo {
   background-size: cover;
   background-position: center;
-  background-image: url("./assest/school_logo.png");
+  background-image: url("/assest/school_logo.png");
 }
 
 .slide .webnav .navitem {
@@ -566,6 +571,11 @@
       flex-wrap: wrap;
 }
 
+.slide .navopenblock .aboutsmhswrap a {
+  text-decoration: none;
+  color: white;
+}
+
 .slide .navopenblock .admin-item {
   margin-bottom: 29px;
   width: auto;
@@ -574,6 +584,11 @@
   -webkit-transition: margin-left 0.3s;
   transition: margin-left 0.3s;
   margin-right: 50px;
+}
+
+.slide .navopenblock .admin-item a {
+  text-decoration: none;
+  color: white;
 }
 
 .slide .navopenblock .admin-item:hover {
@@ -691,6 +706,11 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   height: 250px;
+}
+
+.fullpagemenu .navitem-wrap .admin-wrap .admin-item a, .fullpagemenu .navitem-wrap .class-wrap .admin-item a, .fullpagemenu .navitem-wrap .digi-wrap .admin-item a, .fullpagemenu .navitem-wrap .about-wrap .admin-item a {
+  text-decoration: none;
+  color: white;
 }
 
 .fullpagemenu .navitem-wrap .admin-wrap .admin-item span, .fullpagemenu .navitem-wrap .class-wrap .admin-item span, .fullpagemenu .navitem-wrap .digi-wrap .admin-item span, .fullpagemenu .navitem-wrap .about-wrap .admin-item span {
@@ -914,7 +934,7 @@
 }
 
 .loadingpage .logo {
-  background-image: url("./assest/school_logo.png");
+  background-image: url("/assest/school_logo.png");
   width: 100px;
   height: 100px;
   margin: auto;

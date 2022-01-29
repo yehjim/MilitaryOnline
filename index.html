@@ -20,7 +20,7 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
-  <title>Document</title>
+  <title>海星高級中學</title>
 </head>
 
 <body>
@@ -30,9 +30,14 @@
         <div class="logo"></div>
         <div class="navitem">
           <div class="navwarp">
-            <li class="text" v-for="(item,index) in navitems" :key="index"
+            <li class="text" :style="{ color: openmenucolor}" v-for="(item,index) in navitems" :key="index"
               @mouseover.self="shownavopen(index,item.name)">
+
               {{item.name}}
+
+
+
+
               <transition>
                 <div class="decoline" v-show="currentindex==index"></div>
               </transition>
@@ -46,29 +51,32 @@
         </div>
         <transition>
           <div v-if="show" class="navopenblock admin" @mouseleave="hidenavcontent">
-            <img class="schoologo" src="./media/school_logo.png" alt="">
+            <img class="schoologo" src="./assest/school_logo.png" alt="">
             <div class="aboutsmhswrap" v-if="currentindex==0">
               <div v-for="item in adminnav" class="admin-item">
+                <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                  {{item.name}}
+                </a>
 
-                {{item.name}}
 
               </div>
             </div>
             <div v-for="item in specialclassnnav" class="admin-item" v-show="currentindex==1">
-
-              {{item.name}}
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                {{item.name}}
+              </a>
 
             </div>
             <div v-for="item in digiservice" class="admin-item" v-show="currentindex==2">
-
-              {{item.name}}
-
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                {{item.name}}
+              </a>
             </div>
             <div class="aboutsmhswrap" v-show="currentindex==3">
               <div v-for="item in aboutsmhs" class="admin-item">
-
-                {{item.name}}
-
+                <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                  {{item.name}}
+                </a>
               </div>
             </div>
 
@@ -94,7 +102,7 @@
 
           <nav class="mobilenav">
             <div class="logo"></div>
-            <img @click="closefullpagemenu" src="./media/close-fill.svg" alt="">
+            <img @click="closefullpagemenu" src="./assest/close-fill.svg" alt="">
           </nav>
           <div class="navitem-wrap">
             <div class="navitem-top">
@@ -102,14 +110,22 @@
                 <h4 class="text">行政單位</h4>
                 <div class="divline"></div>
                 <div class="admin-item">
-                  <span v-for="(item,index) in adminnav" :key="index">{{item.name}}</span>
+                  <span v-for="(item,index) in adminnav" :key="index">
+                    <a :href="item.url" target="_blank" rel="noopener noreferrer">
+                      {{item.name}}
+                    </a>
+                  </span>
                 </div>
               </div>
               <div class="class-wrap">
                 <h4 class="text">特色班級</h4>
                 <div class="divline"></div>
                 <div class="admin-item">
-                  <span v-for="(item,index) in specialclassnnav" :key="index">{{item.name}}</span>
+
+                  <span v-for="(item,index) in specialclassnnav" :key="index">
+                    <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}
+                    </a>
+                  </span>
                 </div>
               </div>
 
@@ -119,14 +135,16 @@
                 <h4 class="text">數位服務</h4>
                 <div class="divline"></div>
                 <div class="admin-item">
-                  <span v-for="(item,index) in digiservice" :key="index">{{item.name}}</span>
+                  <span v-for="(item,index) in digiservice" :key="index"> <a :href="item.url" target="_blank"
+                      rel="noopener noreferrer">{{item.name}}</a></span>
                 </div>
               </div>
               <div class="about-wrap">
                 <h4 class="text">關於海星</h4>
                 <div class="divline"></div>
                 <div class="admin-item">
-                  <span v-for="(item,index) in aboutsmhs" :key="index">{{item.name}}</span>
+                  <span v-for="(item,index) in aboutsmhs" :key="index">
+                    <a :href="item.url" target="_blank" rel="noopener noreferrer">{{item.name}}</a></span>
                 </div>
               </div>
             </div>
@@ -159,7 +177,7 @@
           </svg>
 
           <div class="icon">
-            <img src="./media/student.svg" alt="">
+            <img src="./assest/student.svg" alt="">
 
           </div>
           <span class="title2">
@@ -189,7 +207,7 @@
           </svg>
 
           <div class="icon">
-            <img src="./media/teacher.svg" alt="">
+            <img src="./assest/teacher.svg" alt="">
           </div>
           <span class="title2">
             教職員工
@@ -218,7 +236,7 @@
           </svg>
 
           <div class="icon">
-            <img src="./media/parents.svg" alt="">
+            <img src="./assest/parents.svg" alt="">
           </div>
           <span class="title2">
             學生家長
@@ -247,7 +265,7 @@
           </svg>
 
           <div class="icon">
-            <img src="./media/graduate.svg" alt="">
+            <img src="./assest/graduate.svg" alt="">
           </div>
           <span class="title2">
             畢業校友
@@ -280,19 +298,21 @@
       </div>
       <div class="recruitblock-wrap">
         <div class="recruitblock" :ref="'recruitblock'+index" v-for="(item,index) in recruitgroup" :key="index"
-          @mouseover="showhoverani(index)" @mouseleave="leaveani(index)">
-          <div class="title2">
-            {{item.title}}
-          </div>
-          <div class="subtitle">
-            {{item.subtitle}}
-          </div>
-          <div class="colorcover" :ref="'colorcover'+index">
-            <div class="circle1" :ref="'refcircle1'+index">
-
+          @mouseover="showhoverani(index)" @mouseleave="leaveani(index)" @click="window.open(item.url)">
+          
+            <div class="title2">
+              {{item.title}}
             </div>
-            <div class="circle2" :ref="'refcircle2'+index"></div>
-          </div>
+            <div class="subtitle">
+              {{item.subtitle}}
+            </div>
+            <div class="colorcover" :ref="'colorcover'+index">
+              <div class="circle1" :ref="'refcircle1'+index">
+
+              </div>
+              <div class="circle2" :ref="'refcircle2'+index"></div>
+            </div>
+          
         </div>
       </div>
 
@@ -321,7 +341,7 @@
         </svg>
 
         <div class="icon">
-          <img src="./media/student.svg" alt="">
+          <img src="./assest/student.svg" alt="">
 
         </div>
         <span class="title2">
@@ -350,7 +370,7 @@
         </svg>
 
         <div class="icon">
-          <img src="./media/teacher.svg" alt="">
+          <img src="./assest/teacher.svg" alt="">
         </div>
         <span class="title2">
           教職員工
@@ -378,7 +398,7 @@
         </svg>
 
         <div class="icon">
-          <img src="./media/parents.svg" alt="">
+          <img src="./assest/parents.svg" alt="">
         </div>
         <span class="title2">
           學生家長
@@ -406,7 +426,7 @@
         </svg>
 
         <div class="icon">
-          <img src="./media/graduate.svg" alt="">
+          <img src="./assest/graduate.svg" alt="">
         </div>
         <span class="title2">
           畢業校友
@@ -512,17 +532,18 @@
     <div class="announcementpopup" v-show="popupopen == true">
 
       <div class="announcementpopup-content">
-        <svg @click="closepopup" class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <svg @click="closepopup" class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+          height="24">
           <path fill="none" d="M0 0h24v24H0z" />
           <path
             d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
-          </svg>
+        </svg>
         <div class="content-cata title2">
           {{announcementcata[announcementcataindex]}}最新公告
         </div>
         <div class="content-title title3">
           {{popupptitle}}
-          
+
 
         </div>
         <div class="admincata">
@@ -622,7 +643,8 @@
       var app = new Vue({
         el: "#app",
         data: {
-          loadingshow:true,
+          openmenucolor: "",
+          loadingshow: true,
           popupopen: false,
           announcementcataindex: 0,
           currentannouncementconetntidnex: -1,
@@ -677,30 +699,30 @@
           ],
           adminnav: [{
               name: "校長室",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/校長室",
             },
             {
               name: "教務處",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/教務處",
             },
             {
               name: "學務處",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/學務處",
             },
             {
               name: "總務處",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/總務處",
             },
             {
               name: "輔導室",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/輔導室",
             }, {
               name: '人事室',
-              url: ""
+              url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/人事室"
             },
             {
               name: '會計室',
-              url: ""
+              url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/會計室"
             },
             {
               name: '圖書館',
@@ -708,144 +730,144 @@
             },
             {
               name: '國中部',
-              url: ""
+              url: "https://sites.google.com/smhs.hlc.edu.tw/smhsunit/國中部"
             },
           ],
           specialclassnnav: [{
               name: "普通科",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/general-classes",
             },
             {
               name: "綜合科",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/comprehensive-courses",
             },
             {
-              name: "國中部",
-              url: "",
+              name: "國中部特色班級",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/jonior-high",
             },
             {
               name: "原住民教育",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/comprehensive-courses/原住民族文化特色班",
             },
             {
               name: "國際教育",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/featured-classes/smhs-classes/international-education",
             },
           ],
           digiservice: [{
               name: "學生紀錄系統",
-              url: "",
+              url: "http://reg.smhs.hlc.edu.tw/auth/Auth/Login?S=Auth",
             },
             {
               name: "學生助學金辨識",
-              url: "",
+              url: "http://www.smhs.hlc.edu.tw/smhs/self_design/身份補助流程表.pdf",
             },
             {
               name: "教師教學計畫",
-              url: "",
+              url: "http://203.71.0.15/schoolsystem/teach_plan/index.php",
             },
             {
               name: "班級經營計畫",
-              url: "",
+              url: "http://203.71.0.15/schoolsystem/class_plan/index.php",
             },
             {
               name: "證件申請",
-              url: "",
+              url: "http://www.smhs.hlc.edu.tw/smhs/academic_affairs/10.html",
             },
           ],
           aboutsmhs: [{
 
               name: "建校歷程",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/建校歷程",
             },
             {
               name: "校名校徽校址",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/校名校徽校址",
             },
             {
               name: "校訓",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/敬天愛人-校訓",
             },
             {
               name: "校歌",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/校歌",
             },
             {
               name: "歷任校長",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/歷任校長",
             },
             {
               name: "校史",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/校史",
             },
             {
               name: "聖吳甦樂修會發展史",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/聖吳甦樂女修會發展史",
             },
             {
               name: "休會教育理念",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/修會教育理念",
             },
             {
               name: "辦學績效",
-              url: "",
+              url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/辦學績效",
             },
           ],
           testduration: 2500,
           recruitgroup: [{
               title: '招生資訊',
               subtitle: '國一新生',
-              url: ''
+              url: 'http://www.smhs.hlc.edu.tw/smhs/enroll/junior_highschool.html'
             },
             {
               title: '招生資訊',
               subtitle: '高一新生',
-              url: ''
+              url: 'http://www.smhs.hlc.edu.tw/smhs/enroll/highschool.html'
             }, {
               title: '海星2+1',
               subtitle: '體驗外國文化',
-              url: ''
+              url: 'https://sites.google.com/smhs.hlc.edu.tw/internationaleducation/加拿大2-1課程'
             }
           ],
           announcementcontent: [],
-          popupptitle:'',
-          popupadmin:'',
-          popupcontent:'',
-          popdate:''
+          popupptitle: '',
+          popupadmin: '',
+          popupcontent: '',
+          popdate: ''
         },
         methods: {
-          closepopup(){
+          closepopup() {
             anime({
-                targets: '.announcementpopup',
+              targets: '.announcementpopup',
 
-                scale: [1, 0],
-                opacity: [1, 0],
-                easing: 'easeOutElastic(1, .8)',
+              scale: [1, 0],
+              opacity: [1, 0],
+              easing: 'easeOutElastic(1, .8)',
 
-                duration: 500
+              duration: 500
 
-              });
+            });
             this.popupopen = false
-            
+
           },
           openpopup(index) {
             anime({
-                targets: '.announcementpopup',
+              targets: '.announcementpopup',
 
-                scale: [0, 1],
-                opacity: [0, 1],
-                easing: 'easeOutElastic(1, .8)',
+              scale: [0, 1],
+              opacity: [0, 1],
+              easing: 'easeOutElastic(1, .8)',
 
-                duration: 500
+              duration: 500
 
-              });
+            });
             this.popupopen = true
             this.currentannouncementconetntidnex = index;
             this.popupptitle = this.announcementcontent[this.currentannouncementconetntidnex][0]
-            this.popupadmin =this.announcementcontent[this.currentannouncementconetntidnex][3]
-            this.popupcontent =this.announcementcontent[this.currentannouncementconetntidnex][2]
-            this.popdate =this.announcementcontent[this.currentannouncementconetntidnex][1]
-            
+            this.popupadmin = this.announcementcontent[this.currentannouncementconetntidnex][3]
+            this.popupcontent = this.announcementcontent[this.currentannouncementconetntidnex][2]
+            this.popdate = this.announcementcontent[this.currentannouncementconetntidnex][1]
+
           },
           changeannouncementcata(index) {
             this.announcementcataindex = index;
@@ -972,10 +994,13 @@
 
             });
           },
+          tourl(url){
+
+          },
           shownavopen(index, name) {
             this.currentindex = index;
             this.currentnavname = name;
-
+            this.openmenucolor = '#fff'
             var tl = anime.timeline({
               easing: 'easeInOutExpo',
 
@@ -1022,6 +1047,7 @@
           hidenavcontent() {
             this.show = false;
             this.currentindex = -1;
+            this.openmenucolor = ''
           },
           openmenu() {
             this.showfullpagemenu = true
@@ -1068,9 +1094,9 @@
             duration: 1500,
             loop: true,
             direction: 'alternate',
-            opacity:1
+            opacity: 1
           });
-         
+
           anime({
             targets: ".smallnav-parents svg",
             easing: 'easeInOutSine',
@@ -1078,7 +1104,7 @@
             loop: true,
             direction: 'alternate',
             scale: function () {
-              return Math.random()*(1.3 - 1) + 1
+              return Math.random() * (1.3 - 1) + 1
             },
             rotate: 10,
             left: function () {
@@ -1095,7 +1121,7 @@
             loop: true,
             direction: 'alternate',
             scale: function () {
-              return Math.random()*(1.3 - 1) + 1
+              return Math.random() * (1.3 - 1) + 1
             },
             rotate: 10,
             left: function () {
@@ -1112,7 +1138,7 @@
             loop: true,
             direction: 'alternate',
             scale: function () {
-              return Math.random()*(1.3 - 1) + 1
+              return Math.random() * (1.3 - 1) + 1
             },
             rotate: 10,
             left: function () {
@@ -1129,7 +1155,7 @@
             loop: true,
             direction: 'alternate',
             scale: function () {
-              return Math.random()*(1.3 - 1) + 1
+              return Math.random() * (1.3 - 1) + 1
             },
             rotate: 10,
             left: function () {
