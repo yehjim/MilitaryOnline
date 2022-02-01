@@ -13,6 +13,11 @@
     margin-right: 15px;
     color: #4E4E4E;
   }
+  .calender-btn span,
+  .juniorscroe span,
+  .highscroe span {
+    font-size: 20px;
+  }
   .linkwrap {
     padding-left: 32px;
     padding-right: 32px;
@@ -118,10 +123,15 @@
   .calender-btn svg,
   .juniorscroe svg,
   .highscroe svg {
-    width: 43px;
-    height: 43px;
+    width: 36px;
+    height: 36px;
     margin-right: 24px;
     color: #4E4E4E;
+  }
+  .calender-btn span,
+  .juniorscroe span,
+  .highscroe span {
+    font-size: 20px;
   }
   .linkwrap {
     padding-left: 100px;
@@ -236,6 +246,9 @@
   .linkwrap .linkgroup {
     height: 400px;
   }
+  .linkwrap .linkgroup span {
+    font-size: 18px;
+  }
   .decoline {
     height: 57px;
   }
@@ -303,11 +316,26 @@
 .juniorscroe,
 .highscroe {
   margin-top: 20px;
-  border: solid 1px;
   color: #4E4E4E;
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+.juniorscroe:hover {
+  color: #57A693;
+}
+
+.juniorscroe:hover svg {
+  fill: #57A693;
+}
+
+.highscroe:hover {
+  color: #57A693;
+}
+
+.highscroe:hover svg {
+  fill: #57A693;
 }
 
 .linkwrap {
@@ -362,4 +390,4 @@
 .linkwrap .linkgroup span:hover {
   color: #57A693;
 }
-/*# sourceMappingURL=teacherlink.css.map */
+/*# sourceMappingURL=parents.css.map */

@@ -19,6 +19,9 @@ $main_lighten:#FFFFFF;
             margin-right: 15px;
             color: $text_dark;
         }
+        span{
+            font-size: 20px;
+        }
     }
 
     .linkwrap {
@@ -132,10 +135,13 @@ $main_lighten:#FFFFFF;
         margin-right: 100px;
 
         svg {
-            width: 43px;
-            height: 43px;
+            width: 36px;
+            height: 36px;
             margin-right: 24px;
             color: $text_dark;
+        }
+        span{
+            font-size: 20px;
         }
     }
 
@@ -251,7 +257,11 @@ $main_lighten:#FFFFFF;
 
         .linkgroup {
             height: 400px;
+            span{
+                font-size: 18px;
+            }
         }
+
     }
 
     .decoline {
@@ -316,10 +326,24 @@ $main_lighten:#FFFFFF;
 .juniorscroe,
 .highscroe {
     margin-top: 20px;
-    border: solid 1px;
+   
     color: $text_dark;
     cursor: pointer;
     transition: 0.2s;
+}
+.juniorscroe:hover{
+    color: $main_dark;
+
+    svg {
+        fill: $main_dark;
+    }
+}
+.highscroe:hover{
+    color: $main_dark;
+
+    svg {
+        fill: $main_dark;
+    }
 }
 
 .linkwrap {

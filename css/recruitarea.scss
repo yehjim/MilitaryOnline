@@ -33,9 +33,10 @@ $main_lighten:#FFFFFF;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      
       .recruitblock{
-        width: 320px;
+      width: 100%;
+      margin-right: 25px;
+      margin-left: 25px;
       padding-bottom: 41px;
       padding-top: 41px;
       border-radius: 5px;
@@ -49,6 +50,7 @@ $main_lighten:#FFFFFF;
       color: $text_dark;
       cursor: pointer;
       position: relative;
+      
       a{
         text-decoration: none;
         z-index: 1;

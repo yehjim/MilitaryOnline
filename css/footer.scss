@@ -4,6 +4,135 @@ $subcolor:#C4C4C4;
 $main_dark:#57A693;
 $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
+@media (max-width: 767px) {
+    .location,.phone{
+            
+        display: flex;
+        align-items: center;
+       
+        margin-top: 20px;
+        
+        .decoline{
+            
+            height: 21px;
+            border:  solid 1px ;
+            border-color: $text_lightdark;
+            margin-left: 10px;
+            margin-right: 10px;
+           
+          
+        }
+        svg{
+            width: 24px;
+            height: 24px;
+            margin-right: 13px;
+        }
+    }
+}
+@media (max-width: 480px) {
+    .location,.phone{
+            
+        display: flex;
+        align-items: center;
+       
+        margin-top: 20px;
+       
+    
+        span{
+            font-size: 14px;
+        }
+        .decoline{
+            
+            height: 21px;
+            border:  solid 1px ;
+            border-color: $text_lightdark;
+            margin-left: 5px;
+            margin-right: 5px;
+           
+          
+        }
+        svg{
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+    .location,.phone{
+            
+        display: flex;
+        align-items: center;
+       
+        margin-top: 20px;
+        
+        .decoline{
+            
+            height: 21px;
+            border:  solid 1px ;
+            border-color: $text_lightdark;
+            margin-left: 10px;
+            margin-right: 10px;
+           
+          
+        }
+        svg{
+            width: 24px;
+            height: 24px;
+            margin-right: 13px;
+        }
+    }
+}
+@media (min-width: 980px) {
+    .location,.phone{
+            
+        display: flex;
+        align-items: center;
+       
+        margin-top: 20px;
+       
+        .decoline{
+            
+            height: 21px;
+            border:  solid 1px ;
+            border-color: $text_lightdark;
+            margin-left: 10px;
+            margin-right: 10px;
+           
+          
+        }
+        svg{
+            width: 24px;
+            height: 24px;
+            margin-right: 13px;
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .location,.phone{
+            
+        display: flex;
+        align-items: center;
+       
+        margin-top: 20px;
+        
+        .decoline{
+            
+            height: 21px;
+            border:  solid 1px ;
+            border-color: $text_lightdark;
+            margin-left: 10px;
+            margin-right: 10px;
+           
+          
+        }
+        svg{
+            width: 24px;
+            height: 24px;
+            margin-right: 13px;
+        }
+    }
+}
 footer{
     width: 100%;
     border-top: solid 1px ;
@@ -23,27 +152,7 @@ footer{
         .logo{
            width: 196px;
         }
-        .location,.phone{
-            
-            display: flex;
-            align-items: center;
-           
-            margin-top: 20px;
-            .decoline{
-                
-                height: 21px;
-                border:  solid 1px ;
-                border-color: $text_lightdark;
-                margin-left: 10px;
-                margin-right: 10px;
-               
-              
-            }
-            svg{
-                width: 24px;
-                margin-right: 13px;
-            }
-        }
+       
         .phone{
             margin-top: 28px;
         }

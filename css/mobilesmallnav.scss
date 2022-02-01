@@ -4,19 +4,89 @@ $subcolor:#C4C4C4;
 $main_dark:#57A693;
 $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
-.mobilesmallnav{
 
-    background-color: #fff;
+@media (max-width: 767px) {
+  .icon{
+    width: 52px;
+  }
+  
+  svg {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+  }
+  .title2{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon{
+    width: 40px;
     
-    color: $text_dark;
-    
-    
-    flex-direction: column;
-    align-items: center;
-    margin-top: 53px;
-  .smallnav-student{
+   
+  }
+  svg {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .icon{
+    width: 52px;
+  }
+  svg {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 980px) {
+  .icon{
+    width: 52px;
+  }
+  svg {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .icon{
+    width: 52px;
+  }
+  svg {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+img{
+  scale: 0.9;
+}
+svg {
+  z-index: -1;
+}
+
+.mobilesmallnav {
+
+
+
+  color: $text_dark;
+
+
+  flex-direction: column;
+  align-items: center;
+  margin-top: 53px;
+
+  .smallnav-student {
     display: flex;
-    align-items: center; 
+    align-items: center;
     position: relative;
     width: 100%;
     cursor: pointer;
@@ -25,25 +95,20 @@ $main_lighten:#FFFFFF;
     padding-left: 26px;
     margin-bottom: 29px;
     // border: solid 1px;
-    svg{
-      position: absolute;
-      width: 70px;
-      height: 70px;
-    }
-    
-    span{
-      
-    }
-    
-    .icon{
+
+
+    span {}
+
+    .icon {
       margin-right: 34px;
-      width: 52px;
+     
     }
-  
+
   }
-  .smallnav-teacher{
+
+  .smallnav-teacher {
     display: flex;
-    align-items: center; 
+    align-items: center;
     position: relative;
     width: 100%;
     cursor: pointer;
@@ -51,21 +116,16 @@ $main_lighten:#FFFFFF;
     border-bottom: solid 1px $text_dark;
     padding-left: 26px;
     margin-bottom: 29px;
-    svg{
-      position: absolute;
-     
-     
-      width: 60px;
-      height: 60px;
-    }
-    .icon{
+
+    .icon {
       margin-right: 34px;
-      width: 52px;
+      
     }
   }
-  .smallnav-parents{
+
+  .smallnav-parents {
     display: flex;
-    align-items: center; 
+    align-items: center;
     position: relative;
     width: 100%;
     cursor: pointer;
@@ -73,22 +133,16 @@ $main_lighten:#FFFFFF;
     border-bottom: solid 1px $text_dark;
     padding-left: 26px;
     margin-bottom: 29px;
-    svg{
-      position: absolute;
-      
-    
-      width: 60px;
-      height: 60px;
-      
-    }
-    .icon{
+
+    .icon {
       margin-right: 34px;
-      width: 52px;
+     
     }
   }
-  .smallnav-graduate{
+
+  .smallnav-graduate {
     display: flex;
-    align-items: center; 
+    align-items: center;
     position: relative;
     width: 100%;
     cursor: pointer;
@@ -96,17 +150,11 @@ $main_lighten:#FFFFFF;
     border-bottom: solid 1px $text_dark;
     padding-left: 26px;
     margin-bottom: 29px;
-    svg{
-      position: absolute;
-      
-     
-      width: 60px;
-      height: 60px;
-    }
-    .icon{
+
+    .icon {
       margin-right: 34px;
-      width: 52px;
+      
     }
   }
-  
-  }
+
+}
