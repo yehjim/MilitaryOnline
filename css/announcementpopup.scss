@@ -14,12 +14,19 @@ $main_lighten:#FFFFFF;
     z-index: 5;
 
     .announcementpopup-content {
-        .close{
-            width: 30px;
-            height: 30px;
-            float: right;
-            
+        .closewrap{
+           
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            .close{
+                width: 30px;
+                height: 30px;
+               
+                
+            }
         }
+        
         position: absolute;
         left: 50%;
         top: 50%;

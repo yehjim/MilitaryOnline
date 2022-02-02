@@ -20,6 +20,9 @@
     height: 24px;
     margin-right: 13px;
   }
+  .location span, .phone span {
+    margin-left: 24px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -47,6 +50,9 @@
     height: 15px;
     margin-right: 5px;
   }
+  .location span, .phone span {
+    margin-left: 24px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -69,7 +75,9 @@
   .location svg, .phone svg {
     width: 24px;
     height: 24px;
-    margin-right: 13px;
+  }
+  .location span, .phone span {
+    margin-left: 24px;
   }
 }
 
@@ -93,7 +101,9 @@
   .location svg, .phone svg {
     width: 24px;
     height: 24px;
-    margin-right: 13px;
+  }
+  .location span, .phone span {
+    margin-left: 24px;
   }
 }
 
@@ -107,6 +117,12 @@
             align-items: center;
     margin-top: 20px;
   }
+  .location .location-title, .phone .location-title {
+    width: 100px;
+  }
+  .location .phone-title, .phone .phone-title {
+    width: 100px;
+  }
   .location .decoline, .phone .decoline {
     height: 21px;
     border: solid 1px;
@@ -117,7 +133,9 @@
   .location svg, .phone svg {
     width: 24px;
     height: 24px;
-    margin-right: 13px;
+  }
+  .location span, .phone span {
+    margin-left: 24px;
   }
 }
 

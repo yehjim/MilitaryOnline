@@ -27,6 +27,10 @@ $main_lighten:#FFFFFF;
             height: 24px;
             margin-right: 13px;
         }
+       
+        span{
+            margin-left:24px;
+        }
     }
 }
 @media (max-width: 480px) {
@@ -56,6 +60,10 @@ $main_lighten:#FFFFFF;
             height: 15px;
             margin-right: 5px;
         }
+        
+        span{
+            margin-left:24px;
+        }
     }
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -76,10 +84,15 @@ $main_lighten:#FFFFFF;
            
           
         }
+        
         svg{
             width: 24px;
             height: 24px;
-            margin-right: 13px;
+           
+           
+        }
+        span{
+            margin-left:24px;
         }
     }
 }
@@ -101,10 +114,15 @@ $main_lighten:#FFFFFF;
            
           
         }
+        
         svg{
             width: 24px;
             height: 24px;
-            margin-right: 13px;
+           
+           
+        }
+        span{
+            margin-left:24px;
         }
     }
 }
@@ -115,7 +133,13 @@ $main_lighten:#FFFFFF;
         align-items: center;
        
         margin-top: 20px;
-        
+        .location-title{
+            width: 100px;
+        }
+        .phone-title{
+            width: 100px;
+           
+        }
         .decoline{
             
             height: 21px;
@@ -129,7 +153,11 @@ $main_lighten:#FFFFFF;
         svg{
             width: 24px;
             height: 24px;
-            margin-right: 13px;
+           
+           
+        }
+        span{
+            margin-left:24px;
         }
     }
 }

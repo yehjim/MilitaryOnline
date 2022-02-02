@@ -23,10 +23,19 @@
   padding-right: 37px;
 }
 
-.announcementpopup .announcementpopup-content .close {
+.announcementpopup .announcementpopup-content .closewrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.announcementpopup .announcementpopup-content .closewrap .close {
   width: 30px;
   height: 30px;
-  float: right;
 }
 
 .announcementpopup .announcementpopup-content .content-cata {
