@@ -5,8 +5,8 @@ $main_dark:#57A693;
 $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
 @font-face {
-    font-family: jfopen;
-    src: url('/font/jf-openhuninn-1.1.ttf');
+    font-family: "jfopen";
+    src: url(/font/jf-openhuninn-1.1.ttf) format("truetype");
 }
 a{
   text-decoration: none;
