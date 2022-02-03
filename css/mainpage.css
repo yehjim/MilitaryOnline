@@ -544,6 +544,10 @@ a {
   background-position: center;
 }
 
+.slide .carousel-item .pic .picinfo {
+  margin-top: 100px;
+}
+
 .slide .navopenblock {
   width: 50vw;
   height: 100vh;
@@ -903,6 +907,8 @@ a {
   border-radius: 5px;
   border: solid 2px #57A693;
   background-color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
   color: #57A693;
   overflow: hidden;
 }

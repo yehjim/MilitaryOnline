@@ -538,6 +538,10 @@ a{
             height: 100%;
             background-size: cover;
             background-position: center;
+            .picinfo{
+             
+              margin-top: 100px;
+            }
         }
     }
     
@@ -844,6 +848,8 @@ a{
   border-radius: 5px;
   border: solid 2px $main_dark;
   background-color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
  
   color: $main_dark;
   overflow: hidden;

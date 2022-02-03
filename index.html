@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/mainpage.css" />
   <link rel="stylesheet" href="./css/var.css" />
   <link rel="stylesheet" href="./css/recruitarea.css">
@@ -16,9 +16,7 @@
   <link rel="stylesheet" href="./css/announcementpopup.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js"></script>
 
   <title>海星高級中學</title>
@@ -27,7 +25,7 @@
 <body>
 
   <div id="app">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <nav class="webnav">
         <div class="logo"></div>
         <div class="navitem">
@@ -91,11 +89,14 @@
           </div>
         </transition>
       </nav>
-
+      
       <div class="carousel-inner">
-        <div class="carousel-item active" v-for="(item,index) in carouselpic" :key="index" data-bs-interval="7000">
-          <div class="pic" :style="{backgroundImage:'url('+item.pic+')'}"> <span class="title1 picinfo">多元 適性 陪伴
-              優質</span></div>
+        <div class="carousel-item active" v-for="(item,index) in carouselpic" :key="index" data-bs-interval="1000">
+          <transition>
+          <div class="pic" :style="{backgroundImage:'url('+item.pic+')'}" v-show="index==carouselindex">
+            <span class="title1 picinfo">{{item.title}}</span>
+          </div>
+        </transition>
         </div>
       </div>
 
@@ -282,11 +283,11 @@
 
     <div class="honorroll">
       <div class="title2">
-        <span v-for="(item,index) in honorroll" :key="index">{{item}}</span>
+        <span v-for="(item,index) in honorroll" :key="index" >{{item}}</span>
       </div>
       <div class="subtilte">
 
-        <span :ref="'honorroll'+index" v-for="(item,index) in honorroll" :key="index">
+        <span v-for="(item,index) in honorroll" :key="index" >
           {{item}}
 
       </div>
@@ -410,7 +411,7 @@
           學生家長
         </span>
       </div>
-      <div class="smallnav-graduate"  @click="tonextpage('graduate')">
+      <div class="smallnav-graduate" @click="tonextpage('graduate')">
         <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_f_462_2220)">
             <circle cx="17" cy="17" r="13" fill="url(#paint0_linear_462_2220)" fill-opacity="0.41" />
@@ -502,7 +503,7 @@
             {{item[0]}}
           </div>
           <div class="date">
-            {{item[1]}}
+            {{convertdatehandler(item[1])}}
           </div>
 
 
@@ -540,13 +541,13 @@
       <div class="announcementpopup-content">
         <div class="closewrap">
           <svg @click="closepopup" class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-          height="24">
-          <path fill="none" d="M0 0h24v24H0z" />
-          <path
-            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
-        </svg>
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+              d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+          </svg>
         </div>
-       
+
         <div class="content-cata title2">
           {{announcementcata[announcementcataindex]}}最新公告
         </div>
@@ -562,7 +563,7 @@
           {{popupcontent}}
         </div>
         <div class="date subtilte">
-          {{popdate}}
+          {{convertdate}}
         </div>
       </div>
     </div>
@@ -654,11 +655,10 @@
     <div class="transition">
 
     </div>
-    <div class="loadingpage" v-if="loadingshow==true">
+    <!-- <div class="loadingpage" v-if="loadingshow==true">
       <div class="logo"></div>
-    </div>
-
-
+    </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script>
       var app = new Vue({
@@ -673,7 +673,8 @@
           show: false,
           announcementcata: ['校務公告', '獎助學金', '教師研習', '校外活動', '下載資料', '升學資訊', '政令宣導'],
           announcementcataselect: '獎助學金',
-          honorroll: ['普二忠班 葉俊麟 榮獲全國學生美展 特等獎', "普二信班 葉俊甫 榮獲全國學生美展 特等獎"],
+          honorrollindex:0,
+          honorroll: ['普二忠班 葉俊麟 榮獲全國學生美展 特等獎', "普二信班 葉宗達 榮獲全國技藝競賽 銅獎"],
           showfullpagemenu: false,
           currentnavname: '',
           announcementcataopen: false,
@@ -694,12 +695,13 @@
               url: ''
             }
           ],
+          carouselindex:0,
           carouselpic: [{
-            pic: "./assest/S__4890729.jpg"
+            pic: "./assest/S__4890729.jpg",
+            title:'多元 適性 陪伴 優質'
           }, {
-            pic: ""
-          }, {
-            pic: ""
+            pic: "./assest/合歡尖山攻頂合影1.jpg",
+            title:'海星科學班合歡山大縱走'
           }],
           navitems: [{
               num: 0,
@@ -857,9 +859,26 @@
           popdate: ''
         },
         methods: {
-          covertdate(date){
-            return date.Substring(0,10)
+          convertdatehandler(datestring){
+            let newdatestring = datestring;
+            
+            newdatestring = newdatestring.substring(0,10);
+            
+            
+            return newdatestring
           },
+          carouseltimer(){
+            let l =  this.carouselpic.length;
+            window.setInterval(( () => {
+              if(this.carouselindex < l-1){
+                this.carouselindex++
+              }else{
+                this.carouselindex = 0;
+              }
+              
+            } ), 7000);
+          },
+         
           closepopup() {
             anime({
               targets: '.announcementpopup',
@@ -1123,27 +1142,40 @@
                 translateX: 0
 
               })
-            if(page=='parents'){
+            if (page == 'parents') {
               window.setTimeout((function () {
-              window.location.href = "./parents.html";
-            }), 1300);
-            }else if(page=='teacher'){
+                window.location.href = "./parents.html";
+              }), 1300);
+            } else if (page == 'teacher') {
               window.setTimeout((function () {
-              window.location.href = "./teacherlink.html";
-            }), 1300);
-            }else if(page=='students'){
+                window.location.href = "./teacherlink.html";
+              }), 1300);
+            } else if (page == 'students') {
               window.setTimeout((function () {
-              window.location.href = "./students.html";
-            }), 1300);
-            }else if(page=='graduate'){
+                window.location.href = "./students.html";
+              }), 1300);
+            } else if (page == 'graduate') {
               window.setTimeout((function () {
-              window.location.href = "./graduate.html";
-            }), 1300);
+                window.location.href = "./graduate.html";
+              }), 1300);
             }
-           
 
 
 
+
+          }
+        },
+        computed:{
+          convertdate(){
+            let newdatestring = this.popdate;
+            if(this.popdate == ''){
+              console.log('pass')
+            }else{
+              newdatestring = newdatestring.substring(0,10);
+            }
+            
+            return newdatestring
+            
           }
         },
         mounted() {
@@ -1229,7 +1261,8 @@
             var navbar = document.querySelector(".webnav")
             navbar.classList.toggle("sticky", window.scrollY > 0)
           })
-
+          this.carouseltimer();
+          
           anime({
             targets: ".honorroll span",
             translateY: [100, 0],

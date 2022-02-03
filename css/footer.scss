@@ -9,91 +9,129 @@ $main_lighten:#FFFFFF;
             
         display: flex;
         align-items: center;
+        justify-content: flex-start;
+      
        
         margin-top: 20px;
-        
         .decoline{
             
             height: 21px;
             border:  solid 1px ;
             border-color: $text_lightdark;
-            margin-left: 10px;
             margin-right: 10px;
            
           
         }
-        svg{
-            width: 24px;
-            height: 24px;
-            margin-right: 13px;
+       
+        .location-title,.phone-title{
+            flex: 4;
+           
+            svg{
+                width: 24px;
+                height: 24px;
+                position: relative;
+               
+               
+            }
+            span{
+                margin-left:16px;
+            }
+        }
+        .decoline{
+            
+            // flex: 2;
+           
+          
+        }
+        .phone-content,.location-content{
+            flex: 8;
         }
        
-        span{
-            margin-left:24px;
-        }
     }
 }
 @media (max-width: 480px) {
+    .footer-basicinfo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .location,.phone{
             
         display: flex;
         align-items: center;
+        flex-direction: column;
        
         margin-top: 20px;
-       
-    
-        span{
-            font-size: 14px;
+        .location-title,.phone-title{
+            span{
+                font-size: 14px;
+                margin: 0px;
+            }
         }
+        
         .decoline{
-            
-            height: 21px;
-            border:  solid 1px ;
-            border-color: $text_lightdark;
-            margin-left: 5px;
-            margin-right: 5px;
+            width: 90%;
+            height: 1px;
+            background-color: $subcolor;
+            margin: 0px;
+            padding: 0px;
+            margin-bottom: 5px;
+
+            // display: none;
            
           
         }
         svg{
-            width: 15px;
-            height: 15px;
-            margin-right: 5px;
+            display: none;
         }
         
-        span{
-            margin-left:24px;
-        }
+       
     }
+    
 }
 @media (min-width: 768px) and (max-width: 979px) {
     .location,.phone{
             
         display: flex;
         align-items: center;
+        justify-content: flex-start;
+      
        
         margin-top: 20px;
-        
         .decoline{
             
             height: 21px;
             border:  solid 1px ;
             border-color: $text_lightdark;
-            margin-left: 10px;
             margin-right: 10px;
            
           
         }
-        
-        svg{
-            width: 24px;
-            height: 24px;
+       
+        .location-title,.phone-title{
+            flex: 3;
            
+            svg{
+                width: 24px;
+                height: 24px;
+                position: relative;
+               
+               
+            }
+            span{
+                margin-left:16px;
+            }
+        }
+        .decoline{
+            
+            // flex: 2;
            
+          
         }
-        span{
-            margin-left:24px;
+        .phone-content,.location-content{
+            flex: 9;
         }
+       
     }
 }
 @media (min-width: 980px) {
@@ -101,65 +139,47 @@ $main_lighten:#FFFFFF;
             
         display: flex;
         align-items: center;
+        justify-content: space-between;
        
         margin-top: 20px;
-       
         .decoline{
             
             height: 21px;
             border:  solid 1px ;
             border-color: $text_lightdark;
-            margin-left: 10px;
             margin-right: 10px;
            
           
         }
-        
-        svg{
-            width: 24px;
-            height: 24px;
+       
+        .location-title,.phone-title{
+            flex: 4;
            
+            svg{
+                width: 24px;
+                height: 24px;
+                position: relative;
+               
+               
+            }
+            span{
+                margin-left:16px;
+            }
+        }
+        .decoline{
+            
+            // flex: 2;
            
+          
         }
-        span{
-            margin-left:24px;
+        .phone-content,.location-content{
+            flex: 8;
         }
+       
     }
 }
 @media (min-width: 1200px) {
-    .location,.phone{
-            
-        display: flex;
-        align-items: center;
-       
-        margin-top: 20px;
-        .location-title{
-            width: 100px;
-        }
-        .phone-title{
-            width: 100px;
-           
-        }
-        .decoline{
-            
-            height: 21px;
-            border:  solid 1px ;
-            border-color: $text_lightdark;
-            margin-left: 10px;
-            margin-right: 10px;
-           
-          
-        }
-        svg{
-            width: 24px;
-            height: 24px;
-           
-           
-        }
-        span{
-            margin-left:24px;
-        }
-    }
+    
 }
 footer{
     width: 100%;
@@ -177,12 +197,17 @@ footer{
         
         padding-top: 27px;
         padding-bottom: 37px;
+        
         .logo{
            width: 196px;
         }
        
         .phone{
             margin-top: 28px;
+            
+        }
+        .location{
+           
         }
         .googlemap{
            
@@ -201,6 +226,7 @@ footer{
         // padding-left: 20px;
         display: flex;
         justify-content: space-between;
+        
        
         
         

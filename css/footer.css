@@ -6,26 +6,50 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     margin-top: 20px;
   }
   .location .decoline, .phone .decoline {
     height: 21px;
     border: solid 1px;
     border-color: #717171;
-    margin-left: 10px;
     margin-right: 10px;
   }
-  .location svg, .phone svg {
+  .location .location-title, .location .phone-title, .phone .location-title, .phone .phone-title {
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+  }
+  .location .location-title svg, .location .phone-title svg, .phone .location-title svg, .phone .phone-title svg {
     width: 24px;
     height: 24px;
-    margin-right: 13px;
+    position: relative;
   }
-  .location span, .phone span {
-    margin-left: 24px;
+  .location .location-title span, .location .phone-title span, .phone .location-title span, .phone .phone-title span {
+    margin-left: 16px;
+  }
+  .location .phone-content, .location .location-content, .phone .phone-content, .phone .location-content {
+    -webkit-box-flex: 8;
+        -ms-flex: 8;
+            flex: 8;
   }
 }
 
 @media (max-width: 480px) {
+  .footer-basicinfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   .location, .phone {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -33,25 +57,26 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-top: 20px;
   }
-  .location span, .phone span {
+  .location .location-title span, .location .phone-title span, .phone .location-title span, .phone .phone-title span {
     font-size: 14px;
+    margin: 0px;
   }
   .location .decoline, .phone .decoline {
-    height: 21px;
-    border: solid 1px;
-    border-color: #717171;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 90%;
+    height: 1px;
+    background-color: #C4C4C4;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 5px;
   }
   .location svg, .phone svg {
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-  }
-  .location span, .phone span {
-    margin-left: 24px;
+    display: none;
   }
 }
 
@@ -63,21 +88,34 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     margin-top: 20px;
   }
   .location .decoline, .phone .decoline {
     height: 21px;
     border: solid 1px;
     border-color: #717171;
-    margin-left: 10px;
     margin-right: 10px;
   }
-  .location svg, .phone svg {
+  .location .location-title, .location .phone-title, .phone .location-title, .phone .phone-title {
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
+  }
+  .location .location-title svg, .location .phone-title svg, .phone .location-title svg, .phone .phone-title svg {
     width: 24px;
     height: 24px;
+    position: relative;
   }
-  .location span, .phone span {
-    margin-left: 24px;
+  .location .location-title span, .location .phone-title span, .phone .location-title span, .phone .phone-title span {
+    margin-left: 16px;
+  }
+  .location .phone-content, .location .location-content, .phone .phone-content, .phone .location-content {
+    -webkit-box-flex: 9;
+        -ms-flex: 9;
+            flex: 9;
   }
 }
 
@@ -89,53 +127,34 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-top: 20px;
   }
   .location .decoline, .phone .decoline {
     height: 21px;
     border: solid 1px;
     border-color: #717171;
-    margin-left: 10px;
     margin-right: 10px;
   }
-  .location svg, .phone svg {
+  .location .location-title, .location .phone-title, .phone .location-title, .phone .phone-title {
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+  }
+  .location .location-title svg, .location .phone-title svg, .phone .location-title svg, .phone .phone-title svg {
     width: 24px;
     height: 24px;
+    position: relative;
   }
-  .location span, .phone span {
-    margin-left: 24px;
+  .location .location-title span, .location .phone-title span, .phone .location-title span, .phone .phone-title span {
+    margin-left: 16px;
   }
-}
-
-@media (min-width: 1200px) {
-  .location, .phone {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-top: 20px;
-  }
-  .location .location-title, .phone .location-title {
-    width: 100px;
-  }
-  .location .phone-title, .phone .phone-title {
-    width: 100px;
-  }
-  .location .decoline, .phone .decoline {
-    height: 21px;
-    border: solid 1px;
-    border-color: #717171;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .location svg, .phone svg {
-    width: 24px;
-    height: 24px;
-  }
-  .location span, .phone span {
-    margin-left: 24px;
+  .location .phone-content, .location .location-content, .phone .phone-content, .phone .location-content {
+    -webkit-box-flex: 8;
+        -ms-flex: 8;
+            flex: 8;
   }
 }
 
