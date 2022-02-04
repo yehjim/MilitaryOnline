@@ -161,6 +161,7 @@
         </div>
         <div class="content">
             <div class="calender-btn">
+                <a href="https://calendar.google.com/calendar/u/0/embed?height=600&wkst=1&bgcolor=%23FFFFFF&src=og7l9rpticnga7neo5gj56ec98@group.calendar.google.com&color=%232F6213&ctz=Asia/Taipei" target="_blank" rel="noopener noreferrer">
                 <div class="btn-wrap">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -169,9 +170,11 @@
                     </svg>
                     <span class="title2">海星行事曆</span>
                 </div>
+            </a>
 
             </div>
             <div class="juniorscroe">
+                <a href="https://reg.smhs.hlc.edu.tw/auth/Auth/Login?ReturnUrl=https%3a%2f%2freg.smhs.hlc.edu.tw%2fauth" target="_blank" rel="noopener noreferrer">
                 <div class="btnwrap">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -180,8 +183,10 @@
                     </svg>
                     <span class="title2">國中成績查詢</span>
                 </div>
+            </a>
             </div>
             <div class="highscroe">
+                <a href="https://eschool.hlc.edu.tw" target="_blank" rel="noopener noreferrer">
                 <div class="btnwrap">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -190,6 +195,7 @@
                     </svg>
                     <span class="title2">高中成績查詢</span>
                 </div>
+            </a>
             </div>
 
             <div class="linkwrap" v-for="(item,index) in linkdata" :key="index">
@@ -204,7 +210,12 @@
 
                 </div>
                 <div class="linkgroup">
-                    <span v-for="linkitem in item.linkgroup" :key="index">{{linkitem.title}}</span>
+                   
+                    <span v-for="linkitem in item.linkgroup" :key="index">
+                        <a :href="linkitem.url" target="_blank" rel="noopener noreferrer">{{linkitem.title}}
+                        </a>
+                        </span>
+                
                 </div>
 
             </div>
@@ -293,10 +304,11 @@
             </div>
 
         </footer>
-    </div>
-    <div class="transition">
+        <div class="transition">
 
+        </div>
     </div>
+   
     <script>
         var app = new Vue({
             el: "#app",
@@ -495,142 +507,104 @@
                 linkdata: [{
                     title: '數位學習',
                     subtitle: '數位化學習工具',
-                    linkgroup: [{
-                        title: '互動英語學習網',
-                        url: ''
-                    }, {
+                    linkgroup: [ {
                         title: '教育雲平台',
-                        url: ''
+                        url: 'https://www.sso.edu.tw/home?3'
                     }, {
                         title: '均一教育平台',
-                        url: ''
+                        url: 'https://www.junyiacademy.org'
                     }, {
                         title: '可汗學院',
-                        url: ''
+                        url: 'https://www.khanacademy.org'
                     }, {
                         title: 'class dojo',
-                        url: ''
+                        url: 'https://www.classdojo.com/zh-tw/'
                     }, {
-                        title: 'coursera',
-                        url: ''
+                        title: '高等教育平台 - coursera',
+                        url: 'https://www.coursera.org'
                     }, {
                         title: '翰林雲端學院',
-                        url: ''
+                        url: 'https://smhsedu.teams.com.tw/login.html?goto=http%3A%2F%2Fsmhsedu.teams.com.tw%2Fcourse%2FteacherAllCourse.html%3Fnull'
                     }, {
                         title: '名師學院',
-                        url: ''
+                        url: 'https://sites.google.com/smhs.hlc.edu.tw/smhs-kut/首頁'
                     }, {
                         title: '英語線上學習平台',
-                        url: ''
+                        url: 'https://www.coolenglish.edu.tw'
                     }, {
                         title: '學生生涯輔導網',
-                        url: ''
+                        url: 'http://35.236.185.223'
                     }, {
                         title: 'Kahoot',
-                        url: ''
+                        url: 'https://sites.google.com/a/smhs.hlc.edu.tw/smhsinfo/'
                     }, {
                         title: '1Know',
-                        url: ''
+                        url: 'http://www.1know.net/#!/'
                     }]
                 }, {
                     title: '生涯資訊',
                     subtitle: '升學所需的工具',
                     linkgroup: [{
                             title: '全民英檢',
-                            url: ''
+                            url: 'https://www.gept.org.tw'
                         }, {
                             title: '勞委會中辦室',
-                            url: ''
+                            url: 'http://www2.csic.khc.edu.tw/第二專長/相關網站.htm'
                         }, {
                             title: '技訊網',
-                            url: ''
-                        }, {
-                            title: '技專招生策進會',
-                            url: ''
-                        }, {
+                            url: 'http://www.techadmi.edu.tw/search/'
+                        },  {
                             title: '原住民教育資訊網',
-                            url: ''
-                        }, {
-                            title: '漫步在大學',
-                            url: ''
+                            url: 'https://ieiw.ntcu.edu.tw/#gsc.tab=0'
                         }, {
                             title: '四技登記分發',
-                            url: ''
-                        }, {
-                            title: '身障學生升學徵選',
-                            url: ''
-                        }, {
-                            title: '海巡人才升學徵選',
-                            url: ''
-                        }, {
-                            title: '乙級檢定教學網',
-                            url: ''
-                        }, {
-                            title: '大學選材育才系統',
-                            url: ''
+                            url: 'https://www.jctv.ntut.edu.tw/union42/'
                         },
                         {
                             title: '大學入學考試中心',
-                            url: ''
+                            url: 'https://www.ceec.edu.tw'
                         }, {
                             title: '四技申請入學',
+                            url:'https://www.jctv.ntut.edu.tw/caac/'
                         }
                     ]
                 }, {
                     title: '教育資源',
                     subtitle: '成長茁壯的資源',
-                    linkgroup: [{
-                        title: '12年國教',
-                        url: ''
-                    }, {
-                        title: '全國法規資料庫',
-                        url: ''
-                    }, {
+                    linkgroup: [ {
                         title: '校園反霸凌',
-                        url: ''
-                    }, {
-                        title: '申訴信箱',
-                        url: ''
-                    }, {
-                        title: '165防詐騙',
-                        url: ''
-                    }, {
+                        url: 'https://bully.moe.edu.tw/index'
+                    },  {
                         title: '教育部',
-                        url: ''
+                        url: 'https://www.edu.tw/Default.aspx'
                     }, {
                         title: '防治學生藥物濫用',
-                        url: ''
+                        url: 'https://enc.moe.edu.tw'
                     }, {
                         title: '品德教育',
-                        url: ''
+                        url: 'https://ce.naer.edu.tw'
                     }, {
                         title: '交通安全入口網',
-                        url: ''
+                        url: 'https://sites.google.com/view/smhslomi'
                     }, {
                         title: '性平教育',
-                        url: ''
-                    }, {
-                        title: '毒品防治',
-                        url: ''
+                        url: 'http://www.smhs.hlc.edu.tw/smhs/smhs_gender/Gender.htm'
                     }]
                 }, {
                     title: '圖書館',
                     subtitle: '圖書館相關資源',
                     linkgroup: [{
                         title: '圖書線上查詢',
-                        url: ''
-                    }, {
-                        title: '中學生網站',
-                        url: ''
-                    }, {
+                        url: 'http://203.71.0.7'
+                    },{
                         title: '網路知識庫',
-                        url: ''
+                        url: 'https://www.ncl.edu.tw'
                     }, {
                         title: '天下雜誌知識庫',
-                        url: ''
+                        url: 'http://new.cwk.com.tw/login.php'
                     }, {
                         title: 'HyRead雲端閱讀電子書網',
-                        url: ''
+                        url: 'https://smhshlc.ebook.hyread.com.tw'
                     }]
                 }]
 
@@ -805,7 +779,7 @@
                 openmenu() {
                     this.showfullpagemenu = true
                     anime({
-                        targets: ".admin-item",
+                        targets: ".navopenblock > .admin-item",
                         translateX: [70, 0],
                         opacity: [0, 1],
                         easing: 'easeInOutExpo',

@@ -22,9 +22,9 @@
     <div id="app">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <nav class="webnav">
-                <a href="./index.html">
-                    <div class="logo"></div>
-                </a>
+                
+                    <div class="logo" @click="tohome"></div>
+                
 
                 <div class="navitem">
                     <div class="navwarp">
@@ -264,8 +264,11 @@
             </div>
 
         </footer>
-    </div>
+        <div class="transition">
 
+        </div>
+    </div>
+    
     <script>
         var app = new Vue({
             el: "#app",
@@ -479,85 +482,39 @@
 
             },
             methods: {
-                closepopup() {
-                    anime({
-                        targets: '.announcementpopup',
+                tohome() {
+                    var tl = anime.timeline({
+                        easing: 'easeInOutSine',
+                        duration: 650,
 
-                        scale: [1, 0],
-                        opacity: [1, 0],
-                        easing: 'easeOutElastic(1, .8)',
-
-                        duration: 500
-
-                    });
-                    this.popupopen = false
-
-                },
-                openpopup(index) {
-                    anime({
-                        targets: '.announcementpopup',
-
-                        scale: [0, 1],
-                        opacity: [0, 1],
-                        easing: 'easeOutElastic(1, .8)',
-
-                        duration: 500
-
-                    });
-                    this.popupopen = true
-                    this.currentannouncementconetntidnex = index;
-                    this.popupptitle = this.announcementcontent[this.currentannouncementconetntidnex][0]
-                    this.popupadmin = this.announcementcontent[this.currentannouncementconetntidnex][3]
-                    this.popupcontent = this.announcementcontent[this.currentannouncementconetntidnex][2]
-                    this.popdate = this.announcementcontent[this.currentannouncementconetntidnex][1]
-
-                },
-                changeannouncementcata(index) {
-                    this.announcementcataindex = index;
-
-
-                    anime({
-                        targets: '.announcement-catawrap',
-
-                        height: ['328px', 0],
-                        opacity: [1, 0],
-                        easing: 'easeInOutQuad',
-
-                        duration: 1000
-
-                    });
-                    this.announcementcataopen = false;
-
-
-                },
-                openannouncementmenu() {
-
-                    if (this.announcementcataopen == false) {
-                        anime({
-                            targets: '.announcement-catawrap',
-                            opacity: [0, 1],
-                            height: [0, '328px'],
+                    })
+                    tl.add({
+                            targets: ".transition",
                             easing: 'easeInOutQuad',
-
-                            duration: 1000
-
-                        });
-                        this.announcementcataopen = true;
-                    } else {
-                        anime({
-                            targets: '.announcement-catawrap',
-
-                            height: ['328px', 0],
-                            opacity: [1, 0],
+                            width: '100%',
+                            // translateX:[0,'100%'],
+                            opacity: 1
+                        })
+                        .add({
+                            targets: ".transition",
                             easing: 'easeInOutQuad',
+                            translateX: [0, '100%'],
+                            delay: 200,
+                            opacity: 0
+                        })
+                        .add({
+                            targets: ".transition",
+                            easing: 'easeInOutQuad',
+                            width: '0px',
+                            translateX: 0
 
-                            duration: 1000
-
-                        });
-                        this.announcementcataopen = false;
-                    }
-
+                        })
+                    window.setTimeout((function () {
+                        window.location.href = "./index.html";
+                    }), 1300);
                 },
+             
+                
                 showhoverani(index) {
 
                     let vm = this;
@@ -637,9 +594,7 @@
 
                     });
                 },
-                tourl(url) {
-
-                },
+               
                 shownavopen(index, name) {
                     this.currentindex = index;
                     this.currentnavname = name;
@@ -666,21 +621,7 @@
                                 targets: ".schoologo",
                                 opacity: [0, 0.1],
                             }, 700)
-                        // anime({
-                        //   targets: ".admin-item",
-                        //   translateX: [70, 0],
-                        //   opacity: [0, 1],
-                        //   easing: 'easeInOutExpo',
-                        //   delay: anime.stagger(30), // increase delay by 100ms for each elements.
-                        // });
-                        // anime({
-                        //   targets: ".admin-title",
-                        //   translateX: [70, 0],
-                        //   opacity: [0, 1],
-                        //   delay: 300,
-                        //   easing: 'easeInOutExpo',
-
-                        // });
+                      
                     } else {
                         this.show = true;
                     }
@@ -695,7 +636,7 @@
                 openmenu() {
                     this.showfullpagemenu = true
                     anime({
-                        targets: ".admin-item",
+                        targets: ".navopenblock > .admin-item",
                         translateX: [70, 0],
                         opacity: [0, 1],
                         easing: 'easeInOutExpo',
@@ -705,109 +646,10 @@
                 closefullpagemenu() {
                     this.showfullpagemenu = false
                 },
-                changespeed() {
-                    this.testduration = 10000
-                    var tl = anime.timeline({
-                        easing: 'easeInOutSine',
-                        duration: this.testduration,
-                        loop: true,
-                        direction: 'alternate',
-
-                    })
-                    tl.add({
-                            targets: ".smallnav-parents svg",
-                            scale: 1.4
-                        })
-                        .add({
-                            rotate: 10,
-                            left: function () {
-                                return anime.random(-15, 10) + 'px';
-                            },
-                            top: function () {
-                                return anime.random(-10, 10) + 'px';
-                            }
-
-                        })
-                }
+             
             },
             mounted() {
-                anime({
-                    targets: ".loadingpage .logo",
-                    easing: 'easeInOutQuad',
-                    duration: 1500,
-                    loop: true,
-                    direction: 'alternate',
-                    opacity: 1
-                });
-
-                anime({
-                    targets: ".smallnav-parents svg",
-                    easing: 'easeInOutSine',
-                    duration: this.testduration,
-                    loop: true,
-                    direction: 'alternate',
-                    scale: function () {
-                        return Math.random() * (1.3 - 1) + 1
-                    },
-                    rotate: 10,
-                    left: function () {
-                        return anime.random(-15, 10) + 'px';
-                    },
-                    top: function () {
-                        return anime.random(-10, 10) + 'px';
-                    }
-                });
-                anime({
-                    targets: ".smallnav-teacher svg",
-                    easing: 'easeInOutSine',
-                    duration: this.testduration,
-                    loop: true,
-                    direction: 'alternate',
-                    scale: function () {
-                        return Math.random() * (1.3 - 1) + 1
-                    },
-                    rotate: 10,
-                    left: function () {
-                        return anime.random(-15, 10) + 'px';
-                    },
-                    top: function () {
-                        return anime.random(-10, 10) + 'px';
-                    }
-                });
-                anime({
-                    targets: ".smallnav-student svg",
-                    easing: 'easeInOutSine',
-                    duration: this.testduration,
-                    loop: true,
-                    direction: 'alternate',
-                    scale: function () {
-                        return Math.random() * (1.3 - 1) + 1
-                    },
-                    rotate: 10,
-                    left: function () {
-                        return anime.random(-15, 10) + 'px';
-                    },
-                    top: function () {
-                        return anime.random(-10, 10) + 'px';
-                    }
-                });
-                anime({
-                    targets: ".smallnav-graduate svg",
-                    easing: 'easeInOutSine',
-                    duration: this.testduration,
-                    loop: true,
-                    direction: 'alternate',
-                    scale: function () {
-                        return Math.random() * (1.3 - 1) + 1
-                    },
-                    rotate: 10,
-                    left: function () {
-                        return anime.random(-15, 10) + 'px';
-                    },
-                    top: function () {
-                        return anime.random(-10, 10) + 'px';
-                    }
-                });
+              
 
                 window.addEventListener("scroll", function () {
                     var navbar = document.querySelector(".webnav")

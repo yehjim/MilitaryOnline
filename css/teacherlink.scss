@@ -284,6 +284,13 @@ $main_lighten:#FFFFFF;
 
 .content {
     margin-bottom: 100px;
+    a{
+        text-decoration: none;
+        color: $text_dark;
+    }
+    a:hover{
+        color: $main_dark;
+    }
 }
 
 .calender-btn {

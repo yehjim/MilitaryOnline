@@ -283,6 +283,15 @@
   margin-bottom: 100px;
 }
 
+.content a {
+  text-decoration: none;
+  color: #4E4E4E;
+}
+
+.content a:hover {
+  color: #57A693;
+}
+
 .calender-btn {
   margin-top: 52px;
   color: #4E4E4E;

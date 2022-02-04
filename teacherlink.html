@@ -22,9 +22,9 @@
     <div id="app">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <nav class="webnav">
-                <a href="./index.html">
-                    <div class="logo"></div>
-                </a>
+            
+                    <div class="logo" @click="tohome"></div>
+                
 
                 <div class="navitem">
                     <div class="navwarp">
@@ -163,6 +163,7 @@
         </div>
         <div class="content">
             <div class="calender-btn">
+                <a href="https://calendar.google.com/calendar/u/0/embed?height=600&wkst=1&bgcolor=%23FFFFFF&src=og7l9rpticnga7neo5gj56ec98@group.calendar.google.com&color=%232F6213&ctz=Asia/Taipei" target="_blank" rel="noopener noreferrer">
                 <div class="btn-wrap">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -171,6 +172,7 @@
                     </svg>
                     <span class="title2">海星行事曆</span>
                 </div>
+            </a>
 
             </div>
             <div class="linkwrap" v-for="(item,index) in linkdata" :key="index">
@@ -185,7 +187,10 @@
 
                 </div>
                 <div class="linkgroup">
-                    <span v-for="linkitem in item.linkgroup" :key="index">{{linkitem.title}}</span>
+                    <span v-for="linkitem in item.linkgroup" :key="index">
+                        <a :href="linkitem.url" target="_blank" rel="noopener noreferrer">{{linkitem.title}}
+                        </a>
+                        </span>
                 </div>
 
             </div>
@@ -274,8 +279,11 @@
             </div>
 
         </footer>
-    </div>
+        <div class="transition">
 
+        </div>
+    </div>
+   
     <script>
         var app = new Vue({
             el: "#app",
@@ -471,192 +479,102 @@
                 popupadmin: '',
                 popupcontent: '',
                 popdate: '',
-                linkdata: [{
-                    title: '數位服務',
-                    subtitle: '數位化工作工具',
-                    linkgroup: [{
-                        title: '學生技錄系統',
-                        url: ''
-                    }, {
-                        title: '學生助學金辨識',
-                        url: ''
-                    }, {
-                        title: '教師教學計劃',
-                        url: ''
-                    }, {
-                        title: '班級經營計畫',
-                        url: ''
-                    }, {
-                        title: '教師評鑑網',
-                        url: ''
-                    }, {
-                        title: '證件申請',
-                        url: ''
-                    }, {
-                        title: '教育部公文公告平台',
-                        url: ''
-                    }, {
-                        title: '教育部國民及學前教育署',
-                        url: ''
-                    }, {
-                        title: '台灣銀行學雜費入口網',
-                        url: ''
-                    }, {
-                        title: '策略聯盟補助計畫',
-                        url: ''
-                    }, {
-                        title: '各年度課程手冊',
-                        url: ''
-                    }]
-                }, {
+                linkdata: [ {
                     title: '校務系統',
                     subtitle: '校務相關連結',
                     linkgroup: [{
                             title: '電子公文',
-                            url: ''
-                        }, {
-                            title: '電子信箱',
-                            url: ''
-                        }, {
+                            url: 'https://cyberhood.smhs.hlc.edu.tw/tw/'
+                        },  {
                             title: '社團管理系統',
-                            url: ''
+                            url: 'http://reg.smhs.hlc.edu.tw/auth/Auth/Login?S=Auth'
                         }, {
                             title: '場地借用系統',
-                            url: ''
+                            url: 'https://eschool.hlc.edu.tw'
                         }, {
                             title: '全誼系統',
-                            url: ''
+                            url: 'https://eschool.hlc.edu.tw'
                         }, {
                             title: '巡堂填報系統',
-                            url: ''
+                            url: 'http://www.smhs.hlc.edu.tw/schoolsystem/patrol/index.html'
                         }, {
                             title: '最新消息公告',
-                            url: ''
-                        }, {
-                            title: '教育部國民及學前教育署',
-                            url: ''
-                        }, {
+                            url: 'https://yehjim.github.io/smhs-announcementsystem/login.html'
+                        },  {
                             title: '經資門需求填報',
-                            url: ''
+                            url: 'https://docs.google.com/forms/d/1rUmcEfG7VQFSzD_v50d7u2azCtZDejApQSdWss0Ahsg/formrestricted'
                         }, {
                             title: '海星相簿',
-                            url: ''
+                            url: 'https://drive.google.com/drive/folders/1icEl8QjHdvP4BrikQFvvN_h6Jn3bUE6p'
                         }, {
                             title: '國教署請購平台',
-                            url: ''
+                            url: 'https://k12accweb2.tcavs.tc.edu.tw'
                         },
                         {
                             title: '營養午餐資訊平台',
-                            url: ''
+                            url: 'https://drive.google.com/drive/folders/1eofmo748Q8crwW39YIsc5k8vpTLX4-kI'
                         }, {
                             title: '宿舍伙食資訊平台',
-                            url: ''
+                            url: 'https://drive.google.com/drive/folders/1SBspzMZ1xccbJKYPoR_vvO4znnluES4-'
                         }, {
                             title: '財務專區',
-                            url: ''
+                            url: 'https://sites.google.com/smhs.hlc.edu.tw/smhsunit/會計室/財務報表?authuser=0'
                         },
                         {
                             title: '選課系統',
-                            url: ''
+                            url: 'http://203.71.0.13/winch/'
                         },
                         {
                             title: '公物維修',
-                            url: ''
+                            url: 'http://203.71.0.13/repair/'
                         }, {
                             title: '海星活動影片',
-                            url: ''
+                            url: 'https://drive.google.com/drive/u/0/folders/1fnOgY943m2av_C6L2PMyD0bH1vHtUp_C'
                         }, {
                             title: '學生出入管理系統',
-                            url: ''
+                            url: 'http://203.71.0.170/schoolsmhs/login.php'
                         },
                         {
                             title: '教學計劃資料庫',
-                            url: ''
+                            url: 'http://203.71.0.15/schoolsystem/teach_plan/index.php'
                         }
                     ]
                 }]
 
             },
-            methods: {
-                closepopup() {
-                    anime({
-                        targets: '.announcementpopup',
+            methods: { tohome() {
+                    var tl = anime.timeline({
+                        easing: 'easeInOutSine',
+                        duration: 650,
 
-                        scale: [1, 0],
-                        opacity: [1, 0],
-                        easing: 'easeOutElastic(1, .8)',
-
-                        duration: 500
-
-                    });
-                    this.popupopen = false
-
-                },
-                openpopup(index) {
-                    anime({
-                        targets: '.announcementpopup',
-
-                        scale: [0, 1],
-                        opacity: [0, 1],
-                        easing: 'easeOutElastic(1, .8)',
-
-                        duration: 500
-
-                    });
-                    this.popupopen = true
-                    this.currentannouncementconetntidnex = index;
-                    this.popupptitle = this.announcementcontent[this.currentannouncementconetntidnex][0]
-                    this.popupadmin = this.announcementcontent[this.currentannouncementconetntidnex][3]
-                    this.popupcontent = this.announcementcontent[this.currentannouncementconetntidnex][2]
-                    this.popdate = this.announcementcontent[this.currentannouncementconetntidnex][1]
-
-                },
-                changeannouncementcata(index) {
-                    this.announcementcataindex = index;
-
-
-                    anime({
-                        targets: '.announcement-catawrap',
-
-                        height: ['328px', 0],
-                        opacity: [1, 0],
-                        easing: 'easeInOutQuad',
-
-                        duration: 1000
-
-                    });
-                    this.announcementcataopen = false;
-
-
-                },
-                openannouncementmenu() {
-
-                    if (this.announcementcataopen == false) {
-                        anime({
-                            targets: '.announcement-catawrap',
-                            opacity: [0, 1],
-                            height: [0, '328px'],
+                    })
+                    tl.add({
+                            targets: ".transition",
                             easing: 'easeInOutQuad',
-
-                            duration: 1000
-
-                        });
-                        this.announcementcataopen = true;
-                    } else {
-                        anime({
-                            targets: '.announcement-catawrap',
-
-                            height: ['328px', 0],
-                            opacity: [1, 0],
+                            width: '100%',
+                            // translateX:[0,'100%'],
+                            opacity: 1
+                        })
+                        .add({
+                            targets: ".transition",
                             easing: 'easeInOutQuad',
+                            translateX: [0, '100%'],
+                            delay: 200,
+                            opacity: 0
+                        })
+                        .add({
+                            targets: ".transition",
+                            easing: 'easeInOutQuad',
+                            width: '0px',
+                            translateX: 0
 
-                            duration: 1000
-
-                        });
-                        this.announcementcataopen = false;
-                    }
-
+                        })
+                    window.setTimeout((function () {
+                        window.location.href = "./index.html";
+                    }), 1300);
                 },
+                
+              
                 showhoverani(index) {
 
                     let vm = this;
@@ -794,7 +712,7 @@
                 openmenu() {
                     this.showfullpagemenu = true
                     anime({
-                        targets: ".admin-item",
+                        targets: ".navopenblock > .admin-item",
                         translateX: [70, 0],
                         opacity: [0, 1],
                         easing: 'easeInOutExpo',
@@ -830,83 +748,9 @@
                 }
             },
             mounted() {
-                anime({
-                    targets: ".loadingpage .logo",
-                    easing: 'easeInOutQuad',
-                    duration: 1500,
-                    loop: true,
-                    direction: 'alternate',
-                    opacity: 1
-                });
+                
 
-                anime({
-                    targets: ".smallnav-parents svg",
-                    easing: 'easeInOutSine',
-                    duration: this.testduration,
-                    loop: true,
-                    direction: 'alternate',
-                    scale: function () {
-                        return Math.random() * (1.3 - 1) + 1
-                    },
-                    rotate: 10,
-                    left: function () {
-                        return anime.random(-15, 10) + 'px';
-                    },
-                    top: function () {
-                        return anime.random(-10, 10) + 'px';
-                    }
-                });
-                anime({
-                    targets: ".smallnav-teacher svg",
-                    easing: 'easeInOutSine',
-                    duration: this.testduration,
-                    loop: true,
-                    direction: 'alternate',
-                    scale: function () {
-                        return Math.random() * (1.3 - 1) + 1
-                    },
-                    rotate: 10,
-                    left: function () {
-                        return anime.random(-15, 10) + 'px';
-                    },
-                    top: function () {
-                        return anime.random(-10, 10) + 'px';
-                    }
-                });
-                anime({
-                    targets: ".smallnav-student svg",
-                    easing: 'easeInOutSine',
-                    duration: this.testduration,
-                    loop: true,
-                    direction: 'alternate',
-                    scale: function () {
-                        return Math.random() * (1.3 - 1) + 1
-                    },
-                    rotate: 10,
-                    left: function () {
-                        return anime.random(-15, 10) + 'px';
-                    },
-                    top: function () {
-                        return anime.random(-10, 10) + 'px';
-                    }
-                });
-                anime({
-                    targets: ".smallnav-graduate svg",
-                    easing: 'easeInOutSine',
-                    duration: this.testduration,
-                    loop: true,
-                    direction: 'alternate',
-                    scale: function () {
-                        return Math.random() * (1.3 - 1) + 1
-                    },
-                    rotate: 10,
-                    left: function () {
-                        return anime.random(-15, 10) + 'px';
-                    },
-                    top: function () {
-                        return anime.random(-10, 10) + 'px';
-                    }
-                });
+                
 
                 window.addEventListener("scroll", function () {
                     var navbar = document.querySelector(".webnav")
