@@ -35,26 +35,36 @@ a {
   .slide .navitem {
     display: none;
   }
-  .announcement-area, .recruit-area, .imporatantinfo-wrap {
+  .announcement-area,
+  .recruit-area,
+  .imporatantinfo-wrap {
     padding-left: 32px;
     padding-right: 32px;
   }
-  .announcement-area .subtilte, .recruit-area .subtilte, .imporatantinfo-wrap .subtilte {
+  .announcement-area .subtilte,
+  .recruit-area .subtilte,
+  .imporatantinfo-wrap .subtilte {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .announcement-area .subtilte span, .recruit-area .subtilte span, .imporatantinfo-wrap .subtilte span {
+  .announcement-area .subtilte span,
+  .recruit-area .subtilte span,
+  .imporatantinfo-wrap .subtilte span {
     -webkit-box-flex: 4;
         -ms-flex: 4;
             flex: 4;
   }
-  .announcement-area .subtilte div, .recruit-area .subtilte div, .imporatantinfo-wrap .subtilte div {
+  .announcement-area .subtilte div,
+  .recruit-area .subtilte div,
+  .imporatantinfo-wrap .subtilte div {
     -webkit-box-flex: 4;
         -ms-flex: 4;
             flex: 4;
   }
-  .announcement-area .title2, .recruit-area .title2, .imporatantinfo-wrap .title2 {
+  .announcement-area .title2,
+  .recruit-area .title2,
+  .imporatantinfo-wrap .title2 {
     display: none;
   }
   .honorroll {
@@ -71,6 +81,9 @@ a {
   .mobilesmallnav {
     margin-left: 32px;
     margin-right: 32px;
+  }
+  .mobilesmallnav svg {
+    width: 30px;
   }
   .hammenu {
     cursor: pointer;
@@ -160,26 +173,36 @@ a {
   .slide .navitem {
     display: none;
   }
-  .announcement-area, .recruit-area, .imporatantinfo-wrap {
+  .announcement-area,
+  .recruit-area,
+  .imporatantinfo-wrap {
     padding-left: 100px;
     padding-right: 100px;
   }
-  .announcement-area .subtilte, .recruit-area .subtilte, .imporatantinfo-wrap .subtilte {
+  .announcement-area .subtilte,
+  .recruit-area .subtilte,
+  .imporatantinfo-wrap .subtilte {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .announcement-area .subtilte span, .recruit-area .subtilte span, .imporatantinfo-wrap .subtilte span {
+  .announcement-area .subtilte span,
+  .recruit-area .subtilte span,
+  .imporatantinfo-wrap .subtilte span {
     -webkit-box-flex: 2;
         -ms-flex: 2;
             flex: 2;
   }
-  .announcement-area .subtilte div, .recruit-area .subtilte div, .imporatantinfo-wrap .subtilte div {
+  .announcement-area .subtilte div,
+  .recruit-area .subtilte div,
+  .imporatantinfo-wrap .subtilte div {
     -webkit-box-flex: 5;
         -ms-flex: 5;
             flex: 5;
   }
-  .announcement-area .title2, .recruit-area .title2, .imporatantinfo-wrap .title2 {
+  .announcement-area .title2,
+  .recruit-area .title2,
+  .imporatantinfo-wrap .title2 {
     display: none;
   }
   .recruitblock-wrap {
@@ -275,24 +298,30 @@ a {
     padding-left: 100px;
     padding-right: 100px;
   }
-  .announcement-area, .recruit-area, .imporatantinfo-wrap {
+  .announcement-area,
+  .recruit-area,
+  .imporatantinfo-wrap {
     padding-left: 100px;
     padding-right: 100px;
   }
-  .announcement-area .subtilte, .imporatantinfo-wrap .subtilte {
+  .announcement-area .subtilte,
+  .imporatantinfo-wrap .subtilte {
     display: none;
   }
-  .announcement-area .title2, .imporatantinfo-wrap .title2 {
+  .announcement-area .title2,
+  .imporatantinfo-wrap .title2 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .announcement-area .title2 span, .imporatantinfo-wrap .title2 span {
+  .announcement-area .title2 span,
+  .imporatantinfo-wrap .title2 span {
     -webkit-box-flex: 2;
         -ms-flex: 2;
             flex: 2;
   }
-  .announcement-area .title2 div, .imporatantinfo-wrap .title2 div {
+  .announcement-area .title2 div,
+  .imporatantinfo-wrap .title2 div {
     -webkit-box-flex: 5;
         -ms-flex: 5;
             flex: 5;
@@ -319,10 +348,6 @@ a {
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 155px;
-  }
-  .mobilesmallnav {
-    margin-left: 100px;
-    margin-right: 100px;
   }
   .mobilesmallnav {
     display: none;
@@ -373,6 +398,10 @@ a {
     display: -ms-flexbox;
     display: flex;
   }
+  .slide .smallnav .icon {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
   .slide .navitem {
     display: block;
   }
@@ -380,10 +409,6 @@ a {
     display: none;
   }
   .honorroll {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-  .mobilesmallnav {
     margin-left: 100px;
     margin-right: 100px;
   }
@@ -693,24 +718,36 @@ a {
           justify-content: space-between;
 }
 
-.fullpagemenu .navitem-wrap .admin-wrap, .fullpagemenu .navitem-wrap .class-wrap, .fullpagemenu .navitem-wrap .digi-wrap, .fullpagemenu .navitem-wrap .about-wrap {
+.fullpagemenu .navitem-wrap .admin-wrap,
+.fullpagemenu .navitem-wrap .class-wrap,
+.fullpagemenu .navitem-wrap .digi-wrap,
+.fullpagemenu .navitem-wrap .about-wrap {
   -webkit-box-flex: 6;
       -ms-flex: 6;
           flex: 6;
 }
 
-.fullpagemenu .navitem-wrap .admin-wrap h4, .fullpagemenu .navitem-wrap .class-wrap h4, .fullpagemenu .navitem-wrap .digi-wrap h4, .fullpagemenu .navitem-wrap .about-wrap h4 {
+.fullpagemenu .navitem-wrap .admin-wrap h4,
+.fullpagemenu .navitem-wrap .class-wrap h4,
+.fullpagemenu .navitem-wrap .digi-wrap h4,
+.fullpagemenu .navitem-wrap .about-wrap h4 {
   color: #FFFFFF;
 }
 
-.fullpagemenu .navitem-wrap .admin-wrap .divline, .fullpagemenu .navitem-wrap .class-wrap .divline, .fullpagemenu .navitem-wrap .digi-wrap .divline, .fullpagemenu .navitem-wrap .about-wrap .divline {
+.fullpagemenu .navitem-wrap .admin-wrap .divline,
+.fullpagemenu .navitem-wrap .class-wrap .divline,
+.fullpagemenu .navitem-wrap .digi-wrap .divline,
+.fullpagemenu .navitem-wrap .about-wrap .divline {
   height: 2px;
   background-color: #FFFFFF;
   margin-bottom: 30px;
   margin-top: 17px;
 }
 
-.fullpagemenu .navitem-wrap .admin-wrap .admin-item, .fullpagemenu .navitem-wrap .class-wrap .admin-item, .fullpagemenu .navitem-wrap .digi-wrap .admin-item, .fullpagemenu .navitem-wrap .about-wrap .admin-item {
+.fullpagemenu .navitem-wrap .admin-wrap .admin-item,
+.fullpagemenu .navitem-wrap .class-wrap .admin-item,
+.fullpagemenu .navitem-wrap .digi-wrap .admin-item,
+.fullpagemenu .navitem-wrap .about-wrap .admin-item {
   color: #FFFFFF;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -724,12 +761,18 @@ a {
   height: 250px;
 }
 
-.fullpagemenu .navitem-wrap .admin-wrap .admin-item a, .fullpagemenu .navitem-wrap .class-wrap .admin-item a, .fullpagemenu .navitem-wrap .digi-wrap .admin-item a, .fullpagemenu .navitem-wrap .about-wrap .admin-item a {
+.fullpagemenu .navitem-wrap .admin-wrap .admin-item a,
+.fullpagemenu .navitem-wrap .class-wrap .admin-item a,
+.fullpagemenu .navitem-wrap .digi-wrap .admin-item a,
+.fullpagemenu .navitem-wrap .about-wrap .admin-item a {
   text-decoration: none;
   color: white;
 }
 
-.fullpagemenu .navitem-wrap .admin-wrap .admin-item span, .fullpagemenu .navitem-wrap .class-wrap .admin-item span, .fullpagemenu .navitem-wrap .digi-wrap .admin-item span, .fullpagemenu .navitem-wrap .about-wrap .admin-item span {
+.fullpagemenu .navitem-wrap .admin-wrap .admin-item span,
+.fullpagemenu .navitem-wrap .class-wrap .admin-item span,
+.fullpagemenu .navitem-wrap .digi-wrap .admin-item span,
+.fullpagemenu .navitem-wrap .about-wrap .admin-item span {
   margin-bottom: 17px;
 }
 
@@ -774,6 +817,10 @@ a {
   color: #4E4E4E;
 }
 
+.smallnav .icon {
+  margin-right: 10px;
+}
+
 .smallnav .divline {
   height: 70%;
   width: 1px;
@@ -789,19 +836,21 @@ a {
           align-items: center;
   position: relative;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .smallnav .smallnav-student svg {
   position: absolute;
-  left: -20px;
-  top: -20px;
+  left: -5px;
+  top: 0px;
   z-index: -1;
-  width: 70px;
-  height: 70px;
+  width: 35px;
+  height: 35px;
 }
 
-.smallnav .smallnav-student .icon {
-  margin-right: 9px;
+.smallnav .smallnav-student:hover {
+  scale: 1.05;
 }
 
 .smallnav .smallnav-teacher {
@@ -813,19 +862,21 @@ a {
           align-items: center;
   position: relative;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .smallnav .smallnav-teacher svg {
   position: absolute;
-  left: -20px;
-  top: 5px;
+  left: -15px;
+  top: 10px;
   z-index: -1;
-  width: 60px;
-  height: 60px;
+  width: 35px;
+  height: 35px;
 }
 
-.smallnav .smallnav-teacher .icon {
-  margin-right: 9px;
+.smallnav .smallnav-teacher:hover {
+  scale: 1.05;
 }
 
 .smallnav .smallnav-parents {
@@ -837,19 +888,21 @@ a {
           align-items: center;
   position: relative;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .smallnav .smallnav-parents svg {
   position: absolute;
-  left: -20px;
-  top: -15px;
+  left: -10px;
+  top: 5px;
   z-index: -1;
-  width: 60px;
-  height: 60px;
+  width: 35px;
+  height: 35px;
 }
 
-.smallnav .smallnav-parents .icon {
-  margin-right: 9px;
+.smallnav .smallnav-parents:hover {
+  scale: 1.05;
 }
 
 .smallnav .smallnav-graduate {
@@ -861,19 +914,21 @@ a {
           align-items: center;
   position: relative;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .smallnav .smallnav-graduate svg {
   position: absolute;
-  left: -10px;
-  top: 10px;
+  left: 15px;
+  top: 5px;
   z-index: -1;
-  width: 60px;
-  height: 60px;
+  width: 35px;
+  height: 35px;
 }
 
-.smallnav .smallnav-graduate .icon {
-  margin-right: 9px;
+.smallnav .smallnav-graduate:hover {
+  scale: 1.05;
 }
 
 .news_marquee {
@@ -952,7 +1007,7 @@ a {
 }
 
 .loadingpage .logo {
-  background-image: url("/assest/school_logo.png");
+  background-image: url("http://www.smhs.hlc.edu.tw/smhs/rwb-web/assest/school_logo.png");
   width: 100px;
   height: 100px;
   margin: auto;
