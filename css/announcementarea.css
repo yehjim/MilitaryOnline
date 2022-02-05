@@ -4,7 +4,7 @@
 
 .announcement-area {
   margin-top: 86px;
-  color: #4E4E4E;
+  color: #57A693;
 }
 
 .announcement-area .announcement-title {
@@ -22,24 +22,27 @@
 
 .announcement-area .announcement-title div {
   height: 2px;
-  background-color: #4E4E4E;
+  background-color: #57A693;
 }
 
 .announcement-area .announcement-cata {
   width: 100%;
   margin: auto;
+  padding-left: 50px;
+  padding-right: 50px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-top: 33px;
+  color: #717171;
 }
 
 .announcement-area .announcement-cata .divline {
   height: 42px;
   width: 1px;
-  background-color: #4E4E4E;
+  background-color: #717171;
 }
 
 .announcement-area .announcement-cata .cata-item {
@@ -60,7 +63,7 @@
 }
 
 .announcement-area .announcement-cata .cata-item:hover {
-  color: #57A693;
+  color: #81B9AC;
 }
 
 .announcement-area .announcement-cata .cata-item-active {
@@ -75,7 +78,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #57A693;
+  background-color: #81B9AC;
   border-radius: 5px;
   color: #FFFFFF;
 }

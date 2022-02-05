@@ -10,6 +10,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  color: #57A693;
 }
 
 .recruit-area .recruit-title span {
@@ -18,7 +19,7 @@
 
 .recruit-area .recruit-title div {
   height: 2px;
-  background-color: #4E4E4E;
+  background-color: #57A693;
 }
 
 .recruit-area .recruitblock-wrap {

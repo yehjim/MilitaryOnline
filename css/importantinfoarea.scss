@@ -7,7 +7,7 @@ $main_lighten: #ffffff;
 
 .imporatantinfo-wrap {
     margin-top: 86px;
-    color: $text_dark;
+    color: $main_dark;
 
     .recruit-title {
         align-items: center;
@@ -19,7 +19,7 @@ $main_lighten: #ffffff;
 
         div {
             height: 2px;
-            background-color: $text_dark;
+            background-color: $main_dark;
         }
     }
 
@@ -39,6 +39,8 @@ $main_lighten: #ffffff;
             position: relative;
             display: inline-block;
             margin-right: 19px;
+            // background-color:$main_dark;
+            border-radius: 5px;
 
 
             .bgcover {
@@ -54,6 +56,7 @@ $main_lighten: #ffffff;
                 font-size: 18px;
                 color: $main_lighten;
                 z-index: 1;
+                border-radius: 5px;
                 img {
                     width: 30%;
                     opacity: 0.3;
@@ -72,6 +75,7 @@ $main_lighten: #ffffff;
                     z-index: 2;
                     span{
                         transition: 0.3s;
+                        color: $text_lightdark
                     }
                 }
 

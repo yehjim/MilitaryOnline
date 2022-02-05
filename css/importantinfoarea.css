@@ -1,6 +1,6 @@
 .imporatantinfo-wrap {
   margin-top: 86px;
-  color: #4e4e4e;
+  color: #57a693;
 }
 
 .imporatantinfo-wrap .recruit-title {
@@ -18,7 +18,7 @@
 
 .imporatantinfo-wrap .recruit-title div {
   height: 2px;
-  background-color: #4e4e4e;
+  background-color: #57a693;
 }
 
 .imporatantinfo-wrap .imporatantinfoblockwrap {
@@ -37,6 +37,7 @@
   position: relative;
   display: inline-block;
   margin-right: 19px;
+  border-radius: 5px;
 }
 
 .imporatantinfo-wrap .imporatantinfoblockwrap .imporatantinfo-block .bgcover {
@@ -58,6 +59,7 @@
   font-size: 18px;
   color: #ffffff;
   z-index: 1;
+  border-radius: 5px;
 }
 
 .imporatantinfo-wrap .imporatantinfoblockwrap .imporatantinfo-block .bgcover img {
@@ -89,6 +91,7 @@
 .imporatantinfo-wrap .imporatantinfoblockwrap .imporatantinfo-block .bgcover .textwrap span {
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  color: #717171;
 }
 
 .imporatantinfo-wrap .textwrap:hover span {

@@ -14,6 +14,9 @@ a {
   text-decoration: none;
   color: #4E4E4E;
 }
+#app{
+  background-color: rgb(253, 253, 253);
+}
 
 * {
   box-sizing: border-box;
@@ -877,9 +880,10 @@ a {
   }
 
   .divline {
-    height: 70%;
+    height: 60%;
     width: 1px;
-    background-color: $text_lightdark;
+    background-color: $subcolor;
+    
   }
 
   .smallnav-student {
@@ -1003,12 +1007,12 @@ a {
 
   height: 113px;
   border-radius: 5px;
-  border: solid 2px $main_dark;
-  background-color: #fff;
+  border: solid 2px $main_light;
+  // background-color: $main_light;
   padding-left: 10px;
   padding-right: 10px;
 
-  color: $main_dark;
+  color: $main_light;
   overflow: hidden;
 
   .title2 {
@@ -1056,5 +1060,55 @@ a {
     background-size: cover;
     z-index: 5;
     opacity: 0.3;
+  }
+
+
+.loadingwrap{
+  position: absolute;
+  
+  width: 200px;
+  height: 200px;
+   left: 50%;
+  top: 50%;
+  transform:translate(-50%,-50%)
+/*   position: relative; */
+  
+}
+.circle1{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.circle2{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 75%;
+  top: 75%;
+}
+.circle3{
+  position: absolute;
+  left: 75%;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+.circle4{
+  position: absolute;
+  left: 0;
+  top: 75%;
+  width: 50px;
+  height: 50px;
+}
+img{
+   
+    width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform:translate(-50%,-50%)
   }
 }

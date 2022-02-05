@@ -13,6 +13,7 @@ $main_lighten:#FFFFFF;
       
       align-items: center;
       justify-content: center;
+      color: $main_dark;
      
       span{
        
@@ -21,7 +22,7 @@ $main_lighten:#FFFFFF;
       div{
        
         height: 2px;
-        background-color: $text_dark;
+        background-color: $main_dark;
         
         
         

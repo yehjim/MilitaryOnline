@@ -10,7 +10,7 @@ $main_lighten:#FFFFFF;
 .announcement-area{
   
     margin-top: 86px;
-    color: $text_dark;
+    color: $main_dark;
     .announcement-title{
       align-items: center;
       justify-content: center;
@@ -21,7 +21,7 @@ $main_lighten:#FFFFFF;
       div{
        
         height: 2px;
-        background-color: $text_dark;
+        background-color: $main_dark;
        
         
         
@@ -31,14 +31,17 @@ $main_lighten:#FFFFFF;
       // border: solid 1px;
       width: 100%;
       margin: auto;
+      padding-left: 50px;
+      padding-right: 50px;
       
       align-items: center;
       justify-content: space-around;
       margin-top: 33px;
+      color: $text_lightdark;
       .divline{
         height: 42px;
         width: 1px;
-        background-color: $text_dark;
+        background-color: $text_lightdark;
       }
       .cata-item{
         width: 102px;
@@ -50,7 +53,7 @@ $main_lighten:#FFFFFF;
         cursor: pointer;
       }
       .cata-item:hover{
-        color: $main_dark;
+        color: $main_light;
       }
       .cata-item-active{
         width: 102px;
@@ -58,7 +61,7 @@ $main_lighten:#FFFFFF;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $main_dark;
+        background-color: $main_light;
         border-radius: 5px;
         color: $main_lighten;
       }
