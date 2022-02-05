@@ -874,6 +874,9 @@ a {
   padding-left: 15px;
   padding-right: 15px;
   color: $text_dark;
+  svg{
+    z-index: 1;
+  }
   .icon{
     // border: solid 1px;
     margin-right: 10px;

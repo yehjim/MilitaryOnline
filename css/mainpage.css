@@ -821,6 +821,10 @@ a {
   color: #4E4E4E;
 }
 
+.smallnav svg {
+  z-index: 1;
+}
+
 .smallnav .icon {
   margin-right: 10px;
 }
