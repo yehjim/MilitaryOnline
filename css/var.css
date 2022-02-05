@@ -1,21 +1,21 @@
 .title1 {
   font-size: 36px;
-  -webkit-text-stroke: 0.5px;
+  font-weight: 500;
 }
 
 .title2 {
   font-size: 24px;
-  -webkit-text-stroke: 0.4px;
+  font-weight: 400;
 }
 
 .title3 {
   font-size: 20px;
-  -webkit-text-stroke: 0.3px;
+  font-weight: 400;
 }
 
 .subtilte {
   font-size: 18px;
-  -webkit-text-stroke: 0.2px;
+  font-weight: 300;
 }
 
 .text {
