@@ -17,7 +17,9 @@ a {
 #app{
   background-color: rgb(253, 253, 253);
 }
-
+textarea{
+  display: none;
+}
 * {
   box-sizing: border-box;
   padding: 0;

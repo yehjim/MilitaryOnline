@@ -18,6 +18,8 @@
   <!-- font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+ 
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap"
     rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -530,8 +532,9 @@
         <div class="admincata">
           {{popupadmin}}
         </div>
-        <div class="content-topic text">
-          {{popupcontent}}
+        <div class="content-topic text" v-html="popupcontent">
+         
+          <!-- {{popupcontent}} -->
         </div>
         <div class="date subtilte">
           {{convertdate}}
@@ -682,7 +685,7 @@
 
 
       </div>
-
+      
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -690,11 +693,12 @@
     </script>
 
     <script>
+      
       var app = new Vue({
         el: "#app",
         data: {
           honorindex: 0,
-
+          test:'# **測試** 1. 換行 2. 換行 3. 跛我賭ㄛ',
           openmenucolor: "",
           loadingshow: true,
           popupopen: false,
@@ -852,7 +856,7 @@
               url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/聖吳甦樂女修會發展史",
             },
             {
-              name: "休會教育理念",
+              name: "修會教育理念",
               url: "https://sites.google.com/smhs.hlc.edu.tw/about-smhs/關於海星/修會教育理念",
             },
             {
@@ -902,7 +906,6 @@
 
             }), 7000);
           },
-
           closepopup() {
             anime({
               targets: '.announcementpopup',
@@ -918,6 +921,7 @@
 
           },
           openpopup(index) {
+            
             anime({
               targets: '.announcementpopup',
 
@@ -934,7 +938,8 @@
             this.popupadmin = this.announcementcontent[this.currentannouncementconetntidnex][3]
             this.popupcontent = this.announcementcontent[this.currentannouncementconetntidnex][2]
             this.popdate = this.announcementcontent[this.currentannouncementconetntidnex][1]
-
+            // document.querySelector('.content-topic').innerHTML = this.popupcontent;
+           
           },
           changeannouncementcata(index) {
             this.announcementcataindex = index;
@@ -1146,19 +1151,19 @@
             if (page == 'parents') {
               window.setTimeout((function () {
                 window.location.href = "./parents.html";
-              }), 1300);
+              }), 1200);
             } else if (page == 'teacher') {
               window.setTimeout((function () {
                 window.location.href = "./teacherlink.html";
-              }), 1300);
+              }), 1200);
             } else if (page == 'students') {
               window.setTimeout((function () {
                 window.location.href = "./students.html";
-              }), 1300);
+              }), 1200);
             } else if (page == 'graduate') {
               window.setTimeout((function () {
                 window.location.href = "./graduate.html";
-              }), 1300);
+              }), 1200);
             }
 
 
@@ -1180,9 +1185,9 @@
           }
         },
         mounted() {
-
+         
           anime({
-            targets: ".circle1",
+            targets: ".loadingpage .circle1",
             easing: "easeInOutQuad",
             duration: 2000,
             left: "75%",
@@ -1191,7 +1196,7 @@
             loop: true
           });
           anime({
-            targets: ".circle2",
+            targets: ".loadingpage .circle2",
             easing: "easeInOutQuad",
             duration: 2000,
             left: "0",
@@ -1201,7 +1206,7 @@
           });
 
           anime({
-            targets: ".circle3",
+            targets: ".loadingpage .circle3",
             easing: "easeInOutQuad",
             duration: 2000,
             left: "0",
@@ -1211,7 +1216,7 @@
           });
 
           anime({
-            targets: ".circle4",
+            targets: ".loadingpage .circle4",
             easing: "easeInOutQuad",
             duration: 2000,
             left: "75%",
@@ -1324,15 +1329,16 @@
 
           axios({
               method: "get",
-              url: "https://script.google.com/macros/s/AKfycbwsG56YIzQP8clZqo_XXlc6oShWTbrnB-7S4Hzh0PDPKUYDIK8MFLk-WiA2wYfqPBKr6A/exec",
+              url: "https://script.google.com/macros/s/AKfycbxIAtJn1QioMSjeX_26YfrX_0MuRgN8156jrO_hPofQHjly2lu_ND3QB6OuOj9dkAvZRQ/exec",
               params: {
                 type: 'all',
               }
             })
             .then((response) => {
               this.announcementcontent = response.data
+              console.log(this.announcementcontent)
               this.loadingshow = false
-              console.log(response.data);
+              // console.log(response.data);
             })
             .catch((error) => {
               console.error(error);

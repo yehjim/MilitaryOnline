@@ -10,10 +10,11 @@ $main_lighten:#FFFFFF;
 .announcement-area{
   
     margin-top: 86px;
-    color: $main_dark;
+    
     .announcement-title{
       align-items: center;
       justify-content: center;
+      color: $main_dark;
       span{
         
         text-align: center;
@@ -128,7 +129,8 @@ $main_lighten:#FFFFFF;
         display: flex;
         justify-content: space-between;
         color: $text_dark;
-        border-bottom: solid 1px $text_dark;
+        border-bottom: solid 1px;
+        border-color: $subcolor;
         margin-bottom: 34px;
         transition: 0.3s;
         cursor: pointer;

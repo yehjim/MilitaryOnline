@@ -15,7 +15,6 @@
 
 .subtilte {
   font-size: 18px;
-  font-weight: 300;
 }
 
 .text {
@@ -24,5 +23,6 @@
 
 .smalltext {
   font-size: 14px;
+  font-weight: 300;
 }
 /*# sourceMappingURL=var.css.map */

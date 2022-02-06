@@ -4,7 +4,6 @@
 
 .announcement-area {
   margin-top: 86px;
-  color: #57A693;
 }
 
 .announcement-area .announcement-title {
@@ -14,6 +13,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  color: #57A693;
 }
 
 .announcement-area .announcement-title span {

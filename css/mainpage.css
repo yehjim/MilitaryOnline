@@ -12,6 +12,10 @@ a {
   background-color: #fdfdfd;
 }
 
+textarea {
+  display: none;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
