@@ -21,7 +21,7 @@
   <meta property="og:locale" content="zh_TW" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="海星高級中學" />
-  <meta property="og:description" content="提供 多元 適性 陪伴 優質的教學環境"/>
+  <meta property="og:description" content="提供 多元 適性 陪伴 優質的教學環境" />
   <meta property="og:image" content="./assest/smhs og_工作區域 1.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
@@ -249,17 +249,20 @@
       <div class="title2">
 
 
-        <transition>
+        <!-- <transition> -->
 
 
-          <span v-for="(item,index) in honorroll" :key="index" v-show="honorindex==index">{{item}}</span>
-        </transition>
+        <span v-for="(item,index) in announcementcontent" :key="index" v-show="item[4]=='學校榮譽'&&honorindex==index">
+         {{item[0]}}
+        </span>
+        <!-- </transition> -->
       </div>
       <div class="subtilte">
-
-        <span v-for="(item,index) in honorroll" :key="index" v-show="honorindex==index">
-          {{item}}
-        </span>
+        
+          <span v-for="(item,index) in announcementcontent" :key="index" v-show="item[4]=='學校榮譽'&&honorindex==index">
+            {{item[0]}}
+          </span>
+        
 
 
       </div>
@@ -1000,39 +1003,32 @@
 
             });
           },
-
-          shownavopen(index, name) {
-            this.currentindex = index;
-            this.currentnavname = name;
-            this.openmenucolor = '#fff'
+          openmenuani() {
             var tl = anime.timeline({
               easing: 'easeInOutExpo',
 
             })
-            if (this.show == true) {
-              tl.add({
-                  targets: ".admin-item",
-                  translateX: [70, 0],
-                  opacity: [0, 1],
-                  delay: anime.stagger(30), // increase delay by 100ms for each elements.
-                })
-                .add({
-                  targets: ".admin-title",
-                  translateX: [70, 0],
-                  opacity: [0, 1],
+            tl.add({
+                targets: ".webnav .admin-item",
+                translateX: [70, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(30), // increase delay by 100ms for each elements.
+              }, )
+              .add({
+                targets: ".webnav .admin-title",
+                translateX: [70, 0],
+                opacity: [0, 1],
 
 
-                }, 400)
-                .add({
-                  targets: ".schoologo",
-                  opacity: [0, 0.1],
-                }, 700)
+              }, 500)
 
-
-              // });
-            } else {
-              this.show = true;
-            }
+          },
+          shownavopen(index, name) {
+            this.currentindex = index;
+            this.currentnavname = name;
+            this.openmenucolor = '#fff'
+            this.show = true;
+            this.openmenuani();
 
 
           },
@@ -1041,30 +1037,14 @@
             this.currentindex = -1;
             this.openmenucolor = ''
           },
+
           openmenu() {
             this.showfullpagemenu = true
-            anime({
-              targets: ".admin-item",
-              translateX: [70, 0],
-              opacity: [0, 1],
-              easing: 'easeInOutExpo',
-              delay: anime.stagger(30), // increase delay by 100ms for each elements.
-            });
           },
           closefullpagemenu() {
             this.showfullpagemenu = false
           },
-          changehonorrollindex() {
-            let l = this.honorroll.length;
-            window.setInterval((() => {
-              if (this.honorindex < l - 1) {
-                this.honorindex++
-              } else {
-                this.honorindex = 0;
-              }
 
-            }), 3000);
-          },
           tonextpage(page) {
             var tl = anime.timeline({
               easing: 'easeInOutSine',
@@ -1146,13 +1126,32 @@
             })
             .then((response) => {
               this.announcementcontent = response.data
-              for (let i = 0; i < this.announcementcontent.length; i++) {
-                if (this.announcementcontent[i][4] == '學校榮譽') {
-                  this.honorroll.push(this.announcementcontent[i][0])
+              for (let i = 0; i < response.data.length; i++) {
+                if (response.data[i][4] == '學校榮譽') {
+                  this.honorroll.push(response.data[i][0])
                 }
               }
-              this.changehonorrollindex();
+              let l = this.honorroll.length;
+              window.setInterval((() => {
+                this.honorindex++
+                if (this.honorindex == l) {
+                  this.honorindex = 0;
+                }
+                anime({
+            targets: ".honorroll span",
+            easing: 'easeInOutSine',
+            duration: 700,
+            
+            opacity:[0,1]
+          });
+
+
+
+
+              }), 5000);
+
               this.loadingshow = false
+
               // console.log(response.data);
             })
             .catch((error) => {
@@ -1275,6 +1274,7 @@
           this.carouseltimer();
 
 
+          
 
 
 

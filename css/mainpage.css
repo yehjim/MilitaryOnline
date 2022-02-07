@@ -973,7 +973,9 @@ textarea {
   border: solid 2px #81B9AC;
   padding-left: 10px;
   padding-right: 10px;
-  color: #81B9AC;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #57A693;
   overflow: hidden;
 }
 

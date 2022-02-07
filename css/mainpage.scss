@@ -1019,8 +1019,9 @@ textarea{
   // background-color: $main_light;
   padding-left: 10px;
   padding-right: 10px;
+  transition: 0.4s;
 
-  color: $main_light;
+  color: $main_dark;
   overflow: hidden;
 
   .title2 {
