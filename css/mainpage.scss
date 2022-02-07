@@ -5,10 +5,7 @@ $main_dark:#57A693;
 $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
 
-@font-face {
-  font-family: "jfopen";
-  src: url(/font/jf-openhuninn-1.1.ttf) format("truetype");
-}
+
 
 a {
   text-decoration: none;
@@ -20,13 +17,14 @@ a {
 textarea{
   display: none;
 }
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'M PLUS Rounded 1c', sans-serif !important;
   // font-family: 'jfopen';
-  scroll-behavior: smooth;
+ 
 
 }
 
@@ -603,7 +601,7 @@ textarea{
       background-size: cover;
       background-position: center;
 
-      background-image: url('/assest/school_logo.png');
+      background-image: url('http://www.smhs.hlc.edu.tw/smhs/rwb-web/assest/school_logo.png');
     }
 
     .navitem {
