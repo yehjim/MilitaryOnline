@@ -72,6 +72,10 @@ img {
   margin-top: 53px;
 }
 
+.mobilesmallnav .circle {
+  position: absolute;
+}
+
 .mobilesmallnav .smallnav-student {
   display: -webkit-box;
   display: -ms-flexbox;

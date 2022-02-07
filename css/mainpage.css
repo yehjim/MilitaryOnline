@@ -852,12 +852,12 @@ textarea {
   transition: 0.3s;
 }
 
-.smallnav .smallnav-student svg {
+.smallnav .smallnav-student .circle {
   position: absolute;
   left: -5px;
   top: 0px;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
 }
 
 .smallnav .smallnav-student:hover {
@@ -877,9 +877,9 @@ textarea {
   transition: 0.3s;
 }
 
-.smallnav .smallnav-teacher svg {
+.smallnav .smallnav-teacher .circle {
   position: absolute;
-  left: -15px;
+  left: -10px;
   top: 10px;
   width: 35px;
   height: 35px;
@@ -902,7 +902,7 @@ textarea {
   transition: 0.3s;
 }
 
-.smallnav .smallnav-parents svg {
+.smallnav .smallnav-parents .circle {
   position: absolute;
   left: -10px;
   top: 5px;
@@ -927,10 +927,10 @@ textarea {
   transition: 0.3s;
 }
 
-.smallnav .smallnav-graduate svg {
+.smallnav .smallnav-graduate .circle {
   position: absolute;
-  left: 15px;
-  top: 5px;
+  left: 10px;
+  top: 10px;
   width: 35px;
   height: 35px;
 }

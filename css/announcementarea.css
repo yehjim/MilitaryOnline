@@ -166,7 +166,8 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: #4E4E4E;
-  border-bottom: solid 1px #4E4E4E;
+  border-bottom: solid 1px;
+  border-color: #C4C4C4;
   margin-bottom: 34px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -175,10 +176,18 @@
 
 .announcement-area .announcement-content .item-wrap .item-title {
   padding-bottom: 16px;
+  width: 80%;
 }
 
 .announcement-area .announcement-content .item-wrap .date {
   padding-top: 2px;
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .announcement-area .announcement-content .item-wrap:hover {

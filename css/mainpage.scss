@@ -891,6 +891,7 @@ textarea{
     background-color: $subcolor;
     
   }
+  
 
   .smallnav-student {
     display: flex;
@@ -900,13 +901,13 @@ textarea{
     transition: 0.3s;
 
     // border: solid 1px;
-    svg {
+    .circle {
       position: absolute;
       left: -5px;
       top: 0px;
       
-      width: 35px;
-      height: 35px;
+      width: 40px;
+      height: 40px;
     }
 
     
@@ -924,9 +925,9 @@ textarea{
     cursor: pointer;
     transition: 0.3s;
 
-    svg {
+    .circle {
       position: absolute;
-      left: -15px;
+      left: -10px;
       top: 10px;
      
       width: 35px;
@@ -947,7 +948,7 @@ textarea{
     cursor: pointer;
     transition: 0.3s;
 
-    svg {
+    .circle {
       position: absolute;
       left: -10px;
       top: 5px;
@@ -971,10 +972,10 @@ textarea{
     cursor: pointer;
     transition: 0.3s;
 
-    svg {
+    .circle {
       position: absolute;
-      left: 15px;
-      top: 5px;
+      left: 10px;
+      top: 10px;
       
       width: 35px;
       height: 35px;

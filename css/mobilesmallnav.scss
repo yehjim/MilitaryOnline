@@ -100,6 +100,9 @@ img{
   flex-direction: column;
   align-items: center;
   margin-top: 53px;
+  .circle{
+    position: absolute;
+  }
 
   .smallnav-student {
     display: flex;

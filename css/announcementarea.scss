@@ -136,9 +136,16 @@ $main_lighten:#FFFFFF;
         cursor: pointer;
         .item-title{
           padding-bottom: 16px;
+         
+          width: 80%;
+          
         }
         .date{
          padding-top: 2px;
+         width: 20%;
+         display: flex;
+         justify-content: flex-end;
+         
         }
       }
       .item-wrap:hover{
