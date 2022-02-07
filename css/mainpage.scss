@@ -79,6 +79,9 @@ textarea{
     .title2 {
       display: none;
     }
+    .item-wrap {
+      flex-direction: column;
+    }
   }
 
   .honorroll {

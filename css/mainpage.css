@@ -75,6 +75,14 @@ textarea {
   .imporatantinfo-wrap .title2 {
     display: none;
   }
+  .announcement-area .item-wrap,
+  .recruit-area .item-wrap,
+  .imporatantinfo-wrap .item-wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   .honorroll {
     margin-left: 32px;
     margin-right: 32px;

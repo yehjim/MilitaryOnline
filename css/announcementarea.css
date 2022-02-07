@@ -155,7 +155,6 @@
 .announcement-area .announcement-content {
   margin-top: 55px;
   margin-bottom: 49px;
-  height: 400px;
 }
 
 .announcement-area .announcement-content .item-wrap {
@@ -176,12 +175,10 @@
 
 .announcement-area .announcement-content .item-wrap .item-title {
   padding-bottom: 16px;
-  width: 80%;
 }
 
 .announcement-area .announcement-content .item-wrap .date {
   padding-top: 2px;
-  width: 20%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

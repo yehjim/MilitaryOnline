@@ -11,6 +11,8 @@ $main_lighten:#FFFFFF;
   
     margin-top: 86px;
     
+    // margin-bottom: 30px;
+    
     .announcement-title{
       align-items: center;
       justify-content: center;
@@ -124,7 +126,6 @@ $main_lighten:#FFFFFF;
       // border: solid 1px;
       margin-top: 55px;
       margin-bottom: 49px;
-      height: 400px;
       .item-wrap{
         display: flex;
         justify-content: space-between;
@@ -137,12 +138,12 @@ $main_lighten:#FFFFFF;
         .item-title{
           padding-bottom: 16px;
          
-          width: 80%;
+          
           
         }
         .date{
          padding-top: 2px;
-         width: 20%;
+   
          display: flex;
          justify-content: flex-end;
          
