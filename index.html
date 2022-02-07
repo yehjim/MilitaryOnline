@@ -18,8 +18,8 @@
   <!-- font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
- 
+
+
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap"
     rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -220,12 +220,20 @@
 
     <div class="honorroll">
       <div class="title2">
+       
+        
+        <transition>
+        
+       
         <span v-for="(item,index) in honorroll" :key="index" v-show="honorindex==index">{{item}}</span>
+      </transition>
       </div>
       <div class="subtilte">
-
+       
         <span v-for="(item,index) in honorroll" :key="index" v-show="honorindex==index">
           {{item}}
+        </span>
+    
 
       </div>
     </div>
@@ -264,7 +272,7 @@
     </div>
     <div class="mobilesmallnav">
       <div class="smallnav-student" @click="tonextpage('students')">
-       <img class="circle" src="./assest/yellow.svg" alt="">
+        <img class="circle" src="./assest/yellow.svg" alt="">
 
         <div class="icon">
           <img src="./assest/student.svg" alt="">
@@ -433,7 +441,7 @@
           {{popupadmin}}
         </div>
         <div class="content-topic text" v-html="popupcontent">
-         
+
           <!-- {{popupcontent}} -->
         </div>
         <div class="date subtilte">
@@ -585,7 +593,7 @@
 
 
       </div>
-      
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -593,12 +601,11 @@
     </script>
 
     <script>
-      
       var app = new Vue({
         el: "#app",
         data: {
           honorindex: 0,
-          test:'# **測試** 1. 換行 2. 換行 3. 跛我賭ㄛ',
+          test: '# **測試** 1. 換行 2. 換行 3. 跛我賭ㄛ',
           openmenucolor: "",
           loadingshow: true,
           popupopen: false,
@@ -609,7 +616,7 @@
           announcementcata: ['校務公告', '獎助學金', '教師研習', '校外活動', '下載資料', '升學資訊', '政令宣導'],
           announcementcataselect: '獎助學金',
           honorrollindex: 0,
-          honorroll: ['普二忠班 葉俊麟 榮獲全國學生美展 特等獎', "普二信班 葉宗達 榮獲全國技藝競賽 銅獎", '綜三忠 黃大煒'],
+          honorroll: [],
           showfullpagemenu: false,
           currentnavname: '',
           announcementcataopen: false,
@@ -821,7 +828,7 @@
 
           },
           openpopup(index) {
-            
+
             anime({
               targets: '.announcementpopup',
 
@@ -839,7 +846,7 @@
             this.popupcontent = this.announcementcontent[this.currentannouncementconetntidnex][2]
             this.popdate = this.announcementcontent[this.currentannouncementconetntidnex][1]
             // document.querySelector('.content-topic').innerHTML = this.popupcontent;
-           
+
           },
           changeannouncementcata(index) {
             this.announcementcataindex = index;
@@ -1020,7 +1027,17 @@
           closefullpagemenu() {
             this.showfullpagemenu = false
           },
+          changehonorrollindex(){
+            let l = this.honorroll.length;
+            window.setInterval((() => {
+              if (this.honorindex < l - 1) {
+                this.honorindex++
+              } else {
+                this.honorindex = 0;
+              }
 
+            }), 3000);
+          },
           tonextpage(page) {
             var tl = anime.timeline({
               easing: 'easeInOutSine',
@@ -1082,10 +1099,41 @@
 
             return newdatestring
 
+          },
+          test() {
+            let newarr = [];
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == '學校榮譽') {
+                console.log(this.announcementcontent[i][4]);
+              }
+            }
           }
         },
+        created() {
+          axios({
+              method: "get",
+              url: "https://script.google.com/macros/s/AKfycbxIAtJn1QioMSjeX_26YfrX_0MuRgN8156jrO_hPofQHjly2lu_ND3QB6OuOj9dkAvZRQ/exec",
+              params: {
+                type: 'all',
+              }
+            })
+            .then((response) => {
+              this.announcementcontent = response.data
+              for (let i = 0; i < this.announcementcontent.length; i++) {
+                if (this.announcementcontent[i][4] == '學校榮譽') {
+                  this.honorroll.push(this.announcementcontent[i][0])
+                }
+              }
+              this.changehonorrollindex();
+              this.loadingshow = false
+              // console.log(response.data);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        },
         mounted() {
-         
+
           anime({
             targets: ".loadingpage .circle1",
             easing: "easeInOutQuad",
@@ -1125,14 +1173,7 @@
             loop: true
           });
 
-          // anime({
-          //   targets: ".loadingpage img",
-          //   easing: "easeInOutQuad",
-          //   duration: 2000,
-          //   opacity: 0.3,
-          //   direction: "alternate",
-          //   loop: true
-          // });
+
 
 
           anime({
@@ -1205,44 +1246,17 @@
             navbar.classList.toggle("sticky", window.scrollY > 0)
           })
           this.carouseltimer();
-          let l = this.honorroll.length;
+          
 
-          window.setInterval((() => {
-            if (this.honorindex < l - 1) {
-              this.honorindex++
-              console.log(this.honorindex);
-            } else {
-              this.honorindex = 0;
-            }
 
-          }), 5000);
+         
 
-          anime({
-            targets: ".honorroll span",
-            translateY: [80, 0],
-            opacity: [0, 1],
-            easing: 'easeInOutExpo',
-            loop: true,
-            duration: 2500,
-            direction: 'alternate',
-          });
 
-          axios({
-              method: "get",
-              url: "https://script.google.com/macros/s/AKfycbxIAtJn1QioMSjeX_26YfrX_0MuRgN8156jrO_hPofQHjly2lu_ND3QB6OuOj9dkAvZRQ/exec",
-              params: {
-                type: 'all',
-              }
-            })
-            .then((response) => {
-              this.announcementcontent = response.data
-              console.log(this.announcementcontent)
-              this.loadingshow = false
-              // console.log(response.data);
-            })
-            .catch((error) => {
-              console.error(error);
-            });
+
+          
+        
+
+
 
 
 
