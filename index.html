@@ -834,12 +834,28 @@
           },
           carouseltimer() {
             let l = this.carouselpic.length;
+            var ani =  anime({
+            targets: ".pic",
+            easing: 'easeInOutQuad',
+            duration: 6500,
+            direction: 'alternate',
+            loop: true,
+            scale:1.05
+            
+          });
+           
             window.setInterval((() => {
+            
+              
               if (this.carouselindex < l - 1) {
                 this.carouselindex++
+                
               } else {
                 this.carouselindex = 0;
+               
               }
+              
+             
 
             }), 7000);
           },
@@ -1139,7 +1155,7 @@
                 }
                 anime({
             targets: ".honorroll span",
-            easing: 'easeInOutSine',
+            easing: 'easeInOutQuad',
             duration: 700,
             
             opacity:[0,1]
@@ -1273,7 +1289,14 @@
           })
           this.carouseltimer();
 
-
+          // anime({
+          //   targets: ".pic",
+          //   easing: 'easeInOutQuad',
+          //   duration: 6500,
+          //   // loop: true,
+          //   scale:1.05
+            
+          // });
           
 
 

@@ -479,8 +479,8 @@ textarea {
 }
 
 .v-leave-active {
-  -webkit-transition: opacity .5s;
-  transition: opacity .5s;
+  -webkit-transition: opacity .6s;
+  transition: opacity .6s;
 }
 
 .v-leave-to {
@@ -492,8 +492,8 @@ textarea {
 }
 
 .v-enter-active {
-  -webkit-transition: opacity .5s;
-  transition: opacity .5s;
+  -webkit-transition: opacity .6s;
+  transition: opacity .6s;
 }
 
 .v-enter-to {
@@ -511,7 +511,7 @@ textarea {
   top: 15%;
   color: #FFFFFF;
   left: 10%;
-  z-index: 4;
+  z-index: 3;
 }
 
 .slide .webnav {
@@ -576,6 +576,7 @@ textarea {
   width: 100%;
   height: 100%;
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
 }
 
