@@ -253,16 +253,16 @@
 
 
         <span v-for="(item,index) in announcementcontent" :key="index" v-show="item[4]=='學校榮譽'&&honorindex==index">
-         {{item[0]}}
+          {{item[0]}}
         </span>
         <!-- </transition> -->
       </div>
       <div class="subtilte">
-        
-          <span v-for="(item,index) in announcementcontent" :key="index" v-show="item[4]=='學校榮譽'&&honorindex==index">
-            {{item[0]}}
-          </span>
-        
+
+        <span v-for="(item,index) in announcementcontent" :key="index" v-show="item[4]=='學校榮譽'&&honorindex==index">
+          {{item[0]}}
+        </span>
+
 
 
       </div>
@@ -401,18 +401,63 @@
           <li :class="selected:">政令宣導</li> -->
       </ul>
       <div class="announcement-content">
-        <div class="item-wrap" @click="openpopup(index)" v-for="(item,index) in announcementcontent" :key="index"
-          v-show="item[4]==announcementcata[announcementcataindex]">
-
+        <div class="item-wrap" v-for = "(item,index) in announcementcontent1" :key="index" @click="openpopup(index)" v-show="announcementcataindex==0&&index<5">
           <div class="item-title">
             {{item[0]}}
           </div>
           <div class="date">
             {{convertdatehandler(item[1])}}
           </div>
-
-
         </div>
+        <div class="item-wrap" v-for = "(item,index) in announcementcontent2" :key="index" @click="openpopup(index)" v-show="announcementcataindex==1&&index<5">
+          <div class="item-title">
+            {{item[0]}}
+          </div>
+          <div class="date">
+            {{convertdatehandler(item[1])}}
+          </div>
+        </div>
+        <div class="item-wrap" v-for = "(item,index) in announcementcontent3" :key="index" @click="openpopup(index)" v-show="announcementcataindex==2&&index<5">
+          <div class="item-title">
+            {{item[0]}}
+          </div>
+          <div class="date">
+            {{convertdatehandler(item[1])}}
+          </div>
+        </div>
+        <div class="item-wrap" v-for = "(item,index) in announcementcontent4" :key="index" @click="openpopup(index)" v-show="announcementcataindex==3&&index<5">
+          <div class="item-title">
+            {{item[0]}}
+          </div>
+          <div class="date">
+            {{convertdatehandler(item[1])}}
+          </div>
+        </div>
+        <div class="item-wrap" v-for = "(item,index) in announcementcontent5" :key="index" @click="openpopup(index)" v-show="announcementcataindex==4&&index<5">
+          <div class="item-title">
+            {{item[0]}}
+          </div>
+          <div class="date">
+            {{convertdatehandler(item[1])}}
+          </div>
+        </div>
+        <div class="item-wrap" v-for = "(item,index) in announcementcontent6" :key="index" @click="openpopup(index)" v-show="announcementcataindex==5&&index<5">
+          <div class="item-title">
+            {{item[0]}}
+          </div>
+          <div class="date">
+            {{convertdatehandler(item[1])}}
+          </div>
+        </div>
+        <div class="item-wrap" v-for = "(item,index) in announcementcontent7" :key="index" @click="openpopup(index)" v-show="announcementcataindex==6&&index<5">
+          <div class="item-title">
+            {{item[0]}}
+          </div>
+          <div class="date">
+            {{convertdatehandler(item[1])}}
+          </div>
+        </div>
+      
       </div>
 
 
@@ -834,28 +879,28 @@
           },
           carouseltimer() {
             let l = this.carouselpic.length;
-            var ani =  anime({
-            targets: ".pic",
-            easing: 'easeInOutQuad',
-            duration: 6500,
-            direction: 'alternate',
-            loop: true,
-            scale:1.05
-            
-          });
-           
+            var ani = anime({
+              targets: ".pic",
+              easing: 'easeInOutQuad',
+              duration: 6500,
+              direction: 'alternate',
+              loop: true,
+              scale: 1.05
+
+            });
+
             window.setInterval((() => {
-            
-              
+
+
               if (this.carouselindex < l - 1) {
                 this.carouselindex++
-                
+
               } else {
                 this.carouselindex = 0;
-               
+
               }
-              
-             
+
+
 
             }), 7000);
           },
@@ -887,11 +932,11 @@
             });
             this.popupopen = true
             this.currentannouncementconetntidnex = index;
-            this.popupptitle = this.announcementcontent[this.currentannouncementconetntidnex][0]
-            this.popupadmin = this.announcementcontent[this.currentannouncementconetntidnex][3]
-            this.popupcontent = this.announcementcontent[this.currentannouncementconetntidnex][2]
-            this.popdate = this.announcementcontent[this.currentannouncementconetntidnex][1]
-            // document.querySelector('.content-topic').innerHTML = this.popupcontent;
+            this.popupptitle = this.announcementcontent1[this.currentannouncementconetntidnex][0]
+            this.popupadmin = this.announcementcontent1[this.currentannouncementconetntidnex][3]
+            this.popupcontent = this.announcementcontent1[this.currentannouncementconetntidnex][2]
+            this.popdate = this.announcementcontent1[this.currentannouncementconetntidnex][1]
+          
 
           },
           changeannouncementcata(index) {
@@ -1112,6 +1157,79 @@
           }
         },
         computed: {
+          announcementcontent1() {
+           
+            let arr= []
+            for(let i=0;i<this.announcementcontent.length;i++){
+              if(this.announcementcontent[i][4] == this.announcementcata[0]){
+                arr.push(this.announcementcontent[i])
+              }
+            }
+            console.log( this.announcementcontent)
+            return arr;
+           
+          },
+          announcementcontent2() {
+            let arr= []
+            for(let i=0;i<this.announcementcontent.length;i++){
+              if(this.announcementcontent[i][4] == this.announcementcata[1]){
+                arr.push(this.announcementcontent[i])
+              }
+            }
+            console.log( this.announcementcontent)
+            return arr;
+            
+          },
+          announcementcontent3() {
+            let arr= []
+            for(let i=0;i<this.announcementcontent.length;i++){
+              if(this.announcementcontent[i][4] == this.announcementcata[2]){
+                arr.push(this.announcementcontent[i])
+              }
+            }
+            console.log( this.announcementcontent)
+            return arr;
+          },
+          announcementcontent4() {
+            let arr= []
+            for(let i=0;i<this.announcementcontent.length;i++){
+              if(this.announcementcontent[i][4] == this.announcementcata[3]){
+                arr.push(this.announcementcontent[i])
+              }
+            }
+            console.log( this.announcementcontent)
+            return arr;
+          },
+          announcementcontent5() {
+            let arr= []
+            for(let i=0;i<this.announcementcontent.length;i++){
+              if(this.announcementcontent[i][4] == this.announcementcata[4]){
+                arr.push(this.announcementcontent[i])
+              }
+            }
+            console.log( this.announcementcontent)
+            return arr;
+          },
+          announcementcontent6() {
+            let arr= []
+            for(let i=0;i<this.announcementcontent.length;i++){
+              if(this.announcementcontent[i][4] == this.announcementcata[5]){
+                arr.push(this.announcementcontent[i])
+              }
+            }
+            console.log( this.announcementcontent)
+            return arr;
+          },
+          announcementcontent7() {
+            let arr= []
+            for(let i=0;i<this.announcementcontent.length;i++){
+              if(this.announcementcontent[i][4] == this.announcementcata[6]){
+                arr.push(this.announcementcontent[i])
+              }
+            }
+            console.log( this.announcementcontent)
+            return arr;
+          },
           convertdate() {
             let newdatestring = this.popdate;
             if (this.popdate == '') {
@@ -1154,12 +1272,12 @@
                   this.honorindex = 0;
                 }
                 anime({
-            targets: ".honorroll span",
-            easing: 'easeInOutQuad',
-            duration: 700,
-            
-            opacity:[0,1]
-          });
+                  targets: ".honorroll span",
+                  easing: 'easeInOutQuad',
+                  duration: 700,
+
+                  opacity: [0, 1]
+                });
 
 
 
@@ -1295,9 +1413,9 @@
           //   duration: 6500,
           //   // loop: true,
           //   scale:1.05
-            
+
           // });
-          
+
 
 
 
