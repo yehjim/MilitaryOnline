@@ -616,11 +616,16 @@ textarea{
         justify-content: flex-end;
         box-sizing: border-box;
         color: $main_lighten;
+        
 
         li {
           padding-left: 41px;
-
           cursor: pointer;
+          span{
+         
+          }
+
+          
 
 
 
@@ -700,6 +705,7 @@ textarea{
       cursor: pointer;
       transition: margin-left 0.3s;
       margin-right: 50px;
+      opacity: 0;
 
       a {
         text-decoration: none;
@@ -756,6 +762,7 @@ textarea{
   .navitem {
     .navwarp {
       li {
+       
         color: $text_dark;
       }
     }

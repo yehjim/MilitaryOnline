@@ -43,7 +43,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assest/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="./assest/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./assest/favicon-16x16.png">
-  <link rel="manifest" href="./assest/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="./assest/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
@@ -64,10 +63,9 @@
         <div class="logo"></div>
         <div class="navitem">
           <div class="navwarp">
-            <li class="text" :style="{ color: openmenucolor}" v-for="(item,index) in navitems" :key="index"
-              @mouseover.self="shownavopen(index,item.name)">
-
-              {{item.name}}
+            <li class="text" :style="{ color: openmenucolor}" v-for="(item,index) in navitems" :key="index">
+              <span @mouseover.self="shownavopen(index,item.name)">{{item.name}}</span>
+              
 
 
 
@@ -249,17 +247,20 @@
       <div class="title2">
 
 
-        <!-- <transition> -->
 
 
-        <span v-for="(item,index) in announcementcontent" :key="index" v-show="item[4]=='學校榮譽'&&honorindex==index">
+
+
+
+        <span v-for="(item,index) in honorroll" :key="index" v-show="index==honorindex">
           {{item[0]}}
         </span>
-        <!-- </transition> -->
+
+
       </div>
       <div class="subtilte">
 
-        <span v-for="(item,index) in announcementcontent" :key="index" v-show="item[4]=='學校榮譽'&&honorindex==index">
+        <span v-for="(item,index) in honorroll" :key="index" v-show="honorindex==index">
           {{item[0]}}
         </span>
 
@@ -401,7 +402,8 @@
           <li :class="selected:">政令宣導</li> -->
       </ul>
       <div class="announcement-content">
-        <div class="item-wrap" v-for = "(item,index) in announcementcontent1" :key="index" @click="openpopup(index)" v-show="announcementcataindex==0&&index<6">
+        <div class="item-wrap" v-for="(item,index) in announcementcontent1" :key="index" @click="openpopup(index)"
+          v-show="announcementcataindex==0&&index<6">
           <div class="item-title">
             {{item[0]}}
           </div>
@@ -409,7 +411,8 @@
             {{convertdatehandler(item[1])}}
           </div>
         </div>
-        <div class="item-wrap" v-for = "(item,index) in announcementcontent2" :key="index" @click="openpopup(index)" v-show="announcementcataindex==1&&index<6">
+        <div class="item-wrap" v-for="(item,index) in announcementcontent2" :key="index" @click="openpopup(index)"
+          v-show="announcementcataindex==1&&index<6">
           <div class="item-title">
             {{item[0]}}
           </div>
@@ -417,7 +420,8 @@
             {{convertdatehandler(item[1])}}
           </div>
         </div>
-        <div class="item-wrap" v-for = "(item,index) in announcementcontent3" :key="index" @click="openpopup(index)" v-show="announcementcataindex==2&&index<6">
+        <div class="item-wrap" v-for="(item,index) in announcementcontent3" :key="index" @click="openpopup(index)"
+          v-show="announcementcataindex==2&&index<6">
           <div class="item-title">
             {{item[0]}}
           </div>
@@ -425,7 +429,8 @@
             {{convertdatehandler(item[1])}}
           </div>
         </div>
-        <div class="item-wrap" v-for = "(item,index) in announcementcontent4" :key="index" @click="openpopup(index)" v-show="announcementcataindex==3&&index<6">
+        <div class="item-wrap" v-for="(item,index) in announcementcontent4" :key="index" @click="openpopup(index)"
+          v-show="announcementcataindex==3&&index<6">
           <div class="item-title">
             {{item[0]}}
           </div>
@@ -433,7 +438,8 @@
             {{convertdatehandler(item[1])}}
           </div>
         </div>
-        <div class="item-wrap" v-for = "(item,index) in announcementcontent5" :key="index" @click="openpopup(index)" v-show="announcementcataindex==4&&index<6">
+        <div class="item-wrap" v-for="(item,index) in announcementcontent5" :key="index" @click="openpopup(index)"
+          v-show="announcementcataindex==4&&index<6">
           <div class="item-title">
             {{item[0]}}
           </div>
@@ -441,7 +447,8 @@
             {{convertdatehandler(item[1])}}
           </div>
         </div>
-        <div class="item-wrap" v-for = "(item,index) in announcementcontent6" :key="index" @click="openpopup(index)" v-show="announcementcataindex==5&&index<6">
+        <div class="item-wrap" v-for="(item,index) in announcementcontent6" :key="index" @click="openpopup(index)"
+          v-show="announcementcataindex==5&&index<6">
           <div class="item-title">
             {{item[0]}}
           </div>
@@ -449,7 +456,8 @@
             {{convertdatehandler(item[1])}}
           </div>
         </div>
-        <div class="item-wrap" v-for = "(item,index) in announcementcontent7" :key="index" @click="openpopup(index)" v-show="announcementcataindex==6&&index<6">
+        <div class="item-wrap" v-for="(item,index) in announcementcontent7" :key="index" @click="openpopup(index)"
+          v-show="announcementcataindex==6&&index<6">
           <div class="item-title">
             {{item[0]}}
           </div>
@@ -457,7 +465,7 @@
             {{convertdatehandler(item[1])}}
           </div>
         </div>
-      
+
       </div>
 
 
@@ -680,7 +688,7 @@
         el: "#app",
         data: {
           honorindex: 0,
-
+          honorl: 0,
           openmenucolor: "",
           loadingshow: true,
           popupopen: false,
@@ -691,7 +699,7 @@
           announcementcata: ['校務公告', '獎助學金', '教師研習', '校外活動', '下載資料', '升學資訊', '政令宣導'],
           announcementcataselect: '獎助學金',
           honorrollindex: 0,
-          honorroll: [],
+          honorrollcontent: [],
           showfullpagemenu: false,
           currentnavname: '',
           announcementcataopen: false,
@@ -881,11 +889,23 @@
             let l = this.carouselpic.length;
             var ani = anime({
               targets: ".pic",
-              easing: 'easeInOutQuad',
+              easing: 'easeInOutSine',
+              // easing: 'easeInOutQuad',
               duration: 6500,
               direction: 'alternate',
               loop: true,
-              scale: 1.05
+              scale:1.07
+              // backgroundSize: ['100%','130%',]
+
+            });
+            var ani2 = anime({
+              targets: ".picinfo",
+              easing: 'easeInOutSine',
+              // easing: 'easeInOutQuad',
+              duration: 6500,
+              loop: true,
+              scale:1
+              // backgroundSize: ['100%','130%',]
 
             });
 
@@ -927,22 +947,54 @@
               opacity: [0, 1],
               easing: 'easeOutElastic(1, .8)',
 
-              duration: 500
+              duration: 700
 
             });
             this.popupopen = true
-            this.currentannouncementconetntidnex = index;
-            this.popupptitle = this.announcementcontent1[this.currentannouncementconetntidnex][0]
-            this.popupadmin = this.announcementcontent1[this.currentannouncementconetntidnex][3]
-            this.popupcontent = this.announcementcontent1[this.currentannouncementconetntidnex][2]
-            this.popdate = this.announcementcontent1[this.currentannouncementconetntidnex][1]
-          
+
+            if (this.announcementcataindex == 0) {
+              this.popupptitle = this.announcementcontent1[index][0]
+              this.popupadmin = this.announcementcontent1[index][3]
+              this.popupcontent = this.announcementcontent1[index][2]
+              this.popdate = this.announcementcontent1[index][1]
+            } else if (this.announcementcataindex == 1) {
+              this.popupptitle = this.announcementcontent2[index][0]
+              this.popupadmin = this.announcementcontent2[index][3]
+              this.popupcontent = this.announcementcontent2[index][2]
+              this.popdate = this.announcementcontent2[index][1]
+            } else if (this.announcementcataindex == 2) {
+              this.popupptitle = this.announcementcontent3[index][0]
+              this.popupadmin = this.announcementcontent3[index][3]
+              this.popupcontent = this.announcementcontent3[index][2]
+              this.popdate = this.announcementcontent3[index][1]
+            } else if (this.announcementcataindex == 3) {
+              this.popupptitle = this.announcementcontent4[index][0]
+              this.popupadmin = this.announcementcontent4[index][3]
+              this.popupcontent = this.announcementcontent4[index][2]
+              this.popdate = this.announcementcontent4[index][1]
+            } else if (this.announcementcataindex == 4) {
+              this.popupptitle = this.announcementcontent5[index][0]
+              this.popupadmin = this.announcementcontent5[index][3]
+              this.popupcontent = this.announcementcontent5[index][2]
+              this.popdate = this.announcementcontent5[index][1]
+            } else if (this.announcementcataindex == 5) {
+              this.popupptitle = this.announcementcontent6[index][0]
+              this.popupadmin = this.announcementcontent6[index][3]
+              this.popupcontent = this.announcementcontent6[index][2]
+              this.popdate = this.announcementcontent6[index][1]
+            } else if (this.announcementcataindex == 6) {
+              this.popupptitle = this.announcementcontent7[index][0]
+              this.popupadmin = this.announcementcontent7[index][3]
+              this.popupcontent = this.announcementcontent7[index][2]
+              this.popdate = this.announcementcontent7[index][1]
+            }
+
+
 
           },
+         
           changeannouncementcata(index) {
             this.announcementcataindex = index;
-
-
             anime({
               targets: '.announcement-catawrap',
 
@@ -1067,6 +1119,7 @@
           openmenuani() {
             var tl = anime.timeline({
               easing: 'easeInOutExpo',
+              
 
             })
             tl.add({
@@ -1081,7 +1134,7 @@
                 opacity: [0, 1],
 
 
-              }, 500)
+              },400)
 
           },
           shownavopen(index, name) {
@@ -1089,7 +1142,10 @@
             this.currentnavname = name;
             this.openmenucolor = '#fff'
             this.show = true;
-            this.openmenuani();
+            setTimeout(() => {
+              this.openmenuani();
+            }, 50);
+           
 
 
           },
@@ -1157,77 +1213,86 @@
           }
         },
         computed: {
-          announcementcontent1() {
-           
-            let arr= []
-            for(let i=0;i<this.announcementcontent.length;i++){
-              if(this.announcementcontent[i][4] == this.announcementcata[0]){
+          honorroll() {
+            let arr = []
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == '學校榮譽') {
                 arr.push(this.announcementcontent[i])
               }
             }
-            console.log( this.announcementcontent)
+            return arr
+          },
+          announcementcontent1() {
+
+            let arr = []
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == this.announcementcata[0]) {
+                arr.push(this.announcementcontent[i])
+              }
+            }
+            console.log(this.announcementcontent)
             return arr;
-           
+
           },
           announcementcontent2() {
-            let arr= []
-            for(let i=0;i<this.announcementcontent.length;i++){
-              if(this.announcementcontent[i][4] == this.announcementcata[1]){
+            let arr = []
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == this.announcementcata[1]) {
                 arr.push(this.announcementcontent[i])
               }
             }
-            console.log( this.announcementcontent)
+            console.log(this.announcementcontent)
             return arr;
-            
+
           },
           announcementcontent3() {
-            let arr= []
-            for(let i=0;i<this.announcementcontent.length;i++){
-              if(this.announcementcontent[i][4] == this.announcementcata[2]){
+            let arr = []
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == this.announcementcata[2]) {
                 arr.push(this.announcementcontent[i])
               }
             }
-            console.log( this.announcementcontent)
+            console.log(this.announcementcontent)
             return arr;
           },
           announcementcontent4() {
-            let arr= []
-            for(let i=0;i<this.announcementcontent.length;i++){
-              if(this.announcementcontent[i][4] == this.announcementcata[3]){
+            let arr = []
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == this.announcementcata[3]) {
                 arr.push(this.announcementcontent[i])
               }
             }
-            console.log( this.announcementcontent)
+            console.log(this.announcementcontent)
             return arr;
           },
           announcementcontent5() {
-            let arr= []
-            for(let i=0;i<this.announcementcontent.length;i++){
-              if(this.announcementcontent[i][4] == this.announcementcata[4]){
+            let arr = []
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == this.announcementcata[4]) {
                 arr.push(this.announcementcontent[i])
               }
             }
-            console.log( this.announcementcontent)
+            console.log(this.announcementcontent)
             return arr;
           },
           announcementcontent6() {
-            let arr= []
-            for(let i=0;i<this.announcementcontent.length;i++){
-              if(this.announcementcontent[i][4] == this.announcementcata[5]){
+            let arr = []
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == this.announcementcata[5]) {
                 arr.push(this.announcementcontent[i])
               }
             }
-            console.log( this.announcementcontent)
+            console.log(this.announcementcontent)
             return arr;
           },
           announcementcontent7() {
-            let arr= []
-            for(let i=0;i<this.announcementcontent.length;i++){
-              if(this.announcementcontent[i][4] == this.announcementcata[6]){
+            let arr = []
+            for (let i = 0; i < this.announcementcontent.length; i++) {
+              if (this.announcementcontent[i][4] == this.announcementcata[6]) {
                 arr.push(this.announcementcontent[i])
               }
             }
-            console.log( this.announcementcontent)
+            console.log(this.announcementcontent)
             return arr;
           },
           convertdate() {
@@ -1260,29 +1325,9 @@
             })
             .then((response) => {
               this.announcementcontent = response.data
-              for (let i = 0; i < response.data.length; i++) {
-                if (response.data[i][4] == '學校榮譽') {
-                  this.honorroll.push(response.data[i][0])
-                }
-              }
-              let l = this.honorroll.length;
-              window.setInterval((() => {
-                this.honorindex++
-                if (this.honorindex == l) {
-                  this.honorindex = 0;
-                }
-                anime({
-                  targets: ".honorroll span",
-                  easing: 'easeInOutQuad',
-                  duration: 700,
-
-                  opacity: [0, 1]
-                });
 
 
 
-
-              }), 5000);
 
               this.loadingshow = false
 
@@ -1406,15 +1451,39 @@
             navbar.classList.toggle("sticky", window.scrollY > 0)
           })
           this.carouseltimer();
+          let honorindex = 0
+          window.setInterval((() => {
+            if (honorindex < this.honorroll.length - 1) {
+              honorindex++;
+              this.honorindex = honorindex
+            } else {
+              honorindex = 0
+              this.honorindex = honorindex
+            }
+            console.log(this.honorindex, 'vue中的')
 
-          // anime({
-          //   targets: ".pic",
-          //   easing: 'easeInOutQuad',
-          //   duration: 6500,
-          //   // loop: true,
-          //   scale:1.05
 
-          // });
+
+          }), 5000);
+
+          anime({
+            targets: ".honorroll .title2",
+            easing: 'easeInOutQuad',
+            duration: 5000,
+            loop: true,
+            // direction: 'alternate',
+            opacity: [0, 1]
+
+          });
+          anime({
+            targets: ".honorroll .subtilte",
+            easing: 'easeInOutQuad',
+            duration: 5000,
+            loop: true,
+            // direction: 'alternate',
+            opacity: [0, 1]
+
+          });
 
 
 

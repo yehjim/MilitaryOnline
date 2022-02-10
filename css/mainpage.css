@@ -636,6 +636,7 @@ textarea {
   -webkit-transition: margin-left 0.3s;
   transition: margin-left 0.3s;
   margin-right: 50px;
+  opacity: 0;
 }
 
 .slide .navopenblock .admin-item a {
