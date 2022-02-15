@@ -124,6 +124,12 @@
   margin-top: 50px;
 }
 
+.video-wrap .arrow div {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+}
+
 .video-wrap .arrow svg {
   fill: #57a693;
   cursor: pointer;
