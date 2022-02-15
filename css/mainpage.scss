@@ -609,7 +609,7 @@ textarea {
     display: flex;
 
     .logo {
-     
+     cursor: pointer;
       
 
       img {
@@ -906,6 +906,9 @@ textarea {
   padding-left: 15px;
   padding-right: 15px;
   color: $text_dark;
+  img{
+    transform: scale(0.9);
+  }
 
   svg {
     z-index: 1;

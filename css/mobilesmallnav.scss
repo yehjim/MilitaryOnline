@@ -6,84 +6,87 @@ $main_light:#81B9AC;
 $main_lighten:#FFFFFF;
 
 @media (max-width: 767px) {
-  .icon{
+  .icon {
     width: 52px;
   }
-  
-  .mobilesmallnav{
+
+  .mobilesmallnav {
     svg {
       position: absolute;
-     
+
     }
   }
- 
-  .title2{
+
+  .title2 {
     font-size: 18px;
   }
 }
 
 @media (max-width: 480px) {
-  .icon{
+  .icon {
     width: 40px;
-    
-   
+
+
   }
-  .mobilesmallnav{
+
+  .mobilesmallnav {
     svg {
       position: absolute;
-     
+
     }
   }
-  
+
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-  .icon{
+  .icon {
     width: 52px;
   }
-  .mobilesmallnav{
+
+  .mobilesmallnav {
     svg {
       position: absolute;
       width: 40px;
       height: 40px;
     }
   }
-  
+
 }
 
 @media (min-width: 980px) {
-  .icon{
+  .icon {
     width: 52px;
   }
-  .mobilesmallnav{
+
+  .mobilesmallnav {
     svg {
       position: absolute;
       width: 60px;
       height: 60px;
     }
   }
-  
+
 }
 
 @media (min-width: 1200px) {
-  .icon{
+  .icon {
     width: 52px;
   }
-  .mobilesmallnav{
+
+  .mobilesmallnav {
     svg {
       position: absolute;
       width: 60px;
       height: 60px;
     }
+
   }
- 
+
+
 }
 
-img{
-  scale: 0.9;
-  
-}
-.mobilesmallnav{
+
+.mobilesmallnav {
   svg {
     z-index: 1;
   }
@@ -100,7 +103,13 @@ img{
   flex-direction: column;
   align-items: center;
   margin-top: 53px;
-  .circle{
+
+  img {
+    transform: scale(0.9);
+
+  }
+
+  .circle {
     position: absolute;
   }
 
@@ -121,7 +130,7 @@ img{
 
     .icon {
       margin-right: 34px;
-     
+
     }
 
   }
@@ -139,7 +148,7 @@ img{
 
     .icon {
       margin-right: 34px;
-      
+
     }
   }
 
@@ -156,7 +165,7 @@ img{
 
     .icon {
       margin-right: 34px;
-     
+
     }
   }
 
@@ -173,7 +182,7 @@ img{
 
     .icon {
       margin-right: 34px;
-      
+
     }
   }
 

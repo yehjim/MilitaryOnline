@@ -203,7 +203,14 @@ footer{
         }
        
         .phone{
+            transition: 0.3s;
             margin-top: 28px;
+            a{
+                color: black;
+            }
+            a:hover{
+                color: $main_dark;
+            }
             
         }
         .location{

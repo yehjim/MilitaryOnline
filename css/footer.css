@@ -182,7 +182,17 @@ footer .footer-basicinfo .logo {
 }
 
 footer .footer-basicinfo .phone {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   margin-top: 28px;
+}
+
+footer .footer-basicinfo .phone a {
+  color: black;
+}
+
+footer .footer-basicinfo .phone a:hover {
+  color: #57A693;
 }
 
 footer .footer-basicinfo .googlemap {
