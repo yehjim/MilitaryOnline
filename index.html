@@ -86,7 +86,7 @@
         </div>
         <transition>
           <div v-if="show" class="navopenblock admin" @mouseleave="hidenavcontent">
-            <img class="schoologo" src="./assest/school_logo.png" alt="">
+          
             <div class="aboutsmhswrap" v-if="currentindex==0">
               <div v-for="item in adminnav" class="admin-item">
                 <a :href="item.url" target="_blank" rel="noopener noreferrer">
@@ -548,7 +548,7 @@
         <div class="imporatantinfo-block" v-for="(item,index) in imporatantinfo" :key="index">
           <a :href="item.url" target="_blank" rel="noopener noreferrer">
             <div class="bgcover">
-              <img src="http://www.smhs.hlc.edu.tw/smhs/rwb-web/assest/school_logo.png" alt="">
+              <img src="./assest/school_logo.png" alt="">
               <div class="textwrap">
                 <span>{{item.title}}</span>
                 <div class="underline"></div>
