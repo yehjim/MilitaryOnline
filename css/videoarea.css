@@ -1,0 +1,131 @@
+@media (max-width: 767px) {
+  .videoblock svg {
+    width: 100px;
+    height: 100px;
+  }
+  .arrow svg {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .videoblock {
+    width: 250px;
+    height: 150px;
+  }
+  .videoblock svg {
+    width: 50px;
+    height: 50px;
+  }
+  .arrow svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .videoblock svg {
+    width: 100px;
+    height: 100px;
+  }
+  .arrow svg {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 980px) {
+  .videoblock-wrap {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  .videoblock svg {
+    width: 100px;
+    height: 100px;
+  }
+  .arrow svg {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .videoblock-wrap {
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+  .videoblock svg {
+    width: 100px;
+    height: 100px;
+  }
+  .arrow svg {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.video-wrap {
+  margin-top: 150px;
+  margin-bottom: 30px;
+  color: #57a693;
+}
+
+.video-wrap .recruit-title {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.video-wrap .recruit-title span {
+  text-align: center;
+}
+
+.video-wrap .recruit-title div {
+  height: 2px;
+  background-color: #57a693;
+}
+
+.video-wrap .videoblock-wrap {
+  margin-top: 100px;
+}
+
+.video-wrap .videoblock-wrap .videoblock {
+  background-color: #81b9ac;
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.video-wrap .arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.video-wrap .arrow svg {
+  fill: #57a693;
+  cursor: pointer;
+}
+/*# sourceMappingURL=videoarea.css.map */

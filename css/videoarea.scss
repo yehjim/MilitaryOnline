@@ -1,0 +1,152 @@
+$text_dark: #4e4e4e;
+$text_lightdark: #717171;
+$subcolor: #c4c4c4;
+$main_dark: #57a693;
+$main_light: #81b9ac;
+$main_lighten: #ffffff;
+@media (max-width: 767px) {
+    .videoblock{
+       
+        svg{
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .arrow{
+        svg{
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+@media (max-width: 480px) {
+    .videoblock{
+       width: 250px;
+       height: 150px;
+       svg{
+           width: 50px;
+           height: 50px;
+       }
+    }
+    .arrow{
+       
+        
+        svg{
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+    .videoblock{
+       
+        svg{
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .arrow{
+        svg{
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+@media (min-width: 980px) {
+    .videoblock-wrap{
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+    .videoblock{
+       
+        svg{
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .arrow{
+        svg{
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .videoblock-wrap{
+        padding-left: 300px;
+        padding-right: 300px;
+    }
+    .videoblock{
+       
+        svg{
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .arrow{
+        svg{
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+.video-wrap {
+    margin-top: 150px;
+    margin-bottom: 30px;
+    color: $main_dark;
+
+    .recruit-title {
+        align-items: center;
+        justify-content: center;
+
+        span {
+            text-align: center;
+        }
+
+        div {
+            height: 2px;
+            background-color: $main_dark;
+        }
+    }
+    .videoblock-wrap{
+        margin-top: 100px;
+      
+       
+        .title2{
+           
+           
+        }
+        .videoblock{
+           
+           
+            background-color: $main_light;
+            width: 100%;
+            height: 300px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+           
+           
+        }
+    }
+    .arrow{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        margin: auto;
+        margin-top: 50px;
+        
+        svg{
+           
+            fill: $main_dark;
+            cursor: pointer;
+        }
+    }
+   
+
+    
+
+}
+

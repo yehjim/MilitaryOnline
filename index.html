@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./css/importantinfoarea.css">
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/announcementpopup.css">
+  <link rel="stylesheet" href="./css/videoarea.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <!-- og -->
   <!-- <meta property="og:url" content="https://tenten.co/digital-transformation/" /> -->
@@ -60,12 +61,14 @@
   <div id="app">
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <nav class="webnav">
-        <div class="logo"></div>
+        <div class="logo">
+          <img src="./assest/school_logo.png" alt="">
+        </div>
         <div class="navitem">
           <div class="navwarp">
             <li class="text" :style="{ color: openmenucolor}" v-for="(item,index) in navitems" :key="index">
               <span @mouseover.self="shownavopen(index,item.name)">{{item.name}}</span>
-              
+
 
 
 
@@ -126,9 +129,10 @@
         <div class="carousel-item active" v-for="(item,index) in carouselpic" :key="index" data-bs-interval="1000">
           <transition>
             <div class="pic" :style="{backgroundImage:'url('+item.pic+')'}" v-show="index==carouselindex">
-              <span class="title1 picinfo">{{item.title}}</span>
+
             </div>
           </transition>
+          <span class="title1 picinfo" v-show="index==carouselindex">{{item.title}}</span>
         </div>
       </div>
 
@@ -252,7 +256,7 @@
 
 
 
-        <span v-for="(item,index) in honorroll" :key="index" v-show="index==honorindex">
+        <span v-for="(item,index) in honorroll" :key="index" v-show="index==honorindex&&index<5">
           {{item[0]}}
         </span>
 
@@ -260,7 +264,7 @@
       </div>
       <div class="subtilte">
 
-        <span v-for="(item,index) in honorroll" :key="index" v-show="honorindex==index">
+        <span v-for="(item,index) in honorroll" :key="index" v-show="honorindex==index&&index<5">
           {{item[0]}}
         </span>
 
@@ -467,6 +471,64 @@
         </div>
 
       </div>
+
+
+
+    </div>
+
+    <div class="video-wrap">
+      <div class="recruit-title title2">
+        <div></div>
+        <span>影音專區</span>
+        <div></div>
+      </div>
+      <div class="recruit-title subtilte">
+        <div></div>
+        <span>影音專區</span>
+        <div></div>
+      </div>
+      <div class="videoblock-wrap">
+       <div v-for="(item,index) in videodata" :key="index"
+          v-show="index==videoindex">
+          <div class="videoblock">
+            <a :href="item.url"  target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM10.622 8.415a.4.4 0 0 0-.622.332v6.506a.4.4 0 0 0 .622.332l4.879-3.252a.4.4 0 0 0 0-.666l-4.88-3.252z"
+                  fill="rgba(255,255,255,1)" /></svg>
+            </a>
+            
+          </div>
+          
+          <div class="arrow">
+            <svg @click="changevideoindex('left')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+              height="24">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm0-9h4v2h-4v3l-4-4 4-4v3z" />
+              </svg>
+              <div class="title2">
+                {{item.title}}
+              </div>
+              <div class="subtilte">
+                {{item.title}}
+              </div>
+            <svg @click="changevideoindex('right')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+              height="24">
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 11V8l4 4-4 4v-3H8v-2h4zm0-9c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8z" />
+              </svg>
+          </div>
+  
+        </div>
+       
+       
+
+      </div>
+
+
 
 
 
@@ -687,6 +749,7 @@
       var app = new Vue({
         el: "#app",
         data: {
+          videoindex: 0,
           honorindex: 0,
           honorl: 0,
           openmenucolor: "",
@@ -874,7 +937,22 @@
           popupptitle: '',
           popupadmin: '',
           popupcontent: '',
-          popdate: ''
+          popdate: '',
+          videodata: [{
+              picurl: '',
+              url: '123',
+              title:'聖安琪家庭日'
+            },
+            {
+              picurl: '',
+              url: '345',
+              title:'好玩假日'
+            }, {
+              picurl: '',
+              url: '678',
+              title:'測試'
+            }
+          ]
         },
         methods: {
           convertdatehandler(datestring) {
@@ -890,23 +968,21 @@
             var ani = anime({
               targets: ".pic",
               easing: 'easeInOutSine',
-              // easing: 'easeInOutQuad',
+
               duration: 6500,
               direction: 'alternate',
               loop: true,
-              scale:1.07
-              // backgroundSize: ['100%','130%',]
+              scale: 1.07
+
 
             });
             var ani2 = anime({
               targets: ".picinfo",
               easing: 'easeInOutSine',
-              // easing: 'easeInOutQuad',
               duration: 6500,
+              direction: 'alternate',
               loop: true,
-              scale:1
-              // backgroundSize: ['100%','130%',]
-
+              scale: 1
             });
 
             window.setInterval((() => {
@@ -937,6 +1013,22 @@
             });
             this.popupopen = false
 
+          },
+          changevideoindex(direction) {
+            let l = this.videodata.length;
+            if (direction == 'left') {
+              this.videoindex--;
+              if (this.videoindex < 0) {
+                this.videoindex = l - 1;
+              }
+
+            } else {
+              this.videoindex++
+              if (this.videoindex == l) {
+                this.videoindex = 0
+              }
+
+            }
           },
           openpopup(index) {
 
@@ -992,7 +1084,7 @@
 
 
           },
-         
+
           changeannouncementcata(index) {
             this.announcementcataindex = index;
             anime({
@@ -1119,7 +1211,7 @@
           openmenuani() {
             var tl = anime.timeline({
               easing: 'easeInOutExpo',
-              
+
 
             })
             tl.add({
@@ -1134,7 +1226,7 @@
                 opacity: [0, 1],
 
 
-              },400)
+              }, 400)
 
           },
           shownavopen(index, name) {
@@ -1145,7 +1237,7 @@
             setTimeout(() => {
               this.openmenuani();
             }, 50);
-           
+
 
 
           },
@@ -1464,7 +1556,7 @@
 
 
 
-          }), 5000);
+          }), 5010);
 
           anime({
             targets: ".honorroll .title2",

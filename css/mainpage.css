@@ -39,39 +39,45 @@ textarea {
   }
   .announcement-area,
   .recruit-area,
-  .imporatantinfo-wrap {
+  .imporatantinfo-wrap,
+  .video-wrap {
     padding-left: 32px;
     padding-right: 32px;
   }
   .announcement-area .subtilte,
   .recruit-area .subtilte,
-  .imporatantinfo-wrap .subtilte {
+  .imporatantinfo-wrap .subtilte,
+  .video-wrap .subtilte {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
   .announcement-area .subtilte span,
   .recruit-area .subtilte span,
-  .imporatantinfo-wrap .subtilte span {
+  .imporatantinfo-wrap .subtilte span,
+  .video-wrap .subtilte span {
     -webkit-box-flex: 4;
         -ms-flex: 4;
             flex: 4;
   }
   .announcement-area .subtilte div,
   .recruit-area .subtilte div,
-  .imporatantinfo-wrap .subtilte div {
+  .imporatantinfo-wrap .subtilte div,
+  .video-wrap .subtilte div {
     -webkit-box-flex: 4;
         -ms-flex: 4;
             flex: 4;
   }
   .announcement-area .title2,
   .recruit-area .title2,
-  .imporatantinfo-wrap .title2 {
+  .imporatantinfo-wrap .title2,
+  .video-wrap .title2 {
     display: none;
   }
   .announcement-area .item-wrap,
   .recruit-area .item-wrap,
-  .imporatantinfo-wrap .item-wrap {
+  .imporatantinfo-wrap .item-wrap,
+  .video-wrap .item-wrap {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -185,34 +191,39 @@ textarea {
   }
   .announcement-area,
   .recruit-area,
-  .imporatantinfo-wrap {
+  .imporatantinfo-wrap,
+  .video-wrap {
     padding-left: 100px;
     padding-right: 100px;
   }
   .announcement-area .subtilte,
   .recruit-area .subtilte,
-  .imporatantinfo-wrap .subtilte {
+  .imporatantinfo-wrap .subtilte,
+  .video-wrap .subtilte {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
   .announcement-area .subtilte span,
   .recruit-area .subtilte span,
-  .imporatantinfo-wrap .subtilte span {
+  .imporatantinfo-wrap .subtilte span,
+  .video-wrap .subtilte span {
     -webkit-box-flex: 2;
         -ms-flex: 2;
             flex: 2;
   }
   .announcement-area .subtilte div,
   .recruit-area .subtilte div,
-  .imporatantinfo-wrap .subtilte div {
+  .imporatantinfo-wrap .subtilte div,
+  .video-wrap .subtilte div {
     -webkit-box-flex: 5;
         -ms-flex: 5;
             flex: 5;
   }
   .announcement-area .title2,
   .recruit-area .title2,
-  .imporatantinfo-wrap .title2 {
+  .imporatantinfo-wrap .title2,
+  .video-wrap .title2 {
     display: none;
   }
   .recruitblock-wrap {
@@ -310,28 +321,33 @@ textarea {
   }
   .announcement-area,
   .recruit-area,
-  .imporatantinfo-wrap {
+  .imporatantinfo-wrap,
+  .video-wrap {
     padding-left: 100px;
     padding-right: 100px;
   }
   .announcement-area .subtilte,
-  .imporatantinfo-wrap .subtilte {
+  .imporatantinfo-wrap .subtilte,
+  .video-wrap .subtilte {
     display: none;
   }
   .announcement-area .title2,
-  .imporatantinfo-wrap .title2 {
+  .imporatantinfo-wrap .title2,
+  .video-wrap .title2 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
   .announcement-area .title2 span,
-  .imporatantinfo-wrap .title2 span {
+  .imporatantinfo-wrap .title2 span,
+  .video-wrap .title2 span {
     -webkit-box-flex: 2;
         -ms-flex: 2;
             flex: 2;
   }
   .announcement-area .title2 div,
-  .imporatantinfo-wrap .title2 div {
+  .imporatantinfo-wrap .title2 div,
+  .video-wrap .title2 div {
     -webkit-box-flex: 5;
         -ms-flex: 5;
             flex: 5;
@@ -512,6 +528,8 @@ textarea {
   color: #FFFFFF;
   left: 10%;
   z-index: 3;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .slide .webnav {
@@ -538,7 +556,11 @@ textarea {
 .slide .webnav .logo {
   background-size: cover;
   background-position: center;
-  background-image: url("http://www.smhs.hlc.edu.tw/smhs/rwb-web/assest/school_logo.png");
+}
+
+.slide .webnav .logo img {
+  width: 100%;
+  height: 100%;
 }
 
 .slide .webnav .navitem {
@@ -572,6 +594,13 @@ textarea {
   width: 100%;
 }
 
+.slide .carousel-item img {
+  width: 100px;
+  height: 100px;
+  border: solid 1px;
+  position: absolute;
+}
+
 .slide .carousel-item .pic {
   width: 100%;
   height: 100%;
@@ -580,7 +609,12 @@ textarea {
   background-position: center;
 }
 
-.slide .carousel-item .pic .picinfo {
+.slide .carousel-item .pic img {
+  width: 100%;
+  height: 100%;
+}
+
+.slide .carousel-item .picinfo {
   margin-top: 100px;
 }
 
@@ -706,7 +740,11 @@ textarea {
   background-position: center;
   width: 52px;
   height: 52px;
-  background-image: url("./assest/school_logo.png");
+}
+
+.fullpagemenu .mobilenav .logo img {
+  width: 100%;
+  height: 100%;
 }
 
 .fullpagemenu .mobilenav img {
@@ -1020,7 +1058,6 @@ textarea {
 }
 
 .loadingpage .logo {
-  background-image: url("http://www.smhs.hlc.edu.tw/smhs/rwb-web/assest/school_logo.png");
   width: 100px;
   height: 100px;
   margin: auto;
