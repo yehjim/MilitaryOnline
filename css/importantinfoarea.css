@@ -61,6 +61,8 @@
   color: #ffffff;
   z-index: 1;
   border-radius: 5px;
+  background-position: center;
+  background-size: cover;
 }
 
 .imporatantinfo-wrap .imporatantinfoblockwrap .imporatantinfo-block .bgcover img {
@@ -93,6 +95,10 @@
   -webkit-transition: 0.3s;
   transition: 0.3s;
   color: #717171;
+}
+
+.imporatantinfo-wrap .imporatantinfoblockwrap .imporatantinfo-block .bgcover .textwrap .imgtitle {
+  color: #ffffff;
 }
 
 .imporatantinfo-wrap .textwrap:hover span {

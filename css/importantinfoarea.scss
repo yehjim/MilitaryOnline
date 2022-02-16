@@ -58,6 +58,8 @@ $main_lighten: #ffffff;
                 color: $main_lighten;
                 z-index: 1;
                 border-radius: 5px;
+                background-position: center;
+                background-size: cover;
                 img {
                     width: 30%;
                     opacity: 0.3;
@@ -77,6 +79,9 @@ $main_lighten: #ffffff;
                     span{
                         transition: 0.3s;
                         color: $text_lightdark
+                    }
+                    .imgtitle{
+                        color: $main_lighten;
                     }
                 }
 

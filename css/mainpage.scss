@@ -608,9 +608,17 @@ textarea {
     z-index: 4;
     display: flex;
 
+    .logotype {
+     
+      display: flex;
+      align-items: center;
+      color: $main_lighten;
+    }
+
     .logo {
-     cursor: pointer;
-      
+      margin-right: 5px;
+      cursor: pointer;
+
 
       img {
         width: 100%;
@@ -784,6 +792,12 @@ textarea {
 }
 
 .sticky {
+  .logotype{
+    span{
+      color: $text_dark;
+    }
+   
+  }
   .navitem {
     .navwarp {
       li {
@@ -811,7 +825,7 @@ textarea {
     padding-top: 10px;
 
 
-    
+
 
     img {
       width: 48px;
@@ -906,7 +920,8 @@ textarea {
   padding-left: 15px;
   padding-right: 15px;
   color: $text_dark;
-  img{
+
+  img {
     transform: scale(0.9);
   }
 

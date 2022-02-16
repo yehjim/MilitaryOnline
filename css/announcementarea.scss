@@ -153,5 +153,21 @@ $main_lighten:#FFFFFF;
         color: $main_dark;
         border-bottom: solid 1px $main_dark;
       }
+      .moreannouncement-btn{
+        color: $text_dark;
+        cursor: pointer;
+        
+        display: flex;
+        justify-content: flex-end;
+        
+      }
+      span{
+        border-bottom: solid 1px;
+        border-color: $text_dark;
+      }
+      span:hover{
+        color: $main_dark;
+        border-color: $main_dark;
+      }
     }
   }
