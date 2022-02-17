@@ -126,7 +126,7 @@
                         <div class="wrap">
 
 
-                            <span>畢業校友</span>
+                            <span>校友訪客</span>
                         </div>
 
                     </div>
@@ -193,7 +193,32 @@
             </transition>
         </div>
         <div class="content">
+            <div class="graduate-area">
+                <div class="title">
+                    <span class="title2">校友專區</span>
+                </div>
+            </div>
+            <div class="linkwrap" v-for="(item,index) in graduatelinkdata" :key="index">
+                <div class="link-top">
+                    <div class="link-title title2">
+                        {{item.title}}
+                    </div>
+                    <div class="decoline "></div>
+                    <div class="link-subtitle subtilte">
+                        {{item.subtitle}}
+                    </div>
 
+                </div>
+                <div class="linkgroup">
+                    <span v-for="linkitem in item.linkgroup" :key="index">{{linkitem.title}}</span>
+                </div>
+
+            </div>
+            <div class="graduate-area">
+                <div class="title">
+                    <span class="title2">訪客專區</span>
+                </div>
+            </div>
             <div class="linkwrap" v-for="(item,index) in linkdata" :key="index">
                 <div class="link-top">
                     <div class="link-title title2">
@@ -509,7 +534,7 @@
                 popupadmin: '',
                 popupcontent: '',
                 popdate: '',
-                linkdata: [{
+                graduatelinkdata: [{
                     title: '校友會',
                     subtitle: '傑出的校友',
                     linkgroup: []
@@ -521,6 +546,29 @@
                     title: '老照片',
                     subtitle: '校友們的回憶',
                     linkgroup: []
+                }],
+                linkdata: [{
+                    title: '辦學績效',
+                    subtitle: '了解學校所做的努力',
+                    linkgroup: [{
+                        title: '海星均質化網站',
+                        url: 'https://sites.google.com/smhs.hlc.edu.tw/averageproject/'
+                    }, {
+                        title: '海星優質精進網',
+                        url: 'http://www.smhs.hlc.edu.tw/smhs/advance_plan/index.html'
+                    }, {
+                        title: '海星環境教育網',
+                        url: 'http://www.smhs.hlc.edu.tw/smhs/student_affairs/group/environment/environment.htm'
+                    }, {
+                        title: '海星資訊誌',
+                        url: 'https://sites.google.com/a/smhs.hlc.edu.tw/smhsinfo/'
+                    }, {
+                        title: '海星歷年網博',
+                        url: 'http://www.smhs.hlc.edu.tw/smhs/history_student_hw/history_student_hw.html'
+                    }, {
+                        title: '線上教學專區',
+                        url: 'https://sites.google.com/smhs.hlc.edu.tw/online-teaching-area/首頁'
+                    }]
                 }]
 
             },

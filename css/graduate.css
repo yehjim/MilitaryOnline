@@ -1,4 +1,8 @@
 @media (max-width: 767px) {
+  .graduate-area {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
   .calender-btn,
   .juniorscroe,
   .highscroe {
@@ -109,6 +113,10 @@
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
+  .graduate-area {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
   .calender-btn,
   .juniorscroe,
   .highscroe {
@@ -162,6 +170,10 @@
 }
 
 @media (min-width: 980px) {
+  .graduate-area {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
   .calender-btn,
   .juniorscroe,
   .highscroe {
@@ -229,6 +241,10 @@
     margin-right: 24px;
     color: #4E4E4E;
   }
+  .graduate-area {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
   .linkwrap {
     padding-left: 100px;
     padding-right: 100px;
@@ -269,6 +285,14 @@
 
 .content {
   margin-bottom: 100px;
+}
+
+.content .graduate-area .title {
+  border-left: solid 3px;
+  border-color: #57A693;
+  padding-left: 10px;
+  color: #57A693;
+  margin-top: 25px;
 }
 
 .calender-btn {

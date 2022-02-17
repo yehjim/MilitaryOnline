@@ -280,6 +280,10 @@
   color: #57A693;
 }
 
+.content .graduate-area {
+  border: solid 1px;
+}
+
 .calender-btn {
   margin-top: 52px;
   color: #4E4E4E;
