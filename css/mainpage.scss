@@ -34,8 +34,8 @@ textarea {
 @media (max-width: 767px) {
   .webnav {
     .logo {
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
     }
   }
 
@@ -191,8 +191,8 @@ textarea {
 @media (min-width: 768px) and (max-width: 979px) {
   .webnav {
     .logo {
-      width: 52px;
-      height: 52px;
+      width: 60px;
+      height: 60px;
     }
   }
 
@@ -310,8 +310,8 @@ textarea {
 @media (min-width: 980px) {
   .webnav {
     .logo {
-      width: 52px;
-      height: 52px;
+      width: 60px;
+      height: 60px;
     }
   }
 
@@ -454,8 +454,8 @@ textarea {
 @media (min-width: 1200px) {
   .webnav {
     .logo {
-      width: 52px;
-      height: 52px;
+      width: 60px;
+      height: 60px;
     }
   }
 
@@ -612,6 +612,7 @@ textarea {
      
       display: flex;
       align-items: center;
+      font-weight: 400;
       color: $main_lighten;
     }
 
